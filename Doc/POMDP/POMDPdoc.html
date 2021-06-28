@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of POMDPdoc</title>
+  <meta name="keywords" content="POMDPdoc">
+  <meta name="description" content="POMDP directory">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # POMDP -->
+<h1>POMDPdoc
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>POMDP directory</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>This is a script file. </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> POMDP directory
+
+ Directory with the implementation of the different types of POMDP.
+ A POMDP is defined by the following elements (see Section 2 in the
+ paper):
+
+     - A state space.
+     - An action space.
+     - An observation space.
+     - An action model (or transitio model).
+     - An observation model.
+     - A reward model.
+   
+ The spaces (state/action/observation) can be discrete or continuous and
+ the models change accordingly.
+ This directory includes the implementation of the different types of
+ POMDP given the underlying types of spaces.
+
+ The POMDPs are structured in a hierarchy of objects with the purpose of
+ sharing as much code as possible and in order to provide generic
+ implementations of the main algorihtms (Perseus, SampleBeliefs,...) that
+ use the particular methods for each POMDP sub-type.
+
+ TODO % Complete the definition of all types of POMDPs.
+
+ See also DSpace, CSpace, AMdoc, OMdoc, RMdoc.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <span class="comment">% POMDP directory</span>
+0002 <span class="comment">%</span>
+0003 <span class="comment">% Directory with the implementation of the different types of POMDP.</span>
+0004 <span class="comment">% A POMDP is defined by the following elements (see Section 2 in the</span>
+0005 <span class="comment">% paper):</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%     - A state space.</span>
+0008 <span class="comment">%     - An action space.</span>
+0009 <span class="comment">%     - An observation space.</span>
+0010 <span class="comment">%     - An action model (or transitio model).</span>
+0011 <span class="comment">%     - An observation model.</span>
+0012 <span class="comment">%     - A reward model.</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">% The spaces (state/action/observation) can be discrete or continuous and</span>
+0015 <span class="comment">% the models change accordingly.</span>
+0016 <span class="comment">% This directory includes the implementation of the different types of</span>
+0017 <span class="comment">% POMDP given the underlying types of spaces.</span>
+0018 <span class="comment">%</span>
+0019 <span class="comment">% The POMDPs are structured in a hierarchy of objects with the purpose of</span>
+0020 <span class="comment">% sharing as much code as possible and in order to provide generic</span>
+0021 <span class="comment">% implementations of the main algorihtms (Perseus, SampleBeliefs,...) that</span>
+0022 <span class="comment">% use the particular methods for each POMDP sub-type.</span>
+0023 <span class="comment">%</span>
+0024 <span class="comment">% TODO % Complete the definition of all types of POMDPs.</span>
+0025 <span class="comment">%</span>
+0026 <span class="comment">% See also DSpace, CSpace, AMdoc, OMdoc, RMdoc.</span></pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

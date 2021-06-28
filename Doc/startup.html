@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of startup</title>
+  <meta name="keywords" content="startup">
+  <meta name="description" content="Matlab toolbox for planning in POMDPs with continuous spaces.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- menu.html . -->
+<h1>startup
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="up.png"></a></h2>
+<div class="box"><strong>Matlab toolbox for planning in POMDPs with continuous spaces.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="up.png"></a></h2>
+<div class="box"><strong>This is a script file. </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Matlab toolbox for planning in POMDPs with continuous spaces.
+
+ Matlab toolbox for the POMDP planner described in 
+   Point-Based Value Iteration for Continuous POMDPs
+   Journal of Machine Learning Research 7, 2006 pp. 2329-2367
+ by
+   Jm Porta, N. Vlassis, M.T.J. Spaan, and P. Poupart
+
+ This code is a from-scratch re-writting of the original code used for the
+ experiments reported in the paper. Several things are different in this
+ this version (some minor bugs are fixed, some models are changed....) so,
+ expect (small) changes in the results to be obtained with this version and
+ those in the paper.
+
+ All the experiments deal with a very simple one-dimensional path planning
+ problem just to demostrate the viability of the presented approach. 
+
+ The weaker point of the presented approach is the observation model.
+ Strong assumptions are made on this model and this limits the practical
+ applications of this approach, specially when the observation model is
+ continuous. 
+ If I even continue this research I will try to circumvent this issue.
+
+ The main stress in this implementation is put on clarity and not in
+ efficientcy. 
+
+ The best way to understand this software package is:
+   A) To read the paper.
+   B) To check the Experiments directory where you can find specific
+      functions to replicate the different experiments reported in the paper.
+      We refer to those experiments by the figure number where their results
+      are plotted. It should be relatively easy to use this toolbox on your
+      own problems using these functions as a template.
+ 
+ For details on each function, check the associated documentation in the
+ Doc directory (Doc/index.html)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="up.png"></a></h2>
+<div class="fragment"><pre>0001 <span class="comment">% Matlab toolbox for planning in POMDPs with continuous spaces.</span>
+0002 <span class="comment">%</span>
+0003 <span class="comment">% Matlab toolbox for the POMDP planner described in</span>
+0004 <span class="comment">%   Point-Based Value Iteration for Continuous POMDPs</span>
+0005 <span class="comment">%   Journal of Machine Learning Research 7, 2006 pp. 2329-2367</span>
+0006 <span class="comment">% by</span>
+0007 <span class="comment">%   Jm Porta, N. Vlassis, M.T.J. Spaan, and P. Poupart</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">% This code is a from-scratch re-writting of the original code used for the</span>
+0010 <span class="comment">% experiments reported in the paper. Several things are different in this</span>
+0011 <span class="comment">% this version (some minor bugs are fixed, some models are changed....) so,</span>
+0012 <span class="comment">% expect (small) changes in the results to be obtained with this version and</span>
+0013 <span class="comment">% those in the paper.</span>
+0014 <span class="comment">%</span>
+0015 <span class="comment">% All the experiments deal with a very simple one-dimensional path planning</span>
+0016 <span class="comment">% problem just to demostrate the viability of the presented approach.</span>
+0017 <span class="comment">%</span>
+0018 <span class="comment">% The weaker point of the presented approach is the observation model.</span>
+0019 <span class="comment">% Strong assumptions are made on this model and this limits the practical</span>
+0020 <span class="comment">% applications of this approach, specially when the observation model is</span>
+0021 <span class="comment">% continuous.</span>
+0022 <span class="comment">% If I even continue this research I will try to circumvent this issue.</span>
+0023 <span class="comment">%</span>
+0024 <span class="comment">% The main stress in this implementation is put on clarity and not in</span>
+0025 <span class="comment">% efficientcy.</span>
+0026 <span class="comment">%</span>
+0027 <span class="comment">% The best way to understand this software package is:</span>
+0028 <span class="comment">%   A) To read the paper.</span>
+0029 <span class="comment">%   B) To check the Experiments directory where you can find specific</span>
+0030 <span class="comment">%      functions to replicate the different experiments reported in the paper.</span>
+0031 <span class="comment">%      We refer to those experiments by the figure number where their results</span>
+0032 <span class="comment">%      are plotted. It should be relatively easy to use this toolbox on your</span>
+0033 <span class="comment">%      own problems using these functions as a template.</span>
+0034 <span class="comment">%</span>
+0035 <span class="comment">% For details on each function, check the associated documentation in the</span>
+0036 <span class="comment">% Doc directory (Doc/index.html)</span>
+0037 <span class="comment">%</span>
+0038 clc;
+0039 disp(<span class="string">' '</span>);
+0040 disp(<span class="string">'                    Software associated with the paper: '</span>);
+0041 disp(<span class="string">'            Point-Based Value Iteration for Continuous POMDPs'</span>);
+0042 disp(<span class="string">'                                   by'</span>);
+0043 disp(<span class="string">'           Jm Porta, N. Vlassis, M.T.J. Spaan, and P. Poupart'</span>);
+0044 disp(<span class="string">'     Journal of Machine Learning Research Vol. 7, pp. 2329-2367, 2006'</span>);
+0045 disp(<span class="string">' '</span>);
+0046 disp(<span class="string">' '</span>);
+0047 <span class="comment">% Add all paths of the toolbox recursively</span>
+0048 path(path,genpath(pwd));</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

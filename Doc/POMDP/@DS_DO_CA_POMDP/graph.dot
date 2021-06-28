@@ -1,0 +1,10 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  DiscretizeActionModel -> DiscretizeActionModel;
+  DiscretizeActionModel -> get;
+  get -> get;
+
+  DS_DO_CA_POMDP [URL="DS_DO_CA_POMDP.html"];
+  DiscretizeActionModel [URL="DiscretizeActionModel.html"];
+  get [URL="get.html"];
+}

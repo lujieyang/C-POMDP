@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of FuseComponents</title>
+  <meta name="keywords" content="FuseComponents">
+  <meta name="description" content="Fuses a Gaussian mixture into a single Gaussian.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Lib --><!-- # @GMixture -->
+<h1>FuseComponents
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Fuses a Gaussian mixture into a single Gaussian.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function g=FuseComponents(gm) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Fuses a Gaussian mixture into a single Gaussian.
+
+   Summarizes the information on a Gaussian mixture into a single
+   Gaussian.
+   The mean of the output Gaussian is the weighted mean of the components
+   in the input mixture.
+   The covariance is basically the weighted mean of the covariance of the
+   components but it also take into account the dispersion of the mean of
+   the components.
+
+   See also @GMixture/Mean, @GMixture/Covariance, <a href="CompressGR.html" class="code" title="function [gmC map]=CompressGR(gm,m,epsilon,MaxIterations)">CompressGR</a>.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>	Get for GBeliefs.</li><li><a href="Covariance.html" class="code" title="function C=Covariance(gm)">Covariance</a>	Average covariance of a Gaussian mixture.</li><li><a href="Mean.html" class="code" title="function m=Mean(gm)">Mean</a>	Mean of a Gmixture.</li><li><a href="get.html" class="code" title="function value=get(gm,field,varargin)">get</a>	Get function for the GMixture object.</li><li><a href="../.././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>	Gaussian construtor.</li><li><a href="../.././Lib/@Gaussian/get.html" class="code" title="function out=get(g,field)">get</a>	Gaussian object get function.</li><li><a href="../.././POMDP/@CS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_CA_POMDPs.</li><li><a href="../.././POMDP/@CS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_DA_POMDPs.</li><li><a href="../.././POMDP/@CS_CO_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_POMDPs.</li><li><a href="../.././POMDP/@CS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_CA_POMDPs.</li><li><a href="../.././POMDP/@CS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_DA_POMDPs.</li><li><a href="../.././POMDP/@CS_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_POMDPs.</li><li><a href="../.././POMDP/@DS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_CA_POMDPs.</li><li><a href="../.././POMDP/@DS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_DA_POMDPs.</li><li><a href="../.././POMDP/@DS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_CA_POMDPs.</li><li><a href="../.././POMDP/@DS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_DA_POMDPs.</li><li><a href="../.././POMDP/@POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get functio for POMDPs.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="CompressGR.html" class="code" title="function [gmC map]=CompressGR(gm,m,epsilon,MaxIterations)">CompressGR</a>	Gaussian mixture compression using the Golberger and Roweis method.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function g=FuseComponents(gm)</a>
+0002 <span class="comment">%   Fuses a Gaussian mixture into a single Gaussian.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Summarizes the information on a Gaussian mixture into a single</span>
+0005 <span class="comment">%   Gaussian.</span>
+0006 <span class="comment">%   The mean of the output Gaussian is the weighted mean of the components</span>
+0007 <span class="comment">%   in the input mixture.</span>
+0008 <span class="comment">%   The covariance is basically the weighted mean of the covariance of the</span>
+0009 <span class="comment">%   components but it also take into account the dispersion of the mean of</span>
+0010 <span class="comment">%   the components.</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">%   See also @GMixture/Mean, @GMixture/Covariance, CompressGR.</span>
+0013   m=<a href="Mean.html" class="code" title="function m=Mean(gm)">Mean</a>(gm);
+0014   S=<a href="Covariance.html" class="code" title="function C=Covariance(gm)">Covariance</a>(gm);
+0015   <span class="keyword">for</span> i=1:gm.n
+0016     v=(<a href="get.html" class="code" title="function value=get(gm,field,varargin)">get</a>(gm.g{i},<span class="string">'mean'</span>)-m);
+0017     S=S+gm.w(i)*(v*v');
+0018   <span class="keyword">end</span>
+0019   g=<a href="../.././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(m,S);
+0020</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

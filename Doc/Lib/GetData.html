@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of GetData</title>
+  <meta name="keywords" content="GetData">
+  <meta name="description" content="Loads and, if necessary, generates data from experiments.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Lib -->
+<h1>GetData
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>Loads and, if necessary, generates data from experiments.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function data=GetData(fname,GenerateData) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Loads and, if necessary, generates data from experiments.
+
+   Checks if the file of results 'fname' exists. If not, (parameter-less) 
+   function GenerateData is executed to produce the file.
+   
+   Then the file is loaded and its content returned to the caller.
+
+   This function is used when generating the figures. The data for the
+   figures takes very long to be computed and, thus, it is pre-computed
+   whenever possible. This function is used to check whether or not some
+   results are already pre-computed with the aim of saving computation 
+   as much as possible.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href=".././Experiments/MakeFigure10.html" class="code" title="function MakeFigure10">MakeFigure10</a>	Generates Figure 10.</li><li><a href=".././Experiments/MakeFigure11.html" class="code" title="function MakeFigure11">MakeFigure11</a>	Generates Figure 11.</li><li><a href=".././Experiments/MakeFigure2.html" class="code" title="function MakeFigure2">MakeFigure2</a>	Generates Figure 2.</li><li><a href=".././Experiments/MakeFigure3.html" class="code" title="function MakeFigure3(varargin)">MakeFigure3</a>	Generates Figure 3.</li><li><a href=".././Experiments/MakeFigure4.html" class="code" title="function MakeFigure4">MakeFigure4</a>	Generates Figure 4.</li><li><a href=".././Experiments/MakeFigure5.html" class="code" title="function MakeFigure5">MakeFigure5</a>	Generates Figure 5.</li><li><a href=".././Experiments/MakeFigure6.html" class="code" title="function MakeFigure6">MakeFigure6</a>	Generates Figure 6.</li><li><a href=".././Experiments/MakeFigure7.html" class="code" title="function MakeFigure7">MakeFigure7</a>	Generates Figure 7.</li><li><a href=".././Experiments/MakeFigure8.html" class="code" title="function MakeFigure8">MakeFigure8</a>	Generates Figure 8.</li><li><a href=".././Experiments/MakeFigure9.html" class="code" title="function MakeFigure9">MakeFigure9</a>	Generates Figure 9.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function data=GetData(fname,GenerateData)</a>
+0002 <span class="comment">%   Loads and, if necessary, generates data from experiments.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Checks if the file of results 'fname' exists. If not, (parameter-less)</span>
+0005 <span class="comment">%   function GenerateData is executed to produce the file.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%   Then the file is loaded and its content returned to the caller.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">%   This function is used when generating the figures. The data for the</span>
+0010 <span class="comment">%   figures takes very long to be computed and, thus, it is pre-computed</span>
+0011 <span class="comment">%   whenever possible. This function is used to check whether or not some</span>
+0012 <span class="comment">%   results are already pre-computed with the aim of saving computation</span>
+0013 <span class="comment">%   as much as possible.</span>
+0014 
+0015   f=fopen(fname);
+0016   <span class="keyword">if</span> f&lt;0
+0017     fprintf(<span class="string">'Data is not pre-computed: Generating it\n'</span>);
+0018     GenerateData();
+0019     f=fopen(fname);
+0020     <span class="keyword">if</span> f&lt;0
+0021       error(<span class="string">'Data Missing'</span>);
+0022     <span class="keyword">end</span>
+0023   <span class="keyword">end</span>
+0024   fclose(f);
+0025   fprintf(<span class="string">'Data is already computed: Reading it\n'</span>);
+0026   data=load(fname);
+0027</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

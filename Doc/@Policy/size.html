@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of size</title>
+  <meta name="keywords" content="size">
+  <meta name="description" content="Returns the size of a policy.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # @Policy -->
+<h1>size
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>Returns the size of a policy.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function s=size(P) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Returns the size of a policy.
+
+   Returns the number of alpha elements in a given Policy object.
+
+   See also <a href="Policy.html" class="code" title="function P=Policy(varargin)">Policy</a>.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href=".././ActionModel/@CS_DA_ActionModel/CS_DA_ActionModel.html" class="code" title="function AM=CS_DA_ActionModel(varargin)">CS_DA_ActionModel</a>	CS_DA_ActionModel constructor.</li><li><a href=".././ActionModel/@DS_CA_ActionModel/DS_CA_ActionModel.html" class="code" title="function AM=DS_CA_ActionModel(varargin)">DS_CA_ActionModel</a>	DS_CA_ActionModel constructor.</li><li><a href=".././ActionModel/@DS_CA_ActionModel/DiscretizeActionModel.html" class="code" title="function DS_DA_AM=DiscretizeActionModel(DS_CA_AM,ActionSet)">DiscretizeActionModel</a>	Generates a new action model discretizing the action space of the given model.</li><li><a href=".././ActionModel/@DS_DA_ActionModel/DS_DA_ActionModel.html" class="code" title="function AM=DS_DA_ActionModel(varargin)">DS_DA_ActionModel</a>	DS_DA_ActionModel constructor.</li><li><a href=".././Belief/@DBelief/DBelief.html" class="code" title="function db=DBelief(varargin)">DBelief</a>	Discrete belief constructor.</li><li><a href=".././Belief/@PBelief/PBelief.html" class="code" title="function pb=PBelief(varargin)">PBelief</a>	Particle-based belief constructor.</li><li><a href=".././Belief/@PBelief/plot.html" class="code" title="function h=plot(pb,varargin)">plot</a>	Displays a particle-based belief.</li><li><a href=".././Experiments/GenerateFigure5Data.html" class="code" title="function GenerateFigure5Data(fname)">GenerateFigure5Data</a>	Generates the data for Figure 5.</li><li><a href=".././Experiments/GenerateFigure7aData.html" class="code" title="function GenerateFigure7aData(fname)">GenerateFigure7aData</a>	Generates the data for Figure 7-left.</li><li><a href=".././Experiments/MakeFigure4.html" class="code" title="function MakeFigure4">MakeFigure4</a>	Generates Figure 4.</li><li><a href=".././Lib/@GMixture/GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>	Gaussian mixture constructor.</li><li><a href=".././Lib/@GMixture/set.html" class="code" title="function gm=set(gm,field,value)">set</a>	Set method for Gaussian mixtures.</li><li><a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>	Gaussian construtor.</li><li><a href=".././Lib/@Gaussian/Product.html" class="code" title="function [g d]=Product(g1,g2)">Product</a>	Product of two Gaussians.</li><li><a href=".././Lib/@Gaussian/Value.html" class="code" title="function v=Value(g,x)">Value</a>	Evaluation of a Gaussian.</li><li><a href=".././Lib/@Gaussian/get.html" class="code" title="function out=get(g,field)">get</a>	Gaussian object get function.</li><li><a href=".././Lib/GetPOMDPAverageStatistics.html" class="code" title="function [tics SM SD]=GetPOMDPAverageStatistics(prefix,varargin)">GetPOMDPAverageStatistics</a>	Averages statistics collected after an experiment.</li><li><a href=".././Lib/GetPOMDPSolutionStatistics.html" class="code" title="function [tics aV aR nA nC]=GetPOMDPSolutionStatistics(POMDP,P,B,V,Alpha,time,maxTime,stTime)">GetPOMDPSolutionStatistics</a>	Collects statistics with the outcome of an experiment.</li><li><a href=".././Lib/ReadDiscretePOMDPData.html" class="code" title="function POMDPData=ReadDiscretePOMDPData(filename)">ReadDiscretePOMDPData</a>	Reads a discrete POMDP from a file.</li><li><a href=".././ObsModel/@CS_CO_ObsModel/DiscretizeObsModel.html" class="code" title="function CS_DO_OM=DiscretizeObsModel(CS_CO_OM,V,ba,nSamples)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li><li><a href=".././ObsModel/@CS_CO_ObsModel/plot.html" class="code" title="function h=plot(OM)">plot</a>	Plots the CS_CO_ObsModel</li><li><a href=".././ObsModel/@CS_DO_ObsModel/CS_DO_ObsModel.html" class="code" title="function OM=CS_DO_ObsModel(varargin)">CS_DO_ObsModel</a>	CS_DO_ObsModel constructor.</li><li><a href=".././ObsModel/@DS_CO_ObsModel/DS_CO_ObsModel.html" class="code" title="function OM=DS_CO_ObsModel(varargin)">DS_CO_ObsModel</a>	DS_CO_ObsModel constructor.</li><li><a href=".././ObsModel/@DS_CO_ObsModel/DiscretizeObsModel.html" class="code" title="function DS_DO_OM=DiscretizeObsModel(DS_CO_OM,V,AM,nSamples)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li><li><a href=".././ObsModel/@DS_DO_ObsModel/DS_DO_ObsModel.html" class="code" title="function OM=DS_DO_ObsModel(varargin)">DS_DO_ObsModel</a>	DS_DO_ObsModel constructor.</li><li><a href=".././POMDP/@CS_CO_DA_POMDP/DiscretizeObsModel.html" class="code" title="function DO_POMDP=DiscretizeObsModel(CO_POMDP,V,b,a)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li><li><a href=".././POMDP/@CS_CO_POMDP/ComputeAlpha_a.html" class="code" title="function Element_a=ComputeAlpha_a(P,V,b,a,Alphas_j_a_o)">ComputeAlpha_a</a>	Compute the alpha_i_n-element for the given action and belief.</li><li><a href=".././POMDP/@CS_DO_POMDP/ComputeAlpha_a.html" class="code" title="function Element_a=ComputeAlpha_a(P,V,b,a,Alphas_j_a_o)">ComputeAlpha_a</a>	Compute the alpha_i_n-element for the given action and belief.</li><li><a href=".././POMDP/@DS_DO_POMDP/ComputeAlpha_a.html" class="code" title="function Element_a=ComputeAlpha_a(P,V,b,a,Alphas_j_a_o)">ComputeAlpha_a</a>	Compute the alpha_i_n-element for the given action and belief.</li><li><a href=".././POMDP/@POMDP/ComputeAlphas_j_a_o.html" class="code" title="function As=ComputeAlphas_j_a_o(P,V)">ComputeAlphas_j_a_o</a>	Computes the set of al possible alpha-elements.</li><li><a href=".././POMDP/@POMDP/Perseus.html" class="code" title="function [V Value Alpha t]=Perseus(P,B,stopCriteria)">Perseus</a>	The Perseus point-based POMDP solver.</li><li><a href=".././POMDP/@POMDP/iPerseus.html" class="code" title="function [V Value Alpha t]=iPerseus(P,B,stopCriteria)">iPerseus</a>	Improved version of Perseus.</li><li><a href=".././RewardModel/@CS_CA_RewardModel/plot.html" class="code" title="function h=plot(RM)">plot</a>	Plots the CS_CA_RewardModel</li><li><a href=".././RewardModel/@CS_DA_RewardModel/CS_DA_RewardModel.html" class="code" title="function RM=CS_DA_RewardModel(varargin)">CS_DA_RewardModel</a>	CS_DA_RewardModel constructor.</li><li><a href=".././RewardModel/@DS_CA_RewardModel/DS_CA_RewardModel.html" class="code" title="function RM=DS_CA_RewardModel(varargin)">DS_CA_RewardModel</a>	DS_CA_RewardModel constructor.</li><li><a href=".././RewardModel/@DS_DA_RewardModel/DS_DA_RewardModel.html" class="code" title="function RM=DS_DA_RewardModel(varargin)">DS_DA_RewardModel</a>	DS_DA_RewardModel constructor.</li><li><a href=".././Space/@CSpace/CSpace.html" class="code" title="function CS=CSpace(varargin)">CSpace</a>	CSpace constructor.</li><li><a href=".././Space/@CSpace/Discretize.html" class="code" title="function DS=Discretize(CS,n,varargin)">Discretize</a>	Converts a continuous space into a discrete one.</li><li><a href=".././Space/@DSpace/DSpace.html" class="code" title="function DS=DSpace(varargin)">DSpace</a>	DSpace constructor.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function s=size(P)</a>
+0002 <span class="comment">%   Returns the size of a policy.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Returns the number of alpha elements in a given Policy object.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">%   See also Policy.</span>
+0007 
+0008   s=P.n;
+0009</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

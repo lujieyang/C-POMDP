@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of Value</title>
+  <meta name="keywords" content="Value">
+  <meta name="description" content="Evaluation of a Gaussian.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Lib --><!-- # @Gaussian -->
+<h1>Value
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Evaluation of a Gaussian.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function v=Value(g,x) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Evaluation of a Gaussian.
+
+   Returns the evaluation of a Gaussian on a given set of points, 'x'.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>	Returns the size of a policy.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././ActionModel/@CS_DA_ActionModel/DiscretizeActionModel.html" class="code" title="function DAM=DiscretizeActionModel(AM,DS)">DiscretizeActionModel</a>	Produces a new action model discretizing the state space.</li><li><a href="../.././ActionModel/@DS_CA_ActionModel/DiscretizeActionModel.html" class="code" title="function DS_DA_AM=DiscretizeActionModel(DS_CA_AM,ActionSet)">DiscretizeActionModel</a>	Generates a new action model discretizing the action space of the given model.</li><li><a href="../.././ActionModel/@DS_CA_ActionModel/GetActionModelFixedA.html" class="code" title="function p=GetActionModelFixedA(AM,a)">GetActionModelFixedA</a>	Returns the action model for a given action.</li><li><a href="../.././Belief/@PBelief/Expectation.html" class="code" title="function e=Expectation(b,a)">Expectation</a>	Expectation between a belief and a alpha-element.</li><li><a href="../.././Belief/@PBelief/Update.html" class="code" title="function bOut=Update(b,po,Sp)">Update</a>	Belief evolution under an observation model.</li><li><a href="../.././Lib/@GMixture/ComponentsValue.html" class="code" title="function v=ComponentsValue(gm,x)">ComponentsValue</a>	Evaluates a Gaussian mixture component-wise.</li><li><a href="../.././Lib/@GMixture/ProductInt.html" class="code" title="function c=ProductInt(gm1,gm2)">ProductInt</a>	Product and marginalization of two GMixtures.</li><li><a href="../.././Lib/@GMixture/Value.html" class="code" title="function v=Value(gm,x)">Value</a>	Evaluates a GMixture.</li><li><a href="../.././Lib/@GMixture/plot.html" class="code" title="function h=plot(gm,varargin)">plot</a>	Plots a Gaussian mixture.</li><li><a href="ProductNormFactor.html" class="code" title="function d=ProductNormFactor(g1,g2)">ProductNormFactor</a>	Normalization constant of the product of two Gaussians.</li><li><a href="plot.html" class="code" title="function h=plot(g,varargin)">plot</a>	Plots a Gaussian.</li><li><a href="../.././ObsModel/@CS_CO_ObsModel/CS_CO_ObsModel.html" class="code" title="function OM=CS_CO_ObsModel(varargin)">CS_CO_ObsModel</a>	CS_CO_ObsModel constructor.</li><li><a href="../.././ObsModel/@CS_CO_ObsModel/GetObsModelFixedO.html" class="code" title="function p=GetObsModelFixedO(OM,o)">GetObsModelFixedO</a>	Defines p(o|s) for a fixed 'o'.</li><li><a href="../.././ObsModel/@CS_CO_ObsModel/GetObsModelFixedS.html" class="code" title="function p=GetObsModelFixedS(OM,s)">GetObsModelFixedS</a>	Defines p(o|s) for a fixed 's'.</li><li><a href="../.././ObsModel/@CS_CO_ObsModel/plot.html" class="code" title="function h=plot(OM)">plot</a>	Plots the CS_CO_ObsModel</li><li><a href="../.././ObsModel/@CS_DO_ObsModel/CS_DO_ObsModel.html" class="code" title="function OM=CS_DO_ObsModel(varargin)">CS_DO_ObsModel</a>	CS_DO_ObsModel constructor.</li><li><a href="../.././ObsModel/@CS_DO_ObsModel/DiscretizeObsModel.html" class="code" title="function DOM=DiscretizeObsModel(OM,DS)">DiscretizeObsModel</a>	Discretizes the observation model on the state side.</li><li><a href="../.././ObsModel/@CS_DO_ObsModel/GetObsModelFixedS.html" class="code" title="function p=GetObsModelFixedS(OM,s)">GetObsModelFixedS</a>	Defines p(o|s)</li><li><a href="../.././ObsModel/@DS_CO_ObsModel/GetObsModelFixedO.html" class="code" title="function p=GetObsModelFixedO(OM,o)">GetObsModelFixedO</a>	Defines p(s|o).</li><li><a href="../.././POMDP/@POMDP/Perseus.html" class="code" title="function [V Value Alpha t]=Perseus(P,B,stopCriteria)">Perseus</a>	The Perseus point-based POMDP solver.</li><li><a href="../.././POMDP/@POMDP/iPerseus.html" class="code" title="function [V Value Alpha t]=iPerseus(P,B,stopCriteria)">iPerseus</a>	Improved version of Perseus.</li><li><a href="../.././RewardModel/@CS_CA_RewardModel/DiscretizeRewardModel.html" class="code" title="function DRM=DiscretizeRewardModel(RM,A)">DiscretizeRewardModel</a>	Discretizes the reward model on the action side.</li><li><a href="../.././RewardModel/@CS_CA_RewardModel/GetRewardModelFixedA.html" class="code" title="function ra=GetRewardModelFixedA(RM,a)">GetRewardModelFixedA</a>	Defines the reward function for a given action.</li><li><a href="../.././RewardModel/@CS_CA_RewardModel/Reward.html" class="code" title="function r=Reward(RM,a,s)">Reward</a>	Evaluates the reward function.</li><li><a href="../.././RewardModel/@CS_CA_RewardModel/plot.html" class="code" title="function h=plot(RM)">plot</a>	Plots the CS_CA_RewardModel</li><li><a href="../.././RewardModel/@CS_DA_RewardModel/DiscretizeRewardModel.html" class="code" title="function DRM=DiscretizeRewardModel(RM,DS)">DiscretizeRewardModel</a>	Discretizes the reward model on the state side.</li><li><a href="../.././RewardModel/@CS_DA_RewardModel/Reward.html" class="code" title="function r=Reward(RM,a,s)">Reward</a>	Evaluates the reward function.</li><li><a href="../.././RewardModel/@DS_CA_RewardModel/GetRewardModelFixedA.html" class="code" title="function ra=GetRewardModelFixedA(RM,a)">GetRewardModelFixedA</a>	Defines the reward function for a given action.</li><li><a href="../.././RewardModel/@DS_CA_RewardModel/Reward.html" class="code" title="function r=Reward(RM,a,s)">Reward</a>	Evaluates the reward function.</li><li><a href="../.././Space/@CSpace/UniformDistribution.html" class="code" title="function [p v]=UniformDistribution(CS)">UniformDistribution</a>	Uniform probability on a continuous space.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function v=Value(g,x)</a>
+0002 <span class="comment">%   Evaluation of a Gaussian.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Returns the evaluation of a Gaussian on a given set of points, 'x'.</span>
+0005 
+0006   l=<a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>(x,2);
+0007   Sn=-0.5*g.iS;
+0008 
+0009   v=zeros(1,l);
+0010   <span class="keyword">for</span> i=1:l
+0011     m=x(:,i)-g.m;
+0012     v(i)=g.ct*exp(m'*Sn*m);
+0013   <span class="keyword">end</span>
+0014</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

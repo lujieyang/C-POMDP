@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of GaussianKL</title>
+  <meta name="keywords" content="GaussianKL">
+  <meta name="description" content="Gaussian Kullback-Leibler distance.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Lib --><!-- # @Gaussian -->
+<h1>GaussianKL
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Gaussian Kullback-Leibler distance.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function d=GaussianKL(g1,g2) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Gaussian Kullback-Leibler distance.
+
+   Computes the KL distance between two Gaussians.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Lib/@GMixture/CompressGR.html" class="code" title="function [gmC map]=CompressGR(gm,m,epsilon,MaxIterations)">CompressGR</a>	Gaussian mixture compression using the Golberger and Roweis method.</li><li><a href="../.././Lib/@GMixture/Distance.html" class="code" title="function d=Distance(gm1,gm2)">Distance</a>	Approximated Kullback-Leibler distance between Gaussian mixture.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function d=GaussianKL(g1,g2)</a>
+0002 <span class="comment">%   Gaussian Kullback-Leibler distance.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Computes the KL distance between two Gaussians.</span>
+0005 
+0006   <span class="keyword">if</span> g1.dim~=g2.dim
+0007     error(<span class="string">'Non coherent sizes in GaussianKL'</span>);
+0008   <span class="keyword">end</span>
+0009   m12=(g2.m-g1.m);
+0010   d=0.5*( log(g2.d/g1.d) + trace(g2.iS*g1.S) + m12'*g2.iS*m12 - g1.dim);
+0011</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

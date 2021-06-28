@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of CompressGR</title>
+  <meta name="keywords" content="CompressGR">
+  <meta name="description" content="Gaussian mixture compression using the Golberger and Roweis method.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Lib --><!-- # @GMixture -->
+<h1>CompressGR
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Gaussian mixture compression using the Golberger and Roweis method.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function [gmC map]=CompressGR(gm,m,epsilon,MaxIterations) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Gaussian mixture compression using the Golberger and Roweis method.
+
+   Compresses a normalized Gaussian mixture so that it includes at most
+   'm' elements.
+   This function implements the method by Golberger and Roweis described
+   in appendix A of the paper.
+
+   Parameters
+     gm: The normalized mixture to compress
+     m: The maximum number of components in  the output compressed
+         normalized mixture.
+     epsilon: Convergence criterion. If the relative error between two
+              iterations changes less than epsilon we stop the process.
+     MaxIterations: If the process iterates more times than this threshold
+                    the compression process is stopped.
+   Output:
+     gmC: The output normalized mixture.
+     map: Map between components in the input mixtures and those in the
+          output one (This in \pi in Table 3 in Appendix A in the paper).</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Belief/@DBelief/rand.html" class="code" title="function v=rand(b)">rand</a>	Random state from a discrete belief.</li><li><a href="../.././Belief/@PBelief/rand.html" class="code" title="function v=rand(b)">rand</a>	Random state from a belief.</li><li><a href="FuseComponents.html" class="code" title="function g=FuseComponents(gm)">FuseComponents</a>	Fuses a Gaussian mixture into a single Gaussian.</li><li><a href="GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>	Gaussian mixture constructor.</li><li><a href="GetLargestComponents.html" class="code" title="function gmC=GetLargestComponents(gm,m)">GetLargestComponents</a>	Gets the components with the largest weigth.</li><li><a href="Normalize.html" class="code" title="function gmC=Normalize(gm)">Normalize</a>	Normalize a GMixture.</li><li><a href="rand.html" class="code" title="function v=rand(gm,varargin)">rand</a>	Generates random points on a GMixture.</li><li><a href="../.././Lib/@Gaussian/GaussianKL.html" class="code" title="function d=GaussianKL(g1,g2)">GaussianKL</a>	Gaussian Kullback-Leibler distance.</li><li><a href="../.././Lib/@Gaussian/rand.html" class="code" title="function r=rand(g,varargin)">rand</a>	Generates random ponts on a Gaussian.</li><li><a href="../.././Space/@CSpace/min.html" class="code" title="function m=min(S)">min</a>	Lower bound of a CSpace</li><li><a href="../.././Space/@CSpace/rand.html" class="code" title="function v=rand(CS)">rand</a>	Random state from a continuous space.</li><li><a href="../.././Space/@DSpace/rand.html" class="code" title="function v=rand(DS)">rand</a>	Random state from a discrete space.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="Compress.html" class="code" title="function gmC=Compress(gm,m)">Compress</a>	Gaussian mixutre compression.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [gmC map]=CompressGR(gm,m,epsilon,MaxIterations)                                                    </a>
+0002 <span class="comment">%   Gaussian mixture compression using the Golberger and Roweis method.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Compresses a normalized Gaussian mixture so that it includes at most</span>
+0005 <span class="comment">%   'm' elements.</span>
+0006 <span class="comment">%   This function implements the method by Golberger and Roweis described</span>
+0007 <span class="comment">%   in appendix A of the paper.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">%   Parameters</span>
+0010 <span class="comment">%     gm: The normalized mixture to compress</span>
+0011 <span class="comment">%     m: The maximum number of components in  the output compressed</span>
+0012 <span class="comment">%         normalized mixture.</span>
+0013 <span class="comment">%     epsilon: Convergence criterion. If the relative error between two</span>
+0014 <span class="comment">%              iterations changes less than epsilon we stop the process.</span>
+0015 <span class="comment">%     MaxIterations: If the process iterates more times than this threshold</span>
+0016 <span class="comment">%                    the compression process is stopped.</span>
+0017 <span class="comment">%   Output:</span>
+0018 <span class="comment">%     gmC: The output normalized mixture.</span>
+0019 <span class="comment">%     map: Map between components in the input mixtures and those in the</span>
+0020 <span class="comment">%          output one (This in \pi in Table 3 in Appendix A in the paper).</span>
+0021 
+0022   <span class="keyword">if</span> (gm.n&lt;=m)
+0023     <span class="comment">% 'gm' is already compressed</span>
+0024     gmC=gm;
+0025     map=1:gm.n; <span class="comment">%trivial mapping one to one</span>
+0026   <span class="keyword">else</span>
+0027     
+0028     gmC=<a href="GetLargestComponents.html" class="code" title="function gmC=GetLargestComponents(gm,m)">GetLargestComponents</a>(gm,m);
+0029     <span class="comment">% gmC=GetRandomComponents(gm,m);</span>
+0030     <span class="comment">% gmC=GetFirstComponents(gm,m);</span>
+0031 
+0032     <span class="comment">% default fake distance</span>
+0033     d=inf;
+0034     
+0035     <span class="comment">% default mapping (just to allocate space)</span>
+0036     map=1:gm.n;
+0037     
+0038     iteration=1;
+0039     stop=false;
+0040     <span class="keyword">while</span> ~stop
+0041 
+0042       <span class="comment">%Compute the mapping from 'gm' to 'gmC</span>
+0043       <span class="keyword">for</span> i=1:gm.n
+0044         f=gm.g{i};
+0045         [md map(i)]=<a href="../.././Space/@CSpace/min.html" class="code" title="function m=min(S)">min</a>(cellfun(@(g)<a href="../.././Lib/@Gaussian/GaussianKL.html" class="code" title="function d=GaussianKL(g1,g2)">GaussianKL</a>(f,g),gmC.g));
+0046       <span class="keyword">end</span>
+0047 
+0048       <span class="comment">%Update 'gmC'</span>
+0049       <span class="keyword">for</span> j=1:m
+0050         <span class="comment">% get the components of gm that are close to the j component of gmC</span>
+0051         ndx=(map==j);
+0052         sw=sum(gm.w(ndx));
+0053         <span class="keyword">if</span> sw&gt;0
+0054           gmC.w(j)=sw;
+0055           gmC.g{j}=<a href="FuseComponents.html" class="code" title="function g=FuseComponents(gm)">FuseComponents</a>(<a href="GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>(gm.w(ndx)/sw,gm.g(ndx)));
+0056         <span class="keyword">else</span>
+0057           <span class="comment">% None of the components of gm is close to this component of gmC</span>
+0058           <span class="comment">% Replace with one random component from gm</span>
+0059           m1=ceil(<a href="rand.html" class="code" title="function v=rand(gm,varargin)">rand</a>*gm.n);
+0060           gmC.w(j)=gm.w(m1);
+0061           gmC.g{j}=gm.g{m1};
+0062         <span class="keyword">end</span>
+0063       <span class="keyword">end</span>
+0064       gmC=<a href="Normalize.html" class="code" title="function gmC=Normalize(gm)">Normalize</a>(gmC);
+0065 
+0066       <span class="comment">% Update the distance from 'gmC' to 'gm'</span>
+0067       d1=d; 
+0068       d=cellfun(@(f,g)(<a href="../.././Lib/@Gaussian/GaussianKL.html" class="code" title="function d=GaussianKL(g1,g2)">GaussianKL</a>(f,g)),gm.g,gmC.g(map))*gm.w';
+0069 
+0070       iteration=iteration+1;
+0071       
+0072       stop=((d&lt;epsilon)||(abs(d1-d)/d&lt;epsilon));
+0073 
+0074       <span class="keyword">if</span> (~stop)
+0075         <span class="keyword">if</span> (d1&lt;d)
+0076           error(<span class="string">'Increasing distance'</span>);
+0077         <span class="keyword">end</span>
+0078         <span class="keyword">if</span> (iteration&gt;MaxIterations)
+0079           error(<span class="string">'Too slow convergence'</span>);
+0080         <span class="keyword">end</span>
+0081       <span class="keyword">end</span>
+0082     <span class="keyword">end</span>
+0083 
+0084   <span class="keyword">end</span></pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

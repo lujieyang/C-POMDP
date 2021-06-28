@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of rand</title>
+  <meta name="keywords" content="rand">
+  <meta name="description" content="Generates random points on a GMixture.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Lib --><!-- # @GMixture -->
+<h1>rand
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Generates random points on a GMixture.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function v=rand(gm,varargin) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Generates random points on a GMixture.
+
+   Return random vectors following the distribution represented by the
+   mixture. Observe that this works for unnormalized mixtures too. The
+   components are selected proportionally to the absolute value of their
+   corresponding weigth.
+   This function accepts two parameters
+     - The Gaussian mixture.
+     - The number of samples to drawn. If not given only one sample is
+       generated.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Belief/@DBelief/rand.html" class="code" title="function v=rand(b)">rand</a>	Random state from a discrete belief.</li><li><a href="../.././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>	Get for GBeliefs.</li><li><a href="../.././Belief/@PBelief/rand.html" class="code" title="function v=rand(b)">rand</a>	Random state from a belief.</li><li><a href="get.html" class="code" title="function value=get(gm,field,varargin)">get</a>	Get function for the GMixture object.</li><li><a href="rand.html" class="code" title="function v=rand(gm,varargin)">rand</a>	Generates random points on a GMixture.</li><li><a href="../.././Lib/@Gaussian/get.html" class="code" title="function out=get(g,field)">get</a>	Gaussian object get function.</li><li><a href="../.././Lib/@Gaussian/rand.html" class="code" title="function r=rand(g,varargin)">rand</a>	Generates random ponts on a Gaussian.</li><li><a href="../.././Lib/RandVector.html" class="code" title="function i=RandVector(v)">RandVector</a>	Selects and element from a discrete probability distribution.</li><li><a href="../.././POMDP/@CS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_CA_POMDPs.</li><li><a href="../.././POMDP/@CS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_DA_POMDPs.</li><li><a href="../.././POMDP/@CS_CO_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_POMDPs.</li><li><a href="../.././POMDP/@CS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_CA_POMDPs.</li><li><a href="../.././POMDP/@CS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_DA_POMDPs.</li><li><a href="../.././POMDP/@CS_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_POMDPs.</li><li><a href="../.././POMDP/@DS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_CA_POMDPs.</li><li><a href="../.././POMDP/@DS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_DA_POMDPs.</li><li><a href="../.././POMDP/@DS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_CA_POMDPs.</li><li><a href="../.././POMDP/@DS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_DA_POMDPs.</li><li><a href="../.././POMDP/@POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get functio for POMDPs.</li><li><a href="../.././Space/@CSpace/dim.html" class="code" title="function d=dim(CS)">dim</a>	Dimensionality of a continuous space.</li><li><a href="../.././Space/@CSpace/rand.html" class="code" title="function v=rand(CS)">rand</a>	Random state from a continuous space.</li><li><a href="../.././Space/@DSpace/dim.html" class="code" title="function d=dim(DS)">dim</a>	Dimensionality of a discrete space.</li><li><a href="../.././Space/@DSpace/rand.html" class="code" title="function v=rand(DS)">rand</a>	Random state from a discrete space.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././ActionModel/@CS_CA_ActionModel/Prediction.html" class="code" title="function [sOut bOut]=Prediction(AM,s,b,a,Sp)">Prediction</a>	Belief evolution under the given action.</li><li><a href="../.././ActionModel/@CS_DA_ActionModel/Prediction.html" class="code" title="function [sOut bOut]=Prediction(AM,s,b,a,Sp)">Prediction</a>	Belief evolution under the given action.</li><li><a href="../.././Belief/@PBelief/Prediction.html" class="code" title="function bOut=Prediction(b,t,Sp)">Prediction</a>	Belief evolution given a transition model.</li><li><a href="../.././Belief/@PBelief/Update.html" class="code" title="function bOut=Update(b,po,Sp)">Update</a>	Belief evolution under an observation model.</li><li><a href="../.././Experiments/MakeFigure3.html" class="code" title="function MakeFigure3(varargin)">MakeFigure3</a>	Generates Figure 3.</li><li><a href="CompressGR.html" class="code" title="function [gmC map]=CompressGR(gm,m,epsilon,MaxIterations)">CompressGR</a>	Gaussian mixture compression using the Golberger and Roweis method.</li><li><a href="rand.html" class="code" title="function v=rand(gm,varargin)">rand</a>	Generates random points on a GMixture.</li><li><a href="../.././Lib/RandVector.html" class="code" title="function i=RandVector(v)">RandVector</a>	Selects and element from a discrete probability distribution.</li><li><a href="../.././ObsModel/@CS_CO_ObsModel/CS_CO_ObsModel.html" class="code" title="function OM=CS_CO_ObsModel(varargin)">CS_CO_ObsModel</a>	CS_CO_ObsModel constructor.</li><li><a href="../.././ObsModel/@CS_DO_ObsModel/CS_DO_ObsModel.html" class="code" title="function OM=CS_DO_ObsModel(varargin)">CS_DO_ObsModel</a>	CS_DO_ObsModel constructor.</li><li><a href="../.././ObsModel/@DS_CO_ObsModel/DiscretizeObsModel.html" class="code" title="function DS_DO_OM=DiscretizeObsModel(DS_CO_OM,V,AM,nSamples)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li><li><a href="../.././POMDP/@POMDP/Perseus.html" class="code" title="function [V Value Alpha t]=Perseus(P,B,stopCriteria)">Perseus</a>	The Perseus point-based POMDP solver.</li><li><a href="../.././POMDP/@POMDP/RandomAction.html" class="code" title="function a=RandomAction(P)">RandomAction</a>	Draws a random action from a POMDP.</li><li><a href="../.././POMDP/@POMDP/SampleBeliefs.html" class="code" title="function SB=SampleBeliefs(P,start,nBeliefs,minBeliefDist,stepsXtrial,minR,maxR)">SampleBeliefs</a>	Samples a set of beliefs from a POMDP.</li><li><a href="../.././POMDP/@POMDP/SimulateFrom.html" class="code" title="function r=SimulateFrom(P,V,start,n)">SimulateFrom</a>	Simulates a POMDP from a given belief.</li><li><a href="../.././POMDP/@POMDP/SimulationStep.html" class="code" title="function [s b o r]=SimulationStep(P,b,s,a)">SimulationStep</a>	Executes one step of a POMDP simulation.</li><li><a href="../.././POMDP/@POMDP/iPerseus.html" class="code" title="function [V Value Alpha t]=iPerseus(P,B,stopCriteria)">iPerseus</a>	Improved version of Perseus.</li><li><a href="../.././Space/@CSpace/Discretize.html" class="code" title="function DS=Discretize(CS,n,varargin)">Discretize</a>	Converts a continuous space into a discrete one.</li><li><a href="../.././Space/@CSpace/rand.html" class="code" title="function v=rand(CS)">rand</a>	Random state from a continuous space.</li><li><a href="../.././Space/@DSpace/rand.html" class="code" title="function v=rand(DS)">rand</a>	Random state from a discrete space.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function v=rand(gm,varargin)</a>
+0002 <span class="comment">%   Generates random points on a GMixture.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Return random vectors following the distribution represented by the</span>
+0005 <span class="comment">%   mixture. Observe that this works for unnormalized mixtures too. The</span>
+0006 <span class="comment">%   components are selected proportionally to the absolute value of their</span>
+0007 <span class="comment">%   corresponding weigth.</span>
+0008 <span class="comment">%   This function accepts two parameters</span>
+0009 <span class="comment">%     - The Gaussian mixture.</span>
+0010 <span class="comment">%     - The number of samples to drawn. If not given only one sample is</span>
+0011 <span class="comment">%       generated.</span>
+0012 
+0013   <span class="keyword">if</span> gm.n==0
+0014     v=0;
+0015   <span class="keyword">else</span>
+0016     <span class="keyword">if</span> nargin&gt;1
+0017       n=varargin{1};
+0018     <span class="keyword">else</span>
+0019       n=1;
+0020     <span class="keyword">end</span>
+0021     
+0022     <a href="../.././Space/@CSpace/dim.html" class="code" title="function d=dim(CS)">dim</a>=<a href="get.html" class="code" title="function value=get(gm,field,varargin)">get</a>(gm.g{1},<span class="string">'dim'</span>);
+0023     v=zeros(<a href="../.././Space/@CSpace/dim.html" class="code" title="function d=dim(CS)">dim</a>,n);
+0024     <span class="keyword">for</span> i=1:n
+0025       v(:,i)=<a href="rand.html" class="code" title="function v=rand(gm,varargin)">rand</a>(gm.g{<a href="../.././Lib/RandVector.html" class="code" title="function i=RandVector(v)">RandVector</a>(gm.w)},1);
+0026     <span class="keyword">end</span>
+0027   <span class="keyword">end</span>
+0028</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

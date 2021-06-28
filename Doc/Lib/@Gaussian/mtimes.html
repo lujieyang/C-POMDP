@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of mtimes</title>
+  <meta name="keywords" content="mtimes">
+  <meta name="description" content="Product of a Gaussian and a constant/Gaussian.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Lib --><!-- # @Gaussian -->
+<h1>mtimes
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Product of a Gaussian and a constant/Gaussian.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function g=mtimes(g1,g2) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Product of a Gaussian and a constant/Gaussian.
+
+   Product of two Gaussians or of a Gaussian and a constant factor.
+   If the two parameters are gaussians it returns the Gaussian resulting 
+   from multiplying two other Gaussians.
+   Note that the result of multiplying two Gaussians is a un-normalized
+   Gaussian. Here, however, the output is normalized.
+   Function ProductNormFactor returns the scale factor that
+   'un-normalizes' the product.
+
+   If one of the inputs is a constant factor, say g2=A, we return the Gaussian
+   resulting from applying the linear mapping A*g1.
+
+   See also <a href="Product.html" class="code" title="function [g d]=Product(g1,g2)">Product</a>, <a href="Scale.html" class="code" title="function gOut=Scale(g,a)">Scale</a>, <a href="ProductNormFactor.html" class="code" title="function d=ProductNormFactor(g1,g2)">ProductNormFactor</a>.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Lib/@GMixture/Product.html" class="code" title="function gmOut=Product(gm1,gm2)">Product</a>	gmOut=Product(gm1,gm2)</li><li><a href="../.././Lib/@GMixture/mtimes.html" class="code" title="function gm=mtimes(gm1,gm2)">mtimes</a>	Product of a GMixture and a constant/GMixture.</li><li><a href="Product.html" class="code" title="function [g d]=Product(g1,g2)">Product</a>	Product of two Gaussians.</li><li><a href="Scale.html" class="code" title="function gOut=Scale(g,a)">Scale</a>	Product of a Gaussian and a constant (matrix).</li><li><a href="mtimes.html" class="code" title="function g=mtimes(g1,g2)">mtimes</a>	Product of a Gaussian and a constant/Gaussian.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Lib/@GMixture/mtimes.html" class="code" title="function gm=mtimes(gm1,gm2)">mtimes</a>	Product of a GMixture and a constant/GMixture.</li><li><a href="mtimes.html" class="code" title="function g=mtimes(g1,g2)">mtimes</a>	Product of a Gaussian and a constant/Gaussian.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function g=mtimes(g1,g2)</a>
+0002 <span class="comment">%   Product of a Gaussian and a constant/Gaussian.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Product of two Gaussians or of a Gaussian and a constant factor.</span>
+0005 <span class="comment">%   If the two parameters are gaussians it returns the Gaussian resulting</span>
+0006 <span class="comment">%   from multiplying two other Gaussians.</span>
+0007 <span class="comment">%   Note that the result of multiplying two Gaussians is a un-normalized</span>
+0008 <span class="comment">%   Gaussian. Here, however, the output is normalized.</span>
+0009 <span class="comment">%   Function ProductNormFactor returns the scale factor that</span>
+0010 <span class="comment">%   'un-normalizes' the product.</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">%   If one of the inputs is a constant factor, say g2=A, we return the Gaussian</span>
+0013 <span class="comment">%   resulting from applying the linear mapping A*g1.</span>
+0014 <span class="comment">%</span>
+0015 <span class="comment">%   See also Product, Scale, ProductNormFactor.</span>
+0016 
+0017   <span class="keyword">if</span> isa(g1,<span class="string">'Gaussian'</span>)
+0018     <span class="keyword">if</span> isa(g2,<span class="string">'Gaussian'</span>)
+0019       g=<a href="Product.html" class="code" title="function [g d]=Product(g1,g2)">Product</a>(g1,g2);
+0020     <span class="keyword">else</span>
+0021       <span class="keyword">if</span> isa(g2,<span class="string">'double'</span>)
+0022         g=<a href="Scale.html" class="code" title="function gOut=Scale(g,a)">Scale</a>(g1,g2);
+0023       <span class="keyword">else</span>
+0024         error(<span class="string">'Invalid parameter type in Gaussian mtimes'</span>)
+0025       <span class="keyword">end</span>
+0026     <span class="keyword">end</span>
+0027   <span class="keyword">else</span>
+0028     g=<a href="mtimes.html" class="code" title="function g=mtimes(g1,g2)">mtimes</a>(g2,g1);
+0029   <span class="keyword">end</span></pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

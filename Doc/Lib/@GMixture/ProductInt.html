@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of ProductInt</title>
+  <meta name="keywords" content="ProductInt">
+  <meta name="description" content="Product and marginalization of two GMixtures.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Lib --><!-- # @GMixture -->
+<h1>ProductInt
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Product and marginalization of two GMixtures.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function c=ProductInt(gm1,gm2) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Product and marginalization of two GMixtures.
+
+   Returns the result of multiplying two Gaussian mixtures and then
+   marginalizing all over the space where those Gaussians are defined.
+   The result is the sum of the product of pairs of weights in the
+   mixtures and the normalization factor of multiplying the corresponding
+   Gaussians.
+   This is used in Section 5.2 of the paper to compute tha alpha functions
+   to be used in the Backup.
+ 
+   See also @Gaussian/ProductNormFator.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>	Get for GBeliefs.</li><li><a href="Value.html" class="code" title="function v=Value(gm,x)">Value</a>	Evaluates a GMixture.</li><li><a href="get.html" class="code" title="function value=get(gm,field,varargin)">get</a>	Get function for the GMixture object.</li><li><a href="../.././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>	Gaussian construtor.</li><li><a href="../.././Lib/@Gaussian/Value.html" class="code" title="function v=Value(g,x)">Value</a>	Evaluation of a Gaussian.</li><li><a href="../.././Lib/@Gaussian/get.html" class="code" title="function out=get(g,field)">get</a>	Gaussian object get function.</li><li><a href="../.././POMDP/@CS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_CA_POMDPs.</li><li><a href="../.././POMDP/@CS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_DA_POMDPs.</li><li><a href="../.././POMDP/@CS_CO_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_POMDPs.</li><li><a href="../.././POMDP/@CS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_CA_POMDPs.</li><li><a href="../.././POMDP/@CS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_DA_POMDPs.</li><li><a href="../.././POMDP/@CS_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_POMDPs.</li><li><a href="../.././POMDP/@DS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_CA_POMDPs.</li><li><a href="../.././POMDP/@DS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_DA_POMDPs.</li><li><a href="../.././POMDP/@DS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_CA_POMDPs.</li><li><a href="../.././POMDP/@DS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_DA_POMDPs.</li><li><a href="../.././POMDP/@POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get functio for POMDPs.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Belief/@GBelief/Expectation.html" class="code" title="function e=Expectation(b,a)">Expectation</a>	Expectation between a belief and a alpha-element.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function c=ProductInt(gm1,gm2)</a>
+0002 <span class="comment">%   Product and marginalization of two GMixtures.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Returns the result of multiplying two Gaussian mixtures and then</span>
+0005 <span class="comment">%   marginalizing all over the space where those Gaussians are defined.</span>
+0006 <span class="comment">%   The result is the sum of the product of pairs of weights in the</span>
+0007 <span class="comment">%   mixtures and the normalization factor of multiplying the corresponding</span>
+0008 <span class="comment">%   Gaussians.</span>
+0009 <span class="comment">%   This is used in Section 5.2 of the paper to compute tha alpha functions</span>
+0010 <span class="comment">%   to be used in the Backup.</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">%   See also @Gaussian/ProductNormFator.</span>
+0013 
+0014   c=0.0;
+0015   <span class="keyword">if</span> gm1.n&gt;0
+0016     <span class="comment">%z=0*get(gm1.g{1},'mean');</span>
+0017     <span class="keyword">for</span> i=1:gm1.n
+0018       m1=<a href="get.html" class="code" title="function value=get(gm,field,varargin)">get</a>(gm1.g{i},<span class="string">'mean'</span>);
+0019       S1=<a href="get.html" class="code" title="function value=get(gm,field,varargin)">get</a>(gm1.g{i},<span class="string">'covariance'</span>);
+0020       val=cellfun(@(x)(<a href="Value.html" class="code" title="function v=Value(gm,x)">Value</a>(<a href="../.././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(<a href="get.html" class="code" title="function value=get(gm,field,varargin)">get</a>(x,<span class="string">'mean'</span>),S1+<a href="get.html" class="code" title="function value=get(gm,field,varargin)">get</a>(x,<span class="string">'covariance'</span>)),m1)),gm2.g);
+0021       c=c+gm1.w(i)*sum(gm2.w.*val);
+0022     <span class="keyword">end</span>
+0023   <span class="keyword">end</span></pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of CS_DO_CA_POMDP</title>
+  <meta name="keywords" content="CS_DO_CA_POMDP">
+  <meta name="description" content="CS_DO_CA_POMDP constructor.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # POMDP --><!-- # @CS_DO_CA_POMDP -->
+<h1>CS_DO_CA_POMDP
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>CS_DO_CA_POMDP constructor.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function P=CS_DO_CA_POMDP(varargin) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   CS_DO_CA_POMDP constructor.
+   Constructor of POMDP with
+     - Continuous state spaces.
+     - Discrete observation spaces.
+     - Continuous action spaces.
+   
+   Parameters
+     name: POMDP name.
+     S: Continuos state space.
+     A: Continuous action space.
+     O: Discrete observation space.
+     AM: Action model.
+     OM: Observation model.
+     RM: Reward model.
+     nSampledActions: Num actions to sample when discretizing the action
+                      set
+     gamma: Discount factor.
+     maxAlphaC: Maximum number of components in the Alpha mixtures.
+
+   This type of POMDP is used in the experiment if Figure 10 in the paper.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././POMDP/@CS_DO_POMDP/CS_DO_POMDP.html" class="code" title="function P=CS_DO_POMDP(varargin)">CS_DO_POMDP</a>	CS_DO_POMDP constructor.</li><li><a href="../.././Space/@CSpace/max.html" class="code" title="function m=max(S)">max</a>	Upper bound of a CSpace</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Experiments/GetTest1caParameters.html" class="code" title="function [POMDP P]=GetTest1caParameters(varargin)">GetTest1caParameters</a>	The example on Figure 10.</li><li><a href="../.././POMDP/@CS_CO_CA_POMDP/DiscretizeObsModel.html" class="code" title="function DO_POMDP=DiscretizeObsModel(CO_POMDP)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function P=CS_DO_CA_POMDP(varargin)</a>
+0002 <span class="comment">%   CS_DO_CA_POMDP constructor.</span>
+0003 <span class="comment">%   Constructor of POMDP with</span>
+0004 <span class="comment">%     - Continuous state spaces.</span>
+0005 <span class="comment">%     - Discrete observation spaces.</span>
+0006 <span class="comment">%     - Continuous action spaces.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">%   Parameters</span>
+0009 <span class="comment">%     name: POMDP name.</span>
+0010 <span class="comment">%     S: Continuos state space.</span>
+0011 <span class="comment">%     A: Continuous action space.</span>
+0012 <span class="comment">%     O: Discrete observation space.</span>
+0013 <span class="comment">%     AM: Action model.</span>
+0014 <span class="comment">%     OM: Observation model.</span>
+0015 <span class="comment">%     RM: Reward model.</span>
+0016 <span class="comment">%     nSampledActions: Num actions to sample when discretizing the action</span>
+0017 <span class="comment">%                      set</span>
+0018 <span class="comment">%     gamma: Discount factor.</span>
+0019 <span class="comment">%     maxAlphaC: Maximum number of components in the Alpha mixtures.</span>
+0020 <span class="comment">%</span>
+0021 <span class="comment">%   This type of POMDP is used in the experiment if Figure 10 in the paper.</span>
+0022 
+0023   <span class="keyword">switch</span> nargin
+0024     <span class="keyword">case</span> 1
+0025       <span class="keyword">if</span> isa(varargin{1},<span class="string">'CS_DO_CA_POMDP'</span>)
+0026         P=varargin{1};
+0027       <span class="keyword">else</span>
+0028         error(<span class="string">'Wrong parameter type in CS_DO_CA_POMDP'</span>);
+0029       <span class="keyword">end</span>
+0030       
+0031     <span class="keyword">case</span> 10
+0032       
+0033       <span class="keyword">if</span> isa(varargin{2},<span class="string">'CSpace'</span>)
+0034         P.S=varargin{2};
+0035       <span class="keyword">else</span>
+0036         error(<span class="string">'Wrong parameter type in CS_DO_CA_POMDP'</span>);
+0037       <span class="keyword">end</span>
+0038 
+0039       <span class="keyword">if</span> isa(varargin{3},<span class="string">'CSpace'</span>)
+0040         P.A=varargin{3};
+0041       <span class="keyword">else</span>
+0042         error(<span class="string">'Wrong parameter type in CS_DO_CA_POMDP'</span>);
+0043       <span class="keyword">end</span>
+0044 
+0045       <span class="keyword">if</span> isa(varargin{4},<span class="string">'DSpace'</span>)
+0046         P.O=varargin{4};
+0047       <span class="keyword">else</span>
+0048         error(<span class="string">'Wrong parameter type in CS_DO_CA_POMDP'</span>);
+0049       <span class="keyword">end</span>
+0050 
+0051       <span class="keyword">if</span> isa(varargin{5},<span class="string">'CS_CA_ActionModel'</span>)
+0052         AM=varargin{5};
+0053       <span class="keyword">else</span>
+0054         error(<span class="string">'Wrong parameter type in CS_DO_CA_POMDP'</span>);
+0055       <span class="keyword">end</span>
+0056 
+0057       <span class="keyword">if</span> isa(varargin{6},<span class="string">'CS_DO_ObsModel'</span>)
+0058         OM=varargin{6};
+0059       <span class="keyword">else</span>
+0060         error(<span class="string">'Wrong parameter type in CS_DO_CA_POMDP'</span>);
+0061       <span class="keyword">end</span>
+0062       
+0063       <span class="keyword">if</span> isa(varargin{7},<span class="string">'CS_CA_RewardModel'</span>)
+0064         RM=varargin{7};
+0065       <span class="keyword">else</span>
+0066         error(<span class="string">'Wrong parameter type in CS_DO_CA_POMDP'</span>);
+0067       <span class="keyword">end</span>
+0068       
+0069       P.nSampledActions=<a href="../.././Space/@CSpace/max.html" class="code" title="function m=max(S)">max</a>(1,varargin{8});
+0070       
+0071       PBase=<a href="../.././POMDP/@CS_DO_POMDP/CS_DO_POMDP.html" class="code" title="function P=CS_DO_POMDP(varargin)">CS_DO_POMDP</a>(varargin{1},varargin{9},varargin{10});
+0072       
+0073       P=class(P,<span class="string">'CS_DO_CA_POMDP'</span>,PBase,AM,OM,RM);
+0074       
+0075     <span class="keyword">otherwise</span>
+0076       error(<span class="string">'Wrong number of parameters in CS_DO_CA_POMDP'</span>);
+0077   <span class="keyword">end</span></pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

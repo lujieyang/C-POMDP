@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of GetTest1Parameters</title>
+  <meta name="keywords" content="GetTest1Parameters">
+  <meta name="description" content="The example on Figure 1.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Experiments -->
+<h1>GetTest1Parameters
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>The example on Figure 1.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function [POMDP P]=GetTest1Parameters(varargin) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   The example on Figure 1.
+
+   Example of how to define the POMDP and the parameters for a problem
+   with a continuous state space and discrete action and observation
+   spaces.
+   Actually this example encodes the problem in Figure 1 of the paper that
+   is used for most of the reported experiments (with little variants in
+   some cases).
+
+   Parameters:
+     ncBelief: Number of components in the belief mixtures.
+     ncAlpha: Number of components in the alpha mixtures.
+     actionScale: Scale factor to apply to the right/left displacements.
+
+   Parameters are optional from left to rigth (if two parameters are given
+   we assume they are ncBelief and ncAlpha, etc).
+   When not given we use the following default values
+      ncBelief=4
+      ncAlpha=9
+      actionScale=2
+   Those correspond to the parameters used in Figure 2.
+
+   To solve the problem you can use
+
+      [POMDP P B V Val Alpha t]=TestOne('Test1');
+
+   To solve it many times collecting statistics on the quality of each
+   solution use
+
+       TestRep('Test1','myresults',1:10);
+
+   changing 'myresults' by the label you want to add to the output
+   file names.
+
+   After executing the separate experiments (this can be very time
+   demanding!) you can summarize the obtained statistics using:
+
+        [tics SM SD]=GetPOMDPAverageStatistics('Test1-myresults')
+
+   All problems (and their parameters) should be encoded in a file like
+   this one.
+
+   See also TestOne, TestRep, POMDP, <a href="GetHallwayParameters.html" class="code" title="function [POMDP P]=GetHallwayParameters">GetHallwayParameters</a>.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href=".././ActionModel/@CS_DA_ActionModel/CS_DA_ActionModel.html" class="code" title="function AM=CS_DA_ActionModel(varargin)">CS_DA_ActionModel</a>	CS_DA_ActionModel constructor.</li><li><a href=".././Belief/@GBelief/GBelief.html" class="code" title="function gb=GBelief(varargin)">GBelief</a>	Gaussian-based belief constructor.</li><li><a href=".././Lib/@GMixture/GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>	Gaussian mixture constructor.</li><li><a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>	Gaussian construtor.</li><li><a href=".././ObsModel/@CS_DO_ObsModel/CS_DO_ObsModel.html" class="code" title="function OM=CS_DO_ObsModel(varargin)">CS_DO_ObsModel</a>	CS_DO_ObsModel constructor.</li><li><a href=".././POMDP/@CS_DO_DA_POMDP/CS_DO_DA_POMDP.html" class="code" title="function P=CS_DO_DA_POMDP(varargin)">CS_DO_DA_POMDP</a>	CS_DO_DA_POMDP constructor.</li><li><a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>	POMDP constructor.</li><li><a href=".././RewardModel/@CS_DA_RewardModel/CS_DA_RewardModel.html" class="code" title="function RM=CS_DA_RewardModel(varargin)">CS_DA_RewardModel</a>	CS_DA_RewardModel constructor.</li><li><a href=".././Space/@CSpace/CSpace.html" class="code" title="function CS=CSpace(varargin)">CSpace</a>	CSpace constructor.</li><li><a href=".././Space/@DSpace/DSpace.html" class="code" title="function DS=DSpace(varargin)">DSpace</a>	DSpace constructor.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="GenerateFigure5Data.html" class="code" title="function GenerateFigure5Data(fname)">GenerateFigure5Data</a>	Generates the data for Figure 5.</li><li><a href="GenerateFigure7aData.html" class="code" title="function GenerateFigure7aData(fname)">GenerateFigure7aData</a>	Generates the data for Figure 7-left.</li><li><a href="GetTest1caParameters.html" class="code" title="function [POMDP P]=GetTest1caParameters(varargin)">GetTest1caParameters</a>	The example on Figure 10.</li><li><a href="GetTest1pParameters.html" class="code" title="function [POMDP P]=GetTest1pParameters(varargin)">GetTest1pParameters</a>	The example on Figure 8.</li><li><a href="MakeFigure1.html" class="code" title="function MakeFigure1">MakeFigure1</a>	Generates Figure 1.</li><li><a href="MakeFigure6.html" class="code" title="function MakeFigure6">MakeFigure6</a>	Generates Figure 6.</li><li><a href="MakeFigure7.html" class="code" title="function MakeFigure7">MakeFigure7</a>	Generates Figure 7.</li><li><a href="MakeFigure9.html" class="code" title="function MakeFigure9">MakeFigure9</a>	Generates Figure 9.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [POMDP P]=GetTest1Parameters(varargin)</a>
+0002 <span class="comment">%   The example on Figure 1.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Example of how to define the POMDP and the parameters for a problem</span>
+0005 <span class="comment">%   with a continuous state space and discrete action and observation</span>
+0006 <span class="comment">%   spaces.</span>
+0007 <span class="comment">%   Actually this example encodes the problem in Figure 1 of the paper that</span>
+0008 <span class="comment">%   is used for most of the reported experiments (with little variants in</span>
+0009 <span class="comment">%   some cases).</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">%   Parameters:</span>
+0012 <span class="comment">%     ncBelief: Number of components in the belief mixtures.</span>
+0013 <span class="comment">%     ncAlpha: Number of components in the alpha mixtures.</span>
+0014 <span class="comment">%     actionScale: Scale factor to apply to the right/left displacements.</span>
+0015 <span class="comment">%</span>
+0016 <span class="comment">%   Parameters are optional from left to rigth (if two parameters are given</span>
+0017 <span class="comment">%   we assume they are ncBelief and ncAlpha, etc).</span>
+0018 <span class="comment">%   When not given we use the following default values</span>
+0019 <span class="comment">%      ncBelief=4</span>
+0020 <span class="comment">%      ncAlpha=9</span>
+0021 <span class="comment">%      actionScale=2</span>
+0022 <span class="comment">%   Those correspond to the parameters used in Figure 2.</span>
+0023 <span class="comment">%</span>
+0024 <span class="comment">%   To solve the problem you can use</span>
+0025 <span class="comment">%</span>
+0026 <span class="comment">%      [POMDP P B V Val Alpha t]=TestOne('Test1');</span>
+0027 <span class="comment">%</span>
+0028 <span class="comment">%   To solve it many times collecting statistics on the quality of each</span>
+0029 <span class="comment">%   solution use</span>
+0030 <span class="comment">%</span>
+0031 <span class="comment">%       TestRep('Test1','myresults',1:10);</span>
+0032 <span class="comment">%</span>
+0033 <span class="comment">%   changing 'myresults' by the label you want to add to the output</span>
+0034 <span class="comment">%   file names.</span>
+0035 <span class="comment">%</span>
+0036 <span class="comment">%   After executing the separate experiments (this can be very time</span>
+0037 <span class="comment">%   demanding!) you can summarize the obtained statistics using:</span>
+0038 <span class="comment">%</span>
+0039 <span class="comment">%        [tics SM SD]=GetPOMDPAverageStatistics('Test1-myresults')</span>
+0040 <span class="comment">%</span>
+0041 <span class="comment">%   All problems (and their parameters) should be encoded in a file like</span>
+0042 <span class="comment">%   this one.</span>
+0043 <span class="comment">%</span>
+0044 <span class="comment">%   See also TestOne, TestRep, POMDP, GetHallwayParameters.</span>
+0045 
+0046   <span class="keyword">if</span> nargin==0
+0047     ncBelief=4;
+0048   <span class="keyword">else</span>
+0049     ncBelief=varargin{1};
+0050   <span class="keyword">end</span>
+0051   
+0052   <span class="keyword">if</span> nargin&lt;2
+0053     ncAlpha=9;
+0054   <span class="keyword">else</span>
+0055     ncAlpha=varargin{2};
+0056   <span class="keyword">end</span>
+0057   
+0058   <span class="keyword">if</span> nargin&lt;3
+0059     actionScale=2;
+0060   <span class="keyword">else</span>
+0061     actionScale=varargin{3};
+0062   <span class="keyword">end</span>
+0063   
+0064 
+0065   <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0066   <span class="comment">% Define the POMDP</span>
+0067     <span class="comment">% State space is 1-D in the range -20,20</span>
+0068     S=<a href=".././Space/@CSpace/CSpace.html" class="code" title="function CS=CSpace(varargin)">CSpace</a>(-20,20);
+0069   
+0070     <span class="comment">% 3 actions: left, right, enterDoor</span>
+0071     A=<a href=".././Space/@DSpace/DSpace.html" class="code" title="function DS=DSpace(varargin)">DSpace</a>(3);
+0072 
+0073     <span class="comment">% 4 Observations: left-end, right-end, door, corridor</span>
+0074     O=<a href=".././Space/@DSpace/DSpace.html" class="code" title="function DS=DSpace(varargin)">DSpace</a>(4);
+0075 
+0076     <span class="comment">% discount factor</span>
+0077     gamma=0.95;
+0078 
+0079     <span class="comment">% Action model with continuous states and discrete actions</span>
+0080     mu_a={-actionScale actionScale 0};
+0081     Sigma_a={0.05 0.05 0.05};
+0082     AM=<a href=".././ActionModel/@CS_DA_ActionModel/CS_DA_ActionModel.html" class="code" title="function AM=CS_DA_ActionModel(varargin)">CS_DA_ActionModel</a>(S,A,mu_a,Sigma_a);
+0083 
+0084     <span class="comment">% Observation model with continuous states and discrete observations.</span>
+0085     <span class="comment">% Note that we actually define p(o,s) and that we assume p(s) to be</span>
+0086     <span class="comment">% uniform. Thus Gaussians should be evenly distributed in 's' and with</span>
+0087     <span class="comment">% the adequate covariance to define a uniform coverage.</span>
+0088     so=1.6;
+0089     om{1}=<a href=".././Lib/@GMixture/GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>(ones(1,5),<span class="keyword">...</span>
+0090                    {<a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(-21,so) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(-19,so) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(-17,so) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(-15,so) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(-13,so)}); <span class="comment">% left-end</span>
+0091     om{2}=<a href=".././Lib/@GMixture/GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>(ones(1,5),<span class="keyword">...</span>
+0092                    {<a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>( 21,so) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>( 19,so) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>( 17,so) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>( 15,so) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>( 13,so)}); <span class="comment">% right-end</span>
+0093     om{3}=<a href=".././Lib/@GMixture/GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>(ones(1,4),<span class="keyword">...</span>
+0094                    {<a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(-11,so) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>( -5,so) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(  3,so) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(  9,so)}); <span class="comment">% door</span>
+0095     om{4}=<a href=".././Lib/@GMixture/GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>(ones(1,8),<span class="keyword">...</span>
+0096                    {<a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(-9,so) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(-7,so) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(-3,so) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(-1,so) <span class="keyword">...</span>
+0097                     <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>( 1,so) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>( 5,so) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>( 7,so) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(11,so)}); <span class="comment">% corridor</span>
+0098     OM=<a href=".././ObsModel/@CS_DO_ObsModel/CS_DO_ObsModel.html" class="code" title="function OM=CS_DO_ObsModel(varargin)">CS_DO_ObsModel</a>(S,O,om);
+0099     
+0100     <span class="comment">% reward model with continuous states and discrete actions</span>
+0101     rm{1}=<a href=".././Lib/@GMixture/GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>([-2 -2 -2],{<a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(-21,1) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(-19,1) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(-17,1)});
+0102     rm{2}=<a href=".././Lib/@GMixture/GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>([-2 -2 -2],{<a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>( 21,1) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>( 19,1) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>( 17,1)});
+0103     rm{3}=<a href=".././Lib/@GMixture/GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>([-10 2 -10],{<a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(-25,250) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(3,3) <a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(25,250)});
+0104     RM=<a href=".././RewardModel/@CS_DA_RewardModel/CS_DA_RewardModel.html" class="code" title="function RM=CS_DA_RewardModel(varargin)">CS_DA_RewardModel</a>(S,A,rm);
+0105 
+0106     <span class="comment">% Assemble the POMDP</span>
+0107     <a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>=<a href=".././POMDP/@CS_DO_DA_POMDP/CS_DO_DA_POMDP.html" class="code" title="function P=CS_DO_DA_POMDP(varargin)">CS_DO_DA_POMDP</a>(<span class="string">'Test1'</span>,S,A,O,AM,OM,RM,gamma,ncAlpha);
+0108     
+0109   <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0110   <span class="comment">% Define the parameters for sampling beliefs</span>
+0111     <span class="comment">% Define the start belief</span>
+0112     g1=<a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(-15,30);
+0113     P.start=<a href=".././Belief/@GBelief/GBelief.html" class="code" title="function gb=GBelief(varargin)">GBelief</a>(<a href=".././Lib/@GMixture/GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>([1 1 1 1],{g1 g1+10 g1+20 g1+30}),ncBelief);
+0114 
+0115     <span class="comment">% Define the rest of parameters</span>
+0116     <span class="comment">% First the noes for Belief sampling</span>
+0117     P.nBeliefs=500;
+0118     P.dBelief=0.1;
+0119     P.stepsXtrial=30;
+0120     P.rMin=-0.5;
+0121     P.rMax= 0.5;
+0122   
+0123   
+0124   <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0125   <span class="comment">% Define the parameters for testing</span>
+0126     P.maxTime=2500;
+0127     P.stTime=100;
+0128     P.numTrials=100;
+0129   
+0130   <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0131   <span class="comment">% Define the parameters for solving</span>
+0132     P.stopCriteria=@(n,t,vc)(t&gt;P.maxTime);
+0133</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

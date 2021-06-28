@@ -1,0 +1,14 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  MaxAlpha -> Values;
+  OptimalAction -> Values;
+
+  AddAlpha [URL="AddAlpha.html"];
+  MaxAlpha [URL="MaxAlpha.html"];
+  OptimalAction [URL="OptimalAction.html"];
+  Policy [URL="Policy.html"];
+  Values [URL="Values.html"];
+  empty [URL="empty.html"];
+  size [URL="size.html"];
+  subsref [URL="subsref.html"];
+}

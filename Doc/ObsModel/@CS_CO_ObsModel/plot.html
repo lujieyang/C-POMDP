@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of plot</title>
+  <meta name="keywords" content="plot">
+  <meta name="description" content="Plots the CS_CO_ObsModel">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # ObsModel --><!-- # @CS_CO_ObsModel -->
+<h1>plot
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Plots the CS_CO_ObsModel</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function h=plot(OM) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Plots the CS_CO_ObsModel
+
+ Plot a 3d surface representing the obs model p(o|s) in continuous
+ observation and state spaces
+ It only works for one-dimensional spaces.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>	Returns the size of a policy.</li><li><a href="../.././Lib/@GMixture/Value.html" class="code" title="function v=Value(gm,x)">Value</a>	Evaluates a GMixture.</li><li><a href="../.././Lib/@Gaussian/Value.html" class="code" title="function v=Value(g,x)">Value</a>	Evaluation of a Gaussian.</li><li><a href="../.././Space/@CSpace/dim.html" class="code" title="function d=dim(CS)">dim</a>	Dimensionality of a continuous space.</li><li><a href="../.././Space/@CSpace/max.html" class="code" title="function m=max(S)">max</a>	Upper bound of a CSpace</li><li><a href="../.././Space/@CSpace/min.html" class="code" title="function m=min(S)">min</a>	Lower bound of a CSpace</li><li><a href="../.././Space/@DSpace/dim.html" class="code" title="function d=dim(DS)">dim</a>	Dimensionality of a discrete space.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Belief/@DBelief/plot.html" class="code" title="function h=plot(b,varargin)">plot</a>	Plots a discrete belief.</li><li><a href="../.././Experiments/MakeFigure1.html" class="code" title="function MakeFigure1">MakeFigure1</a>	Generates Figure 1.</li><li><a href="../.././Experiments/MakeFigure3.html" class="code" title="function MakeFigure3(varargin)">MakeFigure3</a>	Generates Figure 3.</li><li><a href="../.././Experiments/MakeFigure6.html" class="code" title="function MakeFigure6">MakeFigure6</a>	Generates Figure 6.</li><li><a href="../.././Experiments/MakeFigure7.html" class="code" title="function MakeFigure7">MakeFigure7</a>	Generates Figure 7.</li><li><a href="../.././Experiments/MakeFigure9.html" class="code" title="function MakeFigure9">MakeFigure9</a>	Generates Figure 9.</li><li><a href="../.././Lib/@Gaussian/plot.html" class="code" title="function h=plot(g,varargin)">plot</a>	Plots a Gaussian.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function h=plot(OM)</a>
+0002 <span class="comment">% Plots the CS_CO_ObsModel</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Plot a 3d surface representing the obs model p(o|s) in continuous</span>
+0005 <span class="comment">% observation and state spaces</span>
+0006 <span class="comment">% It only works for one-dimensional spaces.</span>
+0007    
+0008    <span class="keyword">if</span> <a href="../.././Space/@CSpace/dim.html" class="code" title="function d=dim(CS)">dim</a>(OM.S)==1 &amp;&amp; <a href="../.././Space/@CSpace/dim.html" class="code" title="function d=dim(CS)">dim</a>(OM.O)==1
+0009      
+0010      s=<a href="../.././Space/@CSpace/min.html" class="code" title="function m=min(S)">min</a>(OM.S):0.25:<a href="../.././Space/@CSpace/max.html" class="code" title="function m=max(S)">max</a>(OM.S);
+0011      o=<a href="../.././Space/@CSpace/min.html" class="code" title="function m=min(S)">min</a>(OM.O):0.25:<a href="../.././Space/@CSpace/max.html" class="code" title="function m=max(S)">max</a>(OM.O);
+0012      ns=<a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>(s,2);
+0013      no=<a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>(o,2);
+0014      sp=zeros(ns,no);
+0015      <span class="keyword">for</span> i=1:ns
+0016        <span class="keyword">for</span> j=1:no
+0017          sp(i,j)=sum(OM.w.*cellfun(@(g)(<a href="../.././Lib/@GMixture/Value.html" class="code" title="function v=Value(gm,x)">Value</a>(g,s(i))),OM.gS).*cellfun(@(g)(<a href="../.././Lib/@GMixture/Value.html" class="code" title="function v=Value(gm,x)">Value</a>(g,o(j))),OM.gO));
+0018        <span class="keyword">end</span>
+0019      <span class="keyword">end</span>
+0020      h=surf(s,o,sp');
+0021    <span class="keyword">else</span>
+0022      error(<span class="string">'CS_CO_ObsModel plot only implemented for one-dimensional S/O spaces'</span>);
+0023    <span class="keyword">end</span></pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

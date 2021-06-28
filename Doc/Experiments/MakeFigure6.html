@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of MakeFigure6</title>
+  <meta name="keywords" content="MakeFigure6">
+  <meta name="description" content="Generates Figure 6.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Experiments -->
+<h1>MakeFigure6
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>Generates Figure 6.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function MakeFigure6 </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Generates Figure 6.
+
+   Displays the Figure 6 in the paper.
+   
+   Shows the accumulated discounted reward averaged for several trials 
+   using the final plan obtained when representing beliefs and alpha
+   mixtures with different number of components.
+
+   If results for the plots are not pre-computed they are generted on the
+   fly and this can be veeery time consuming.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href=".././Belief/@DBelief/plot.html" class="code" title="function h=plot(b,varargin)">plot</a>	Plots a discrete belief.</li><li><a href=".././Belief/@PBelief/plot.html" class="code" title="function h=plot(pb,varargin)">plot</a>	Displays a particle-based belief.</li><li><a href="GetTest1Parameters.html" class="code" title="function [POMDP P]=GetTest1Parameters(varargin)">GetTest1Parameters</a>	The example on Figure 1.</li><li><a href=".././Lib/@GMixture/plot.html" class="code" title="function h=plot(gm,varargin)">plot</a>	Plots a Gaussian mixture.</li><li><a href=".././Lib/@GMixture/set.html" class="code" title="function gm=set(gm,field,value)">set</a>	Set method for Gaussian mixtures.</li><li><a href=".././Lib/@Gaussian/plot.html" class="code" title="function h=plot(g,varargin)">plot</a>	Plots a Gaussian.</li><li><a href=".././Lib/GetData.html" class="code" title="function data=GetData(fname,GenerateData)">GetData</a>	Loads and, if necessary, generates data from experiments.</li><li><a href=".././Lib/TestRepWithStatistics.html" class="code" title="function TestRepWithStatistics(varargin)">TestRepWithStatistics</a>	Executes many times Perseus on a given problem and collects statistics.</li><li><a href=".././ObsModel/@CS_CO_ObsModel/plot.html" class="code" title="function h=plot(OM)">plot</a>	Plots the CS_CO_ObsModel</li><li><a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>	POMDP constructor.</li><li><a href=".././POMDP/@POMDP/set.html" class="code" title="function P=set(P,field,value)">set</a>	Set function for PODMP (base type)</li><li><a href=".././RewardModel/@CS_CA_RewardModel/plot.html" class="code" title="function h=plot(RM)">plot</a>	Plots the CS_CA_RewardModel</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function MakeFigure6</a>
+0002 <span class="comment">%   Generates Figure 6.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Displays the Figure 6 in the paper.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">%   Shows the accumulated discounted reward averaged for several trials</span>
+0007 <span class="comment">%   using the final plan obtained when representing beliefs and alpha</span>
+0008 <span class="comment">%   mixtures with different number of components.</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">%   If results for the plots are not pre-computed they are generted on the</span>
+0011 <span class="comment">%   fly and this can be veeery time consuming.</span>
+0012 
+0013   fprintf(<span class="string">'Loading/Generating the simulation results with normal parameters'</span>);
+0014   fprintf(<span class="string">'   (4-components beliefs and 9-components alpha-mixtures)\n'</span>);
+0015   GenData=@()(<a href=".././Lib/TestRepWithStatistics.html" class="code" title="function TestRepWithStatistics(varargin)">TestRepWithStatistics</a>(<span class="string">'Test1'</span>,<span class="string">'Figure2'</span>,1:10));
+0016   ResultsNormal=<a href=".././Lib/GetData.html" class="code" title="function data=GetData(fname,GenerateData)">GetData</a>(<span class="string">'Results/Test1-Figure2-results.mat'</span>,GenData);
+0017   
+0018   fprintf(<span class="string">'Loading/Generating the simulation results 1-component beliefs\n'</span>);
+0019   [<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a> P]=<a href="GetTest1Parameters.html" class="code" title="function [POMDP P]=GetTest1Parameters(varargin)">GetTest1Parameters</a>(1,9);
+0020   GenData=@()(<a href=".././Lib/TestRepWithStatistics.html" class="code" title="function TestRepWithStatistics(varargin)">TestRepWithStatistics</a>(<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>,P,<span class="string">'Figure6-a'</span>,1:10));
+0021   ResultsB1=<a href=".././Lib/GetData.html" class="code" title="function data=GetData(fname,GenerateData)">GetData</a>(<span class="string">'Results/Test1-Figure6-a-results.mat'</span>,GenData);
+0022   
+0023   fprintf(<span class="string">'Loading/Generating the simulation results 3-components alpha mixtures\n'</span>);
+0024   [<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a> P]=<a href="GetTest1Parameters.html" class="code" title="function [POMDP P]=GetTest1Parameters(varargin)">GetTest1Parameters</a>(4,3);
+0025   GenData=@()(<a href=".././Lib/TestRepWithStatistics.html" class="code" title="function TestRepWithStatistics(varargin)">TestRepWithStatistics</a>(<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>,P,<span class="string">'Figure6-b'</span>,1:10));
+0026   ResultsA3=<a href=".././Lib/GetData.html" class="code" title="function data=GetData(fname,GenerateData)">GetData</a>(<span class="string">'Results/Test1-Figure6-b-results.mat'</span>,GenData);
+0027   
+0028   h=clf;
+0029   <a href=".././Lib/@GMixture/set.html" class="code" title="function gm=set(gm,field,value)">set</a>(h,<span class="string">'name'</span>,<span class="string">'C-POMDP Figure 6'</span>,<span class="string">'numbertitle'</span>,<span class="string">'off'</span>);
+0030 
+0031   <a href=".././Belief/@DBelief/plot.html" class="code" title="function h=plot(b,varargin)">plot</a>(ResultsB1.tics,ResultsB1.SM.R,<span class="string">'linestyle'</span>,<span class="string">':'</span>);
+0032   hold on;
+0033   <a href=".././Belief/@DBelief/plot.html" class="code" title="function h=plot(b,varargin)">plot</a>(ResultsA3.tics,ResultsA3.SM.R,<span class="string">'linestyle'</span>,<span class="string">'--'</span>);
+0034   <a href=".././Belief/@DBelief/plot.html" class="code" title="function h=plot(b,varargin)">plot</a>(ResultsNormal.tics,ResultsNormal.SM.R);
+0035   
+0036   legend(<span class="string">'1-component beliefs'</span>,<span class="string">'3-component \alpha-functions'</span>,<span class="string">'9-c. \alpha-func. + 4-c. beliefs'</span>);
+0037   
+0038   xlabel(<span class="string">'time (s)'</span>);
+0039   ylabel(<span class="string">'Acc. Disc. Reward'</span>);</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

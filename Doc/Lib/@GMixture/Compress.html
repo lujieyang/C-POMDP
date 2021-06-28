@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of Compress</title>
+  <meta name="keywords" content="Compress">
+  <meta name="description" content="Gaussian mixutre compression.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Lib --><!-- # @GMixture -->
+<h1>Compress
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Gaussian mixutre compression.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function gmC=Compress(gm,m) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Gaussian mixutre compression.
+
+   Compresses a Gaussian mixture so that it includes only 'm' components.
+   We first remove components with tiny weigth and then we apply the 
+   compression by Goldberger and Roweis (see Appendix A in the paper).
+
+   Note that this can be applied to both normalized and unnormalized
+   mixtures.
+
+   Both Gaussian-based beliefs and alpha-elements are compressed. So, this 
+   is one of the fundamental methods of this toolbox. Any improvement in
+   this function results in a large speed up in the global planner.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="CompressGR.html" class="code" title="function [gmC map]=CompressGR(gm,m,epsilon,MaxIterations)">CompressGR</a>	Gaussian mixture compression using the Golberger and Roweis method.</li><li><a href="Normalize.html" class="code" title="function gmC=Normalize(gm)">Normalize</a>	Normalize a GMixture.</li><li><a href="RemoveSmallComponents.html" class="code" title="function [gmOut map]=RemoveSmallComponents(gm,t)">RemoveSmallComponents</a>	Eliminates the small components of a GMixture.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Belief/@GBelief/GBelief.html" class="code" title="function gb=GBelief(varargin)">GBelief</a>	Gaussian-based belief constructor.</li><li><a href="../.././POMDP/@CS_POMDP/Alpha0.html" class="code" title="function a=Alpha0(P)">Alpha0</a>	Alpha-element for the first Perseus iteration (continuos state version).</li><li><a href="../.././POMDP/@CS_POMDP/Backup.html" class="code" title="function [alpha a v]=Backup(P,b,V,Alphas_j_a_o)">Backup</a>	Backup for a given belief (continuous state version).</li><li><a href="../.././POMDP/@CS_POMDP/ComputeAlpha_j_a_o.html" class="code" title="function alpha_j_a_o=ComputeAlpha_j_a_o(P,V,j,a,o)">ComputeAlpha_j_a_o</a>	Computes a particular alpha-element.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function gmC=Compress(gm,m)</a>
+0002 <span class="comment">%   Gaussian mixutre compression.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Compresses a Gaussian mixture so that it includes only 'm' components.</span>
+0005 <span class="comment">%   We first remove components with tiny weigth and then we apply the</span>
+0006 <span class="comment">%   compression by Goldberger and Roweis (see Appendix A in the paper).</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">%   Note that this can be applied to both normalized and unnormalized</span>
+0009 <span class="comment">%   mixtures.</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">%   Both Gaussian-based beliefs and alpha-elements are compressed. So, this</span>
+0012 <span class="comment">%   is one of the fundamental methods of this toolbox. Any improvement in</span>
+0013 <span class="comment">%   this function results in a large speed up in the global planner.</span>
+0014 
+0015   <span class="keyword">if</span> (gm.n&lt;=m) || (m==0) <span class="comment">% if gmC is not already compressed or not to be compressed</span>
+0016     gmC=gm;
+0017   <span class="keyword">else</span>
+0018     <span class="comment">% This is to ensure all weights are positive, in [0,1], and sum 1</span>
+0019     gmN=<a href="Normalize.html" class="code" title="function gmC=Normalize(gm)">Normalize</a>(gm);
+0020 
+0021     <span class="comment">% Remove remove non-important components (to speed up next step)</span>
+0022     <span class="comment">%   - gmLC is the sub-set of gmN with relemant components</span>
+0023     <span class="comment">%   - mapLC is the index of the elements of gmN used to form gmLC</span>
+0024     [gmLC mapLC]=<a href="RemoveSmallComponents.html" class="code" title="function [gmOut map]=RemoveSmallComponents(gm,t)">RemoveSmallComponents</a>(gmN,0.1/gmN.n);
+0025     
+0026     <span class="comment">% Use the Goldberger and Roweis compression</span>
+0027     <span class="comment">%   - gmC is the compressed mixture</span>
+0028     <span class="comment">%   - mapC are pointers from eleements in gmLC to elements in gmC</span>
+0029     <span class="comment">%     (this allow to identify the elements in gmLC aggregated to form</span>
+0030     <span class="comment">%     an element in gmC)</span>
+0031     [gmC mapC]=<a href="CompressGR.html" class="code" title="function [gmC map]=CompressGR(gm,m,epsilon,MaxIterations)">CompressGR</a>(<a href="Normalize.html" class="code" title="function gmC=Normalize(gm)">Normalize</a>(gmLC),m,1e-5,50);
+0032  
+0033     <span class="comment">% Recover the original weigths summing the weights of the input</span>
+0034     <span class="comment">% components assigned to each  output component</span>
+0035     gmC.w=zeros(1,gmC.n);
+0036     <span class="keyword">for</span> i=1:gmC.n
+0037       ndx=(mapC==i);
+0038       gmC.w(i)=sum(gm.w(mapLC(ndx)));
+0039     <span class="keyword">end</span>
+0040 
+0041     <span class="comment">% Caution: at this point gmC is not normalized any more</span>
+0042     gmC=<a href="RemoveSmallComponents.html" class="code" title="function [gmOut map]=RemoveSmallComponents(gm,t)">RemoveSmallComponents</a>(gmC,1e-3);
+0043  <span class="keyword">end</span></pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

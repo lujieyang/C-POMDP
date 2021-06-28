@@ -1,0 +1,14 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  Prediction -> rand;
+  Update -> PBelief;
+  Update -> rand;
+
+  Distance [URL="Distance.html"];
+  Expectation [URL="Expectation.html"];
+  PBelief [URL="PBelief.html"];
+  Prediction [URL="Prediction.html"];
+  Update [URL="Update.html"];
+  plot [URL="plot.html"];
+  rand [URL="rand.html"];
+}

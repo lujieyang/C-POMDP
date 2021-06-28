@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of POMDP</title>
+  <meta name="keywords" content="POMDP">
+  <meta name="description" content="POMDP constructor.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # POMDP --><!-- # @POMDP -->
+<h1>POMDP
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>POMDP constructor.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function P=POMDP(varargin) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   POMDP constructor.
+
+   Base object for all POMDP objects.
+
+   Parameters
+     name: name for the POMDP.
+     gamma: discount factor.
+
+   See also DS_POMDP, CS_POMDP.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Experiments/GenerateFigure5Data.html" class="code" title="function GenerateFigure5Data(fname)">GenerateFigure5Data</a>	Generates the data for Figure 5.</li><li><a href="../.././Experiments/GenerateFigure7aData.html" class="code" title="function GenerateFigure7aData(fname)">GenerateFigure7aData</a>	Generates the data for Figure 7-left.</li><li><a href="../.././Experiments/GetHallwayParameters.html" class="code" title="function [POMDP P]=GetHallwayParameters">GetHallwayParameters</a>	The hallway discrete POMDP.</li><li><a href="../.././Experiments/GetTest1Parameters.html" class="code" title="function [POMDP P]=GetTest1Parameters(varargin)">GetTest1Parameters</a>	The example on Figure 1.</li><li><a href="../.././Experiments/GetTest1caParameters.html" class="code" title="function [POMDP P]=GetTest1caParameters(varargin)">GetTest1caParameters</a>	The example on Figure 10.</li><li><a href="../.././Experiments/GetTest1coParameters.html" class="code" title="function [POMDP P]=GetTest1coParameters(varargin)">GetTest1coParameters</a>	The example on Figure 11.</li><li><a href="../.././Experiments/GetTest1pParameters.html" class="code" title="function [POMDP P]=GetTest1pParameters(varargin)">GetTest1pParameters</a>	The example on Figure 8.</li><li><a href="../.././Experiments/MakeFigure1.html" class="code" title="function MakeFigure1">MakeFigure1</a>	Generates Figure 1.</li><li><a href="../.././Experiments/MakeFigure3.html" class="code" title="function MakeFigure3(varargin)">MakeFigure3</a>	Generates Figure 3.</li><li><a href="../.././Experiments/MakeFigure6.html" class="code" title="function MakeFigure6">MakeFigure6</a>	Generates Figure 6.</li><li><a href="../.././Experiments/MakeFigure7.html" class="code" title="function MakeFigure7">MakeFigure7</a>	Generates Figure 7.</li><li><a href="../.././Experiments/MakeFigure9.html" class="code" title="function MakeFigure9">MakeFigure9</a>	Generates Figure 9.</li><li><a href="../.././Lib/GetPOMDPSolutionStatistics.html" class="code" title="function [tics aV aR nA nC]=GetPOMDPSolutionStatistics(POMDP,P,B,V,Alpha,time,maxTime,stTime)">GetPOMDPSolutionStatistics</a>	Collects statistics with the outcome of an experiment.</li><li><a href="../.././Lib/TestOne.html" class="code" title="function [POMDP P B V Val Alpha t]=TestOne(varargin)">TestOne</a>	Samples beliefs and executes Perseus on a given problem.</li><li><a href="../.././Lib/TestRep.html" class="code" title="function TestRep(varargin)">TestRep</a>	Executes many times of Perseus on a given problem.</li><li><a href="../.././POMDP/@CS_POMDP/CS_POMDP.html" class="code" title="function P=CS_POMDP(varargin)">CS_POMDP</a>	CS_POMDP constructor.</li><li><a href="../.././POMDP/@DS_POMDP/DS_POMDP.html" class="code" title="function P=DS_POMDP(varargin)">DS_POMDP</a>	DS_POMDP constructor.</li><li><a href="UniformDistribution.html" class="code" title="function u=UniformDistribution(POMDP)">UniformDistribution</a>	Uniform distribution in the POMDP state space.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function P=POMDP(varargin)</a>
+0002 <span class="comment">%   POMDP constructor.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Base object for all POMDP objects.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">%   Parameters</span>
+0007 <span class="comment">%     name: name for the POMDP.</span>
+0008 <span class="comment">%     gamma: discount factor.</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">%   See also DS_POMDP, CS_POMDP.</span>
+0011 
+0012   <span class="keyword">switch</span> nargin
+0013     
+0014     <span class="keyword">case</span> 1
+0015       <span class="keyword">if</span> isa(varargin{1},<span class="string">'POMDP'</span>)
+0016         P=varargin{1};
+0017       <span class="keyword">else</span>
+0018         error(<span class="string">'Wrong parameter type in POMDP constructor'</span>);
+0019       <span class="keyword">end</span>
+0020       
+0021     <span class="keyword">case</span> 2
+0022       <span class="keyword">if</span> isa(varargin{1},<span class="string">'char'</span>)
+0023         P.name =varargin{1};
+0024       <span class="keyword">else</span>
+0025         error(<span class="string">'Wrong parameter type in POMDP constructor'</span>);
+0026       <span class="keyword">end</span>
+0027       
+0028       <span class="keyword">if</span> isa(varargin{2},<span class="string">'double'</span>)
+0029         P.gamma =varargin{2};
+0030       <span class="keyword">else</span>
+0031         error(<span class="string">'Wrong parameter type in POMDP constructor'</span>);
+0032       <span class="keyword">end</span>
+0033 
+0034       P=class(P,<span class="string">'POMDP'</span>);
+0035       
+0036     <span class="keyword">otherwise</span>
+0037       error(<span class="string">'Wrong number of parameters in POMDP constructor'</span>);
+0038   <span class="keyword">end</span></pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

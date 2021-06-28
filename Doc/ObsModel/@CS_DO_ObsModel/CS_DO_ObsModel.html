@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of CS_DO_ObsModel</title>
+  <meta name="keywords" content="CS_DO_ObsModel">
+  <meta name="description" content="CS_DO_ObsModel constructor.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # ObsModel --><!-- # @CS_DO_ObsModel -->
+<h1>CS_DO_ObsModel
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>CS_DO_ObsModel constructor.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function OM=CS_DO_ObsModel(varargin) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   CS_DO_ObsModel constructor.
+
+   Defines an observation model (p(o|s))  on continuous state and discrete 
+   observation spaces.
+
+   Parameters
+    S: Continuous state space.
+    O: Discrete observation space.
+    p: A cell array with one GMixture (in 's') for each observation.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>	Returns the size of a policy.</li><li><a href="../.././Belief/@DBelief/rand.html" class="code" title="function v=rand(b)">rand</a>	Random state from a discrete belief.</li><li><a href="../.././Belief/@PBelief/rand.html" class="code" title="function v=rand(b)">rand</a>	Random state from a belief.</li><li><a href="../.././Lib/@GMixture/Value.html" class="code" title="function v=Value(gm,x)">Value</a>	Evaluates a GMixture.</li><li><a href="../.././Lib/@GMixture/rand.html" class="code" title="function v=rand(gm,varargin)">rand</a>	Generates random points on a GMixture.</li><li><a href="../.././Lib/@Gaussian/Value.html" class="code" title="function v=Value(g,x)">Value</a>	Evaluation of a Gaussian.</li><li><a href="../.././Lib/@Gaussian/rand.html" class="code" title="function r=rand(g,varargin)">rand</a>	Generates random ponts on a Gaussian.</li><li><a href="../.././ObsModel/@ObsModel/ObsModel.html" class="code" title="function OM=ObsModel(varargin)">ObsModel</a>	ObsModel constructor.</li><li><a href="../.././Space/@CSpace/UniformProbability.html" class="code" title="function p=UniformProbability(CS)">UniformProbability</a>	Uniform probability value on a continuous space.</li><li><a href="../.././Space/@CSpace/dim.html" class="code" title="function d=dim(CS)">dim</a>	Dimensionality of a continuous space.</li><li><a href="../.././Space/@CSpace/rand.html" class="code" title="function v=rand(CS)">rand</a>	Random state from a continuous space.</li><li><a href="../.././Space/@DSpace/UniformProbability.html" class="code" title="function p=UniformProbability(DS)">UniformProbability</a>	Uniform probability value on a discrete space.</li><li><a href="../.././Space/@DSpace/dim.html" class="code" title="function d=dim(DS)">dim</a>	Dimensionality of a discrete space.</li><li><a href="../.././Space/@DSpace/rand.html" class="code" title="function v=rand(DS)">rand</a>	Random state from a discrete space.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Experiments/GetTest1Parameters.html" class="code" title="function [POMDP P]=GetTest1Parameters(varargin)">GetTest1Parameters</a>	The example on Figure 1.</li><li><a href="../.././ObsModel/@CS_CO_ObsModel/DiscretizeObsModel.html" class="code" title="function CS_DO_OM=DiscretizeObsModel(CS_CO_OM,V,ba,nSamples)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function OM=CS_DO_ObsModel(varargin)</a>
+0002 <span class="comment">%   CS_DO_ObsModel constructor.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Defines an observation model (p(o|s))  on continuous state and discrete</span>
+0005 <span class="comment">%   observation spaces.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%   Parameters</span>
+0008 <span class="comment">%    S: Continuous state space.</span>
+0009 <span class="comment">%    O: Discrete observation space.</span>
+0010 <span class="comment">%    p: A cell array with one GMixture (in 's') for each observation.</span>
+0011 
+0012   <span class="keyword">switch</span> nargin
+0013     <span class="keyword">case</span> 1
+0014       <span class="keyword">if</span> isa(varargin{1},<span class="string">'CS_DO_ObsModel'</span>)
+0015         OM=varargin{1};
+0016       <span class="keyword">else</span>
+0017         error(<span class="string">'Wrong parameter type in CS_DO_ObsModel constructor'</span>);
+0018       <span class="keyword">end</span>
+0019     <span class="keyword">case</span> 3
+0020       <span class="keyword">if</span> isa(varargin{1},<span class="string">'CSpace'</span>)
+0021         OM.S=varargin{1};
+0022       <span class="keyword">else</span>
+0023         error(<span class="string">'Wrong parameter type in CS_DO_ObsModel constructor'</span>);
+0024       <span class="keyword">end</span>
+0025       <span class="keyword">if</span> isa(varargin{2},<span class="string">'DSpace'</span>)
+0026         OM.O=varargin{2};
+0027       <span class="keyword">else</span>
+0028         error(<span class="string">'Wrong parameter type in CS_DO_ObsModel constructor'</span>);
+0029       <span class="keyword">end</span>
+0030       <span class="keyword">if</span> isa(varargin{3},<span class="string">'cell'</span>)
+0031         OM.p=varargin{3};
+0032       <span class="keyword">else</span>
+0033         error(<span class="string">'Wrong parameter type in CS_DO_ObsModel constructor'</span>);
+0034       <span class="keyword">end</span>
+0035          
+0036       no=<a href="../.././Space/@CSpace/dim.html" class="code" title="function d=dim(CS)">dim</a>(OM.O);
+0037       <span class="keyword">if</span> no~=<a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>(OM.p,2) 
+0038         error(<span class="string">'Size missmatch in DS_CO_ObsModel constructor'</span>);
+0039       <span class="keyword">end</span>
+0040       
+0041       <span class="comment">% p(s) should be uniform in 's'. We compute p(s) as</span>
+0042       <span class="comment">%      p(s) = sum_o p(o,s)</span>
+0043       <span class="comment">% and, assuming it is constant, we scale p(o,s) so that p(s) is</span>
+0044       <span class="comment">% actually uniform.</span>
+0045       o=OM.p{1};
+0046       <span class="keyword">for</span> i=2:no
+0047         o=o+OM.p{i};
+0048       <span class="keyword">end</span>
+0049       <span class="comment">% Scale factor to apply = What it should be (UniformProbability(OM.S))</span>
+0050       <span class="comment">% vs. what actually is (Value(o,Center(OM.S)))</span>
+0051       <span class="comment">% We estimate p(s) via sampling (small variations can occur)</span>
+0052       ps=0;
+0053       <span class="keyword">for</span> i=1:10
+0054         ps=ps+<a href="../.././Lib/@GMixture/Value.html" class="code" title="function v=Value(gm,x)">Value</a>(o,<a href="../.././Belief/@DBelief/rand.html" class="code" title="function v=rand(b)">rand</a>(OM.S));
+0055       <span class="keyword">end</span>
+0056       ps=ps/10;
+0057       scale=<a href="../.././Space/@CSpace/UniformProbability.html" class="code" title="function p=UniformProbability(CS)">UniformProbability</a>(OM.S)/ps;
+0058       <span class="keyword">for</span> i=1:no
+0059         OM.p{i}=OM.p{i}*scale;
+0060       <span class="keyword">end</span>
+0061       
+0062       OMBase=<a href="../.././ObsModel/@ObsModel/ObsModel.html" class="code" title="function OM=ObsModel(varargin)">ObsModel</a>();
+0063       
+0064       OM=class(OM,<span class="string">'CS_DO_ObsModel'</span>,OMBase);
+0065       
+0066     <span class="keyword">otherwise</span>
+0067       error(<span class="string">'Wrong number of parameters in CS_DO_ObsModel constructor'</span>);
+0068   <span class="keyword">end</span>
+0069   
+0070</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

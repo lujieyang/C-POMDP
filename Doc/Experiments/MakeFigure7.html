@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of MakeFigure7</title>
+  <meta name="keywords" content="MakeFigure7">
+  <meta name="description" content="Generates Figure 7.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Experiments -->
+<h1>MakeFigure7
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>Generates Figure 7.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function MakeFigure7 </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">  Generates Figure 7.
+
+   Figure 7-left shows the execution time for the first iteration of
+   Perseus in a discretized version of the problem in Figure 1 with an
+   increasing number of states.
+
+   Figure 7-right show the average accumulated discounted reward when
+   solving the discrete version of the problem in Figure 1 with 20 and 200
+   states, comparing it with the average accumulated discounted reward
+   obtained when solving the continuous version of the problem.
+
+   NOTE: There is a large difference between the results you will obtain
+         in this experiment and those in the paper.
+         As mentioned in page 29, the discrete version of Perseus can be
+         sped up vectorizing its operations and exploiting the sparsity of
+         the matrices defining the models. In the old version we did not
+         use those enhancements but we do in the current implementation.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href=".././Belief/@DBelief/DBelief.html" class="code" title="function db=DBelief(varargin)">DBelief</a>	Discrete belief constructor.</li><li><a href=".././Belief/@DBelief/plot.html" class="code" title="function h=plot(b,varargin)">plot</a>	Plots a discrete belief.</li><li><a href=".././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>	Get for GBeliefs.</li><li><a href=".././Belief/@PBelief/plot.html" class="code" title="function h=plot(pb,varargin)">plot</a>	Displays a particle-based belief.</li><li><a href="GenerateFigure7aData.html" class="code" title="function GenerateFigure7aData(fname)">GenerateFigure7aData</a>	Generates the data for Figure 7-left.</li><li><a href="GetTest1Parameters.html" class="code" title="function [POMDP P]=GetTest1Parameters(varargin)">GetTest1Parameters</a>	The example on Figure 1.</li><li><a href=".././Lib/@GMixture/get.html" class="code" title="function value=get(gm,field,varargin)">get</a>	Get function for the GMixture object.</li><li><a href=".././Lib/@GMixture/plot.html" class="code" title="function h=plot(gm,varargin)">plot</a>	Plots a Gaussian mixture.</li><li><a href=".././Lib/@GMixture/set.html" class="code" title="function gm=set(gm,field,value)">set</a>	Set method for Gaussian mixtures.</li><li><a href=".././Lib/@Gaussian/get.html" class="code" title="function out=get(g,field)">get</a>	Gaussian object get function.</li><li><a href=".././Lib/@Gaussian/plot.html" class="code" title="function h=plot(g,varargin)">plot</a>	Plots a Gaussian.</li><li><a href=".././Lib/GetData.html" class="code" title="function data=GetData(fname,GenerateData)">GetData</a>	Loads and, if necessary, generates data from experiments.</li><li><a href=".././Lib/TestRepWithStatistics.html" class="code" title="function TestRepWithStatistics(varargin)">TestRepWithStatistics</a>	Executes many times Perseus on a given problem and collects statistics.</li><li><a href=".././ObsModel/@CS_CO_ObsModel/plot.html" class="code" title="function h=plot(OM)">plot</a>	Plots the CS_CO_ObsModel</li><li><a href=".././POMDP/@CS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_CA_POMDPs.</li><li><a href=".././POMDP/@CS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_DA_POMDPs.</li><li><a href=".././POMDP/@CS_CO_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_POMDPs.</li><li><a href=".././POMDP/@CS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_CA_POMDPs.</li><li><a href=".././POMDP/@CS_DO_DA_POMDP/Discretize.html" class="code" title="function DP=Discretize(CP,n)">Discretize</a>	Discretizes the state space of the CS_DO_DA_POMDP.</li><li><a href=".././POMDP/@CS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_DA_POMDPs.</li><li><a href=".././POMDP/@CS_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_POMDPs.</li><li><a href=".././POMDP/@DS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_CA_POMDPs.</li><li><a href=".././POMDP/@DS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_DA_POMDPs.</li><li><a href=".././POMDP/@DS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_CA_POMDPs.</li><li><a href=".././POMDP/@DS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_DA_POMDPs.</li><li><a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>	POMDP constructor.</li><li><a href=".././POMDP/@POMDP/UniformDistribution.html" class="code" title="function u=UniformDistribution(POMDP)">UniformDistribution</a>	Uniform distribution in the POMDP state space.</li><li><a href=".././POMDP/@POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get functio for POMDPs.</li><li><a href=".././POMDP/@POMDP/set.html" class="code" title="function P=set(P,field,value)">set</a>	Set function for PODMP (base type)</li><li><a href=".././RewardModel/@CS_CA_RewardModel/plot.html" class="code" title="function h=plot(RM)">plot</a>	Plots the CS_CA_RewardModel</li><li><a href=".././Space/@CSpace/Discretize.html" class="code" title="function DS=Discretize(CS,n,varargin)">Discretize</a>	Converts a continuous space into a discrete one.</li><li><a href=".././Space/@CSpace/UniformDistribution.html" class="code" title="function [p v]=UniformDistribution(CS)">UniformDistribution</a>	Uniform probability on a continuous space.</li><li><a href=".././Space/@DSpace/UniformDistribution.html" class="code" title="function [p v]=UniformDistribution(DS)">UniformDistribution</a>	Uniform probability on a discrete space.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function MakeFigure7</a>
+0002 <span class="comment">%  Generates Figure 7.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Figure 7-left shows the execution time for the first iteration of</span>
+0005 <span class="comment">%   Perseus in a discretized version of the problem in Figure 1 with an</span>
+0006 <span class="comment">%   increasing number of states.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">%   Figure 7-right show the average accumulated discounted reward when</span>
+0009 <span class="comment">%   solving the discrete version of the problem in Figure 1 with 20 and 200</span>
+0010 <span class="comment">%   states, comparing it with the average accumulated discounted reward</span>
+0011 <span class="comment">%   obtained when solving the continuous version of the problem.</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">%   NOTE: There is a large difference between the results you will obtain</span>
+0014 <span class="comment">%         in this experiment and those in the paper.</span>
+0015 <span class="comment">%         As mentioned in page 29, the discrete version of Perseus can be</span>
+0016 <span class="comment">%         sped up vectorizing its operations and exploiting the sparsity of</span>
+0017 <span class="comment">%         the matrices defining the models. In the old version we did not</span>
+0018 <span class="comment">%         use those enhancements but we do in the current implementation.</span>
+0019 
+0020   fprintf(<span class="string">'Loading/Generating the simulation results\n'</span>);
+0021   fname=<span class="string">'Results/Test1-Figure7-a.mat'</span>;
+0022   GenData=@()(<a href="GenerateFigure7aData.html" class="code" title="function GenerateFigure7aData(fname)">GenerateFigure7aData</a>(fname));
+0023   Results=<a href=".././Lib/GetData.html" class="code" title="function data=GetData(fname,GenerateData)">GetData</a>(fname,GenData);
+0024 
+0025   h=clf;
+0026   <a href=".././Lib/@GMixture/set.html" class="code" title="function gm=set(gm,field,value)">set</a>(h,<span class="string">'name'</span>,<span class="string">'C-POMDP Figure 7'</span>,<span class="string">'numbertitle'</span>,<span class="string">'off'</span>);
+0027   
+0028   subplot(1,2,1);
+0029   bar(Results.ns,Results.tp);
+0030 
+0031   xlabel(<span class="string">'No. States'</span>);
+0032   ylabel(<span class="string">'time (s)'</span>);
+0033   
+0034   fprintf(<span class="string">'Loading/Generating the simulation results with normal parameters\n'</span>);
+0035   GenData=@()(<a href=".././Lib/TestRepWithStatistics.html" class="code" title="function TestRepWithStatistics(varargin)">TestRepWithStatistics</a>(<span class="string">'Test1'</span>,<span class="string">'Figure2'</span>,1:10));
+0036   ResultsNormal=<a href=".././Lib/GetData.html" class="code" title="function data=GetData(fname,GenerateData)">GetData</a>(<span class="string">'Results/Test1-Figure2-results.mat'</span>,GenData);
+0037   
+0038   [<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a> P]=<a href="GetTest1Parameters.html" class="code" title="function [POMDP P]=GetTest1Parameters(varargin)">GetTest1Parameters</a>;
+0039   
+0040   fprintf(<span class="string">'Loading/Generating the simulation results with 20 states\n'</span>);
+0041   DPOMDP=<a href=".././POMDP/@CS_DO_DA_POMDP/Discretize.html" class="code" title="function DP=Discretize(CP,n)">Discretize</a>(<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>,20);
+0042   P.start=<a href=".././Belief/@DBelief/DBelief.html" class="code" title="function db=DBelief(varargin)">DBelief</a>(<a href=".././POMDP/@POMDP/UniformDistribution.html" class="code" title="function u=UniformDistribution(POMDP)">UniformDistribution</a>(<a href=".././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>(DPOMDP,<span class="string">'StateSpace'</span>)));
+0043   GenData=@()(<a href=".././Lib/TestRepWithStatistics.html" class="code" title="function TestRepWithStatistics(varargin)">TestRepWithStatistics</a>(DPOMDP,P,<span class="string">'Figure7-b1'</span>,1:10));
+0044   ResultsD20=<a href=".././Lib/GetData.html" class="code" title="function data=GetData(fname,GenerateData)">GetData</a>(<span class="string">'Results/Test1-discrete-20-Figure7-b1-results.mat'</span>,GenData);
+0045   
+0046   fprintf(<span class="string">'Loading/Generating the simulation results with 200 states\n'</span>);
+0047   DPOMDP=<a href=".././POMDP/@CS_DO_DA_POMDP/Discretize.html" class="code" title="function DP=Discretize(CP,n)">Discretize</a>(<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>,200);
+0048   P.start=<a href=".././Belief/@DBelief/DBelief.html" class="code" title="function db=DBelief(varargin)">DBelief</a>(<a href=".././POMDP/@POMDP/UniformDistribution.html" class="code" title="function u=UniformDistribution(POMDP)">UniformDistribution</a>(<a href=".././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>(DPOMDP,<span class="string">'StateSpace'</span>)));
+0049   GenData=@()(<a href=".././Lib/TestRepWithStatistics.html" class="code" title="function TestRepWithStatistics(varargin)">TestRepWithStatistics</a>(DPOMDP,P,<span class="string">'Figure7-b2'</span>,1:10));
+0050   ResultsD200=<a href=".././Lib/GetData.html" class="code" title="function data=GetData(fname,GenerateData)">GetData</a>(<span class="string">'Results/Test1-discrete-200-Figure7-b2-results.mat'</span>,GenData);
+0051   
+0052   
+0053   subplot(1,2,2);
+0054   <a href=".././Belief/@DBelief/plot.html" class="code" title="function h=plot(b,varargin)">plot</a>(ResultsD20.tics,ResultsD20.SM.R,<span class="string">'linestyle'</span>,<span class="string">':'</span>);
+0055   hold on;
+0056   <a href=".././Belief/@DBelief/plot.html" class="code" title="function h=plot(b,varargin)">plot</a>(ResultsD200.tics,ResultsD200.SM.R,<span class="string">'linestyle'</span>,<span class="string">'--'</span>);
+0057   <a href=".././Belief/@DBelief/plot.html" class="code" title="function h=plot(b,varargin)">plot</a>(ResultsNormal.tics,ResultsNormal.SM.R);
+0058   
+0059   legend(<span class="string">'Discrete PERSEUS (20 states)'</span>,<span class="string">'Discrete PERSEUS (200 states)'</span>,<span class="string">'Continuous-State PERSEUS'</span>);
+0060   
+0061   xlabel(<span class="string">'time (s)'</span>);
+0062   ylabel(<span class="string">'Acc. Disc. Reward'</span>);</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of Prediction</title>
+  <meta name="keywords" content="Prediction">
+  <meta name="description" content="Belief evolution under the given action.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # ActionModel --><!-- # @DS_CA_ActionModel -->
+<h1>Prediction
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Belief evolution under the given action.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function [sOut bOut]=Prediction(AM,s,b,a,Sp) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Belief evolution under the given action. 
+ 
+   Updates a belief applying action 'a'.
+   Parameters:
+     AM: The action model to use.
+     s: The hidden state. We also update it to use it in simulations.
+        Note, however, that this state is never accesible by the planner
+        (only the beliefs are).
+     b: The belief to update.
+     a: The action to apply
+     Sp: Space where the belief is defined (used to bound the belief and
+         the hidden state if necessary).
+   Outputs:
+     sOut: The updated hidden state.
+     bOut: The updated belief.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././ActionModel/@ActionModel/BeliefPrediction.html" class="code" title="function [bOut t]=BeliefPrediction(AM,b,a,Sp)">BeliefPrediction</a>	Belief evolution under a given action.</li><li><a href="../.././Lib/RandVector.html" class="code" title="function i=RandVector(v)">RandVector</a>	Selects and element from a discrete probability distribution.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././ActionModel/@ActionModel/BeliefPrediction.html" class="code" title="function [bOut t]=BeliefPrediction(AM,b,a,Sp)">BeliefPrediction</a>	Belief evolution under a given action.</li><li><a href="../.././POMDP/@POMDP/SimulationStep.html" class="code" title="function [s b o r]=SimulationStep(P,b,s,a)">SimulationStep</a>	Executes one step of a POMDP simulation.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [sOut bOut]=Prediction(AM,s,b,a,Sp)</a>
+0002 <span class="comment">%   Belief evolution under the given action.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Updates a belief applying action 'a'.</span>
+0005 <span class="comment">%   Parameters:</span>
+0006 <span class="comment">%     AM: The action model to use.</span>
+0007 <span class="comment">%     s: The hidden state. We also update it to use it in simulations.</span>
+0008 <span class="comment">%        Note, however, that this state is never accesible by the planner</span>
+0009 <span class="comment">%        (only the beliefs are).</span>
+0010 <span class="comment">%     b: The belief to update.</span>
+0011 <span class="comment">%     a: The action to apply</span>
+0012 <span class="comment">%     Sp: Space where the belief is defined (used to bound the belief and</span>
+0013 <span class="comment">%         the hidden state if necessary).</span>
+0014 <span class="comment">%   Outputs:</span>
+0015 <span class="comment">%     sOut: The updated hidden state.</span>
+0016 <span class="comment">%     bOut: The updated belief.</span>
+0017 
+0018   [bOut t]=<a href="../.././ActionModel/@ActionModel/BeliefPrediction.html" class="code" title="function [bOut t]=BeliefPrediction(AM,b,a,Sp)">BeliefPrediction</a>(AM,b,a,Sp);
+0019 
+0020   sOut=<a href="../.././Lib/RandVector.html" class="code" title="function i=RandVector(v)">RandVector</a>(t(:,s));
+0021   
+0022</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

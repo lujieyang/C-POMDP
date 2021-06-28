@@ -1,0 +1,13 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  Alpha0 -> get;
+  Backup -> get;
+  ComputeAlpha_j_a_o -> get;
+  get -> get;
+
+  Alpha0 [URL="Alpha0.html"];
+  Backup [URL="Backup.html"];
+  CS_POMDP [URL="CS_POMDP.html"];
+  ComputeAlpha_j_a_o [URL="ComputeAlpha_j_a_o.html"];
+  get [URL="get.html"];
+}

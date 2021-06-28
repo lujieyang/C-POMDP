@@ -1,0 +1,9 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  DiscretizeObsModel -> GetObsModelFixedO;
+
+  DS_CO_ObsModel [URL="DS_CO_ObsModel.html"];
+  DiscretizeObsModel [URL="DiscretizeObsModel.html"];
+  GetObsModelFixedO [URL="GetObsModelFixedO.html"];
+  GetObsModelFixedS [URL="GetObsModelFixedS.html"];
+}

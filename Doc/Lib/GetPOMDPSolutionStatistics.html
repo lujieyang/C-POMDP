@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of GetPOMDPSolutionStatistics</title>
+  <meta name="keywords" content="GetPOMDPSolutionStatistics">
+  <meta name="description" content="Collects statistics with the outcome of an experiment.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Lib -->
+<h1>GetPOMDPSolutionStatistics
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>Collects statistics with the outcome of an experiment.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function [tics aV aR nA nC]=GetPOMDPSolutionStatistics(POMDP,P,B,V,Alpha,time,maxTime,stTime) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Collects statistics with the outcome of an experiment.
+
+   Computes statistics on a solution obtained by Perseus.
+   Parameters
+     - POMDP: The POMDP on which Perseus was applied.
+     - P: Set of parameters used to solve the problem.
+     - B: Set of Beliefs used to apply Perseus.
+     - V: Set of policies obtained by Perseus (one per iteration. Lines
+          6-22 of Table 1, page 12 of the paper).
+     - Alpha: Alpha element assigned to each Belief in each iteration
+     - time: Time at which each iteration was compleated.
+     - maxTime: Max time in second for which to which collect statistics.
+     - stTime: Step between two consecutive recollection of statistics.
+   Outputs
+     - tics: Time at which statistics are collected
+     - aV: Average value for all beliefs. The computation of this value
+           can be quite demanding.
+     - aR: Average cummulative discounted reward. T The POMDP is simulated 
+           several times for several time slices (both parameters are set 
+           in P) and, thus, his is extremely time demanding.
+     - nA: Number of alpha elements in the policy.
+     - nC: Average number of changes in the optimal action for each belief
+           from one policy to the next.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href=".././@Policy/MaxAlpha.html" class="code" title="function [nAlpha v]=MaxAlpha(P,b)">MaxAlpha</a>	Returns the maximizing alpha-element for a belief.</li><li><a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>	Returns the size of a policy.</li><li><a href=".././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>	Get for GBeliefs.</li><li><a href=".././Lib/@GMixture/get.html" class="code" title="function value=get(gm,field,varargin)">get</a>	Get function for the GMixture object.</li><li><a href=".././Lib/@Gaussian/get.html" class="code" title="function out=get(g,field)">get</a>	Gaussian object get function.</li><li><a href=".././POMDP/@CS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_CA_POMDPs.</li><li><a href=".././POMDP/@CS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_DA_POMDPs.</li><li><a href=".././POMDP/@CS_CO_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_POMDPs.</li><li><a href=".././POMDP/@CS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_CA_POMDPs.</li><li><a href=".././POMDP/@CS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_DA_POMDPs.</li><li><a href=".././POMDP/@CS_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_POMDPs.</li><li><a href=".././POMDP/@DS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_CA_POMDPs.</li><li><a href=".././POMDP/@DS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_DA_POMDPs.</li><li><a href=".././POMDP/@DS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_CA_POMDPs.</li><li><a href=".././POMDP/@DS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_DA_POMDPs.</li><li><a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>	POMDP constructor.</li><li><a href=".././POMDP/@POMDP/SimulateFrom.html" class="code" title="function r=SimulateFrom(P,V,start,n)">SimulateFrom</a>	Simulates a POMDP from a given belief.</li><li><a href=".././POMDP/@POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get functio for POMDPs.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="TestRep.html" class="code" title="function TestRep(varargin)">TestRep</a>	Executes many times of Perseus on a given problem.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [tics aV aR nA nC]=GetPOMDPSolutionStatistics(POMDP,P,B,V,Alpha,time,maxTime,stTime)</a>
+0002 <span class="comment">%   Collects statistics with the outcome of an experiment.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Computes statistics on a solution obtained by Perseus.</span>
+0005 <span class="comment">%   Parameters</span>
+0006 <span class="comment">%     - POMDP: The POMDP on which Perseus was applied.</span>
+0007 <span class="comment">%     - P: Set of parameters used to solve the problem.</span>
+0008 <span class="comment">%     - B: Set of Beliefs used to apply Perseus.</span>
+0009 <span class="comment">%     - V: Set of policies obtained by Perseus (one per iteration. Lines</span>
+0010 <span class="comment">%          6-22 of Table 1, page 12 of the paper).</span>
+0011 <span class="comment">%     - Alpha: Alpha element assigned to each Belief in each iteration</span>
+0012 <span class="comment">%     - time: Time at which each iteration was compleated.</span>
+0013 <span class="comment">%     - maxTime: Max time in second for which to which collect statistics.</span>
+0014 <span class="comment">%     - stTime: Step between two consecutive recollection of statistics.</span>
+0015 <span class="comment">%   Outputs</span>
+0016 <span class="comment">%     - tics: Time at which statistics are collected</span>
+0017 <span class="comment">%     - aV: Average value for all beliefs. The computation of this value</span>
+0018 <span class="comment">%           can be quite demanding.</span>
+0019 <span class="comment">%     - aR: Average cummulative discounted reward. T The POMDP is simulated</span>
+0020 <span class="comment">%           several times for several time slices (both parameters are set</span>
+0021 <span class="comment">%           in P) and, thus, his is extremely time demanding.</span>
+0022 <span class="comment">%     - nA: Number of alpha elements in the policy.</span>
+0023 <span class="comment">%     - nC: Average number of changes in the optimal action for each belief</span>
+0024 <span class="comment">%           from one policy to the next.</span>
+0025 
+0026   nSteps=floor(maxTime/stTime);
+0027   tics=(0:(nSteps-1))*stTime;
+0028   
+0029   aV=zeros(1,nSteps);
+0030   aR=zeros(1,nSteps);
+0031   nA=zeros(1,nSteps);
+0032   nC=zeros(1,nSteps);
+0033   
+0034   <span class="comment">% Table from time at fixed intervals to time in</span>
+0035   <span class="comment">% irregular</span>
+0036   h=ones(1,nSteps);
+0037   j=1;
+0038   <span class="keyword">for</span> i=2:nSteps
+0039     <span class="keyword">while</span> time(j)&lt;tics(i)
+0040       j=j+1;
+0041     <span class="keyword">end</span>
+0042     h(i)=j-1;
+0043   <span class="keyword">end</span>
+0044   
+0045   <span class="comment">%Number of beliefs in B</span>
+0046   nb=<a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>(B,2);
+0047   
+0048   fprintf(<span class="string">' Computing average expected value   :'</span>);
+0049   <span class="keyword">for</span> n=1:nSteps
+0050     fprintf(<span class="string">'.'</span>);
+0051     <span class="keyword">if</span> (n==1)||(h(n)~=h(n-1))
+0052       [Aph Vl]=cellfun(@(b)(<a href=".././@Policy/MaxAlpha.html" class="code" title="function [nAlpha v]=MaxAlpha(P,b)">MaxAlpha</a>(V{h(n)},b)),B);
+0053       aV(n)=sum(Vl)/nb;
+0054     <span class="keyword">else</span>
+0055       aV(n)=aV(n-1);
+0056     <span class="keyword">end</span>
+0057   <span class="keyword">end</span>
+0058   fprintf(<span class="string">'\n'</span>);
+0059   
+0060   fprintf(<span class="string">' Computing average discounted reward:'</span>);
+0061   <span class="keyword">for</span> n=1:nSteps
+0062     fprintf(<span class="string">'.'</span>);
+0063     <span class="keyword">if</span> (n==1)||(h(n)~=h(n-1))
+0064       r=0.0;
+0065       <span class="keyword">for</span> i=1:P.numTrials
+0066         r1=<a href=".././POMDP/@POMDP/SimulateFrom.html" class="code" title="function r=SimulateFrom(P,V,start,n)">SimulateFrom</a>(<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>,V{h(n)},P.start,P.stepsXtrial);
+0067         r=r+r1;
+0068       <span class="keyword">end</span>
+0069       aR(n)=r/P.numTrials;
+0070     <span class="keyword">else</span>
+0071       aR(n)=aR(n-1);
+0072     <span class="keyword">end</span>
+0073   <span class="keyword">end</span>
+0074   fprintf(<span class="string">'\n'</span>);
+0075   
+0076   fprintf(<span class="string">' Getting number of alpha elements:\n'</span>);
+0077   <span class="keyword">for</span> n=1:nSteps
+0078     nA(n)=<a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>(V{h(n)});
+0079   <span class="keyword">end</span>
+0080   
+0081   fprintf(<span class="string">' Getting number of policy changes:\n'</span>);
+0082   discreteA=isa(<a href=".././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>(<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>,<span class="string">'ActionSpace'</span>),<span class="string">'DSpace'</span>);
+0083   nC(1)=1; <span class="comment">% at first step all belief change</span>
+0084   <span class="keyword">for</span> n=2:nSteps
+0085     l=h(n-1);
+0086     s=h(n);
+0087     <span class="keyword">for</span> i=1:nb
+0088       [e1 a1]=V{l}{Alpha{l}(i)};
+0089       [e2 a2]=V{s}{Alpha{s}(i)};
+0090       <span class="keyword">if</span> discreteA
+0091         nC(n)=nC(n)+(a1~=a2);
+0092       <span class="keyword">else</span>
+0093         nC(n)=nC(n)+norm(a1-a2);
+0094       <span class="keyword">end</span>
+0095     <span class="keyword">end</span>
+0096     nC(n)=nC(n)/nb;
+0097   <span class="keyword">end</span>
+0098   
+0099</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

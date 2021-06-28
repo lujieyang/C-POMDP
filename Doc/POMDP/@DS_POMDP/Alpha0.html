@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of Alpha0</title>
+  <meta name="keywords" content="Alpha0">
+  <meta name="description" content="Alpha-element for the first Perseus iteration (discrete state version).">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # POMDP --><!-- # @DS_POMDP -->
+<h1>Alpha0
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Alpha-element for the first Perseus iteration (discrete state version).</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function a=Alpha0(P) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Alpha-element for the first Perseus iteration (discrete state version).
+
+   Generates the alpha element for initial planning horizion when working
+   with discrete state spaces.
+   The role of alpha_0 is detailed in Section 4, page 13, first paragraph.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>	Get for GBeliefs.</li><li><a href="../.././Lib/@GMixture/get.html" class="code" title="function value=get(gm,field,varargin)">get</a>	Get function for the GMixture object.</li><li><a href="../.././Lib/@Gaussian/get.html" class="code" title="function out=get(g,field)">get</a>	Gaussian object get function.</li><li><a href="../.././POMDP/@CS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_CA_POMDPs.</li><li><a href="../.././POMDP/@CS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_DA_POMDPs.</li><li><a href="../.././POMDP/@CS_CO_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_POMDPs.</li><li><a href="../.././POMDP/@CS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_CA_POMDPs.</li><li><a href="../.././POMDP/@CS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_DA_POMDPs.</li><li><a href="../.././POMDP/@CS_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_POMDPs.</li><li><a href="../.././POMDP/@DS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_CA_POMDPs.</li><li><a href="../.././POMDP/@DS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_DA_POMDPs.</li><li><a href="../.././POMDP/@DS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_CA_POMDPs.</li><li><a href="../.././POMDP/@DS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_DA_POMDPs.</li><li><a href="../.././POMDP/@POMDP/UniformDistribution.html" class="code" title="function u=UniformDistribution(POMDP)">UniformDistribution</a>	Uniform distribution in the POMDP state space.</li><li><a href="../.././POMDP/@POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get functio for POMDPs.</li><li><a href="../.././RewardModel/@CS_CA_RewardModel/minReward.html" class="code" title="function mr=minReward(RM)">minReward</a>	Lower bound of the minimal possible reward.</li><li><a href="../.././RewardModel/@CS_DA_RewardModel/minReward.html" class="code" title="function mr=minReward(RM)">minReward</a>	Lower bound of the minimal possible reward.</li><li><a href="../.././RewardModel/@DS_CA_RewardModel/minReward.html" class="code" title="function mr=minReward(RM)">minReward</a>	Lower bound of the minimal possible reward.</li><li><a href="../.././RewardModel/@DS_DA_RewardModel/minReward.html" class="code" title="function mr=minReward(RM)">minReward</a>	Lower bound of the minimal possible reward.</li><li><a href="../.././Space/@CSpace/UniformDistribution.html" class="code" title="function [p v]=UniformDistribution(CS)">UniformDistribution</a>	Uniform probability on a continuous space.</li><li><a href="../.././Space/@DSpace/UniformDistribution.html" class="code" title="function [p v]=UniformDistribution(DS)">UniformDistribution</a>	Uniform probability on a discrete space.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././POMDP/@POMDP/Perseus.html" class="code" title="function [V Value Alpha t]=Perseus(P,B,stopCriteria)">Perseus</a>	The Perseus point-based POMDP solver.</li><li><a href="../.././POMDP/@POMDP/iPerseus.html" class="code" title="function [V Value Alpha t]=iPerseus(P,B,stopCriteria)">iPerseus</a>	Improved version of Perseus.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function a=Alpha0(P)</a>
+0002 <span class="comment">%   Alpha-element for the first Perseus iteration (discrete state version).</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Generates the alpha element for initial planning horizion when working</span>
+0005 <span class="comment">%   with discrete state spaces.</span>
+0006 <span class="comment">%   The role of alpha_0 is detailed in Section 4, page 13, first paragraph.</span>
+0007 
+0008   S=<a href="../.././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>(P,<span class="string">'StateSpace'</span>);
+0009   gamma=<a href="../.././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>(P,<span class="string">'gamma'</span>);
+0010   [u v]=<a href="../.././POMDP/@POMDP/UniformDistribution.html" class="code" title="function u=UniformDistribution(POMDP)">UniformDistribution</a>(S);
+0011   a=(<a href="../.././RewardModel/@CS_CA_RewardModel/minReward.html" class="code" title="function mr=minReward(RM)">minReward</a>(P)/(1-gamma))*(1/v)*u;
+0012</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

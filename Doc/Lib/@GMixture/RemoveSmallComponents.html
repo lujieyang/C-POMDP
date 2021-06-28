@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of RemoveSmallComponents</title>
+  <meta name="keywords" content="RemoveSmallComponents">
+  <meta name="description" content="Eliminates the small components of a GMixture.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Lib --><!-- # @GMixture -->
+<h1>RemoveSmallComponents
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Eliminates the small components of a GMixture.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function [gmOut map]=RemoveSmallComponents(gm,t) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Eliminates the small components of a GMixture.
+
+   Produces a Gaussian mixture removing the small components of the input
+   mixture.
+   Parameters:
+     gm: The input mixture.
+     t: Weight threshold. Components with a weight with absolute value
+        below this threshold are removed.
+   Outputs:
+     gmOut: The mixture resulting from removing the small components.
+     map: Vector indicating which elements in the input mixture are used
+          in the output one (map(i)=j if the  i-th component of the output
+          mixture is the j-th component of the input mixture).</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>	Gaussian mixture constructor.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="Compress.html" class="code" title="function gmC=Compress(gm,m)">Compress</a>	Gaussian mixutre compression.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [gmOut map]=RemoveSmallComponents(gm,t)</a>
+0002 <span class="comment">%   Eliminates the small components of a GMixture.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Produces a Gaussian mixture removing the small components of the input</span>
+0005 <span class="comment">%   mixture.</span>
+0006 <span class="comment">%   Parameters:</span>
+0007 <span class="comment">%     gm: The input mixture.</span>
+0008 <span class="comment">%     t: Weight threshold. Components with a weight with absolute value</span>
+0009 <span class="comment">%        below this threshold are removed.</span>
+0010 <span class="comment">%   Outputs:</span>
+0011 <span class="comment">%     gmOut: The mixture resulting from removing the small components.</span>
+0012 <span class="comment">%     map: Vector indicating which elements in the input mixture are used</span>
+0013 <span class="comment">%          in the output one (map(i)=j if the  i-th component of the output</span>
+0014 <span class="comment">%          mixture is the j-th component of the input mixture).</span>
+0015 
+0016   map=find(abs(gm.w)&gt;t);
+0017   gmOut=<a href="GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>(gm.w(map),gm.g(map));
+0018</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

@@ -1,0 +1,7 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+
+  DS_DA_ActionModel [URL="DS_DA_ActionModel.html"];
+  GetActionModelFixedA [URL="GetActionModelFixedA.html"];
+  Prediction [URL="Prediction.html"];
+}

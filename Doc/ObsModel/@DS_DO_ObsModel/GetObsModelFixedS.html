@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of GetObsModelFixedS</title>
+  <meta name="keywords" content="GetObsModelFixedS">
+  <meta name="description" content="Defines p(o|s).">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # ObsModel --><!-- # @DS_DO_ObsModel -->
+<h1>GetObsModelFixedS
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Defines p(o|s).</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function p=GetObsModelFixedS(OM,s) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Defines p(o|s).
+
+   Instantiates the observation model for a particular state 's'.
+   In this case, the output is a vector with the size of the
+   number of observation in the discrete observation space on which this
+   model is defined. This vector is defined selecting the element 's' from
+   the cell array of vectors (one for each observatoin) given in the
+   object constructor.
+
+   The output is normalized.
+
+   See also <a href="DS_DO_ObsModel.html" class="code" title="function OM=DS_DO_ObsModel(varargin)">DS_DO_ObsModel</a>.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././POMDP/@POMDP/SimulationStep.html" class="code" title="function [s b o r]=SimulationStep(P,b,s,a)">SimulationStep</a>	Executes one step of a POMDP simulation.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function p=GetObsModelFixedS(OM,s)</a>
+0002 <span class="comment">%   Defines p(o|s).</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Instantiates the observation model for a particular state 's'.</span>
+0005 <span class="comment">%   In this case, the output is a vector with the size of the</span>
+0006 <span class="comment">%   number of observation in the discrete observation space on which this</span>
+0007 <span class="comment">%   model is defined. This vector is defined selecting the element 's' from</span>
+0008 <span class="comment">%   the cell array of vectors (one for each observatoin) given in the</span>
+0009 <span class="comment">%   object constructor.</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">%   The output is normalized.</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">%   See also DS_DO_ObsModel.</span>
+0014 
+0015   p=cellfun(@(x)(x(s)),OM.p);
+0016   p=p/sum(p);</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

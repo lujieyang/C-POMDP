@@ -1,0 +1,21 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  Crop -> max;
+  Crop -> min;
+  Discretize -> rand;
+  UniformDistribution -> max;
+  rand -> rand;
+
+  CSpace [URL="CSpace.html"];
+  Center [URL="Center.html"];
+  Crop [URL="Crop.html"];
+  Diameter [URL="Diameter.html"];
+  Discretize [URL="Discretize.html"];
+  UniformDistribution [URL="UniformDistribution.html"];
+  UniformProbability [URL="UniformProbability.html"];
+  Valid [URL="Valid.html"];
+  dim [URL="dim.html"];
+  max [URL="max.html"];
+  min [URL="min.html"];
+  rand [URL="rand.html"];
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of GMixture</title>
+  <meta name="keywords" content="GMixture">
+  <meta name="description" content="Gaussian mixture constructor.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Lib --><!-- # @GMixture -->
+<h1>GMixture
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Gaussian mixture constructor.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function gm=GMixture(varargin) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Gaussian mixture constructor.
+
+   Defines a (non-necessarily normalized) Gaussian mixture given the
+   weights and the Gaussian  for each component.
+   Possible parameters
+     - None: Defines an empty Gaussian mixture.
+     - Another Gaussian mixture: Copy constructor.
+     - w,g: The (row) vector of weigths and a cell array of Gaussians.
+     - g: The cell array of Gaussians. In this case the weights are
+          assumed uniform.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>	Returns the size of a policy.</li><li><a href="GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>	Gaussian mixture constructor.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Experiments/GetTest1Parameters.html" class="code" title="function [POMDP P]=GetTest1Parameters(varargin)">GetTest1Parameters</a>	The example on Figure 1.</li><li><a href="../.././Experiments/MakeFigure4.html" class="code" title="function MakeFigure4">MakeFigure4</a>	Generates Figure 4.</li><li><a href="CompressGR.html" class="code" title="function [gmC map]=CompressGR(gm,m,epsilon,MaxIterations)">CompressGR</a>	Gaussian mixture compression using the Golberger and Roweis method.</li><li><a href="Crop.html" class="code" title="function gmOut=Crop(gm,Sp)">Crop</a>	Limits all means to be inside the given space.</li><li><a href="GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>	Gaussian mixture constructor.</li><li><a href="GetFirstComponents.html" class="code" title="function gmOut=GetFirstComponents(gm,m)">GetFirstComponents</a>	Gets the first components of a GMixture.</li><li><a href="GetLargestComponents.html" class="code" title="function gmC=GetLargestComponents(gm,m)">GetLargestComponents</a>	Gets the components with the largest weigth.</li><li><a href="GetRandomComponents.html" class="code" title="function gmOut=GetRandomComponents(gm,m)">GetRandomComponents</a>	Selects components at random.</li><li><a href="Normalize.html" class="code" title="function gmC=Normalize(gm)">Normalize</a>	Normalize a GMixture.</li><li><a href="Product.html" class="code" title="function gmOut=Product(gm1,gm2)">Product</a>	gmOut=Product(gm1,gm2)</li><li><a href="RemoveSmallComponents.html" class="code" title="function [gmOut map]=RemoveSmallComponents(gm,t)">RemoveSmallComponents</a>	Eliminates the small components of a GMixture.</li><li><a href="../.././ObsModel/@CS_CO_ObsModel/CS_CO_ObsModel.html" class="code" title="function OM=CS_CO_ObsModel(varargin)">CS_CO_ObsModel</a>	CS_CO_ObsModel constructor.</li><li><a href="../.././ObsModel/@CS_CO_ObsModel/DiscretizeObsModel.html" class="code" title="function CS_DO_OM=DiscretizeObsModel(CS_CO_OM,V,ba,nSamples)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li><li><a href="../.././ObsModel/@CS_CO_ObsModel/GetObsModelFixedO.html" class="code" title="function p=GetObsModelFixedO(OM,o)">GetObsModelFixedO</a>	Defines p(o|s) for a fixed 'o'.</li><li><a href="../.././ObsModel/@CS_CO_ObsModel/GetObsModelFixedS.html" class="code" title="function p=GetObsModelFixedS(OM,s)">GetObsModelFixedS</a>	Defines p(o|s) for a fixed 's'.</li><li><a href="../.././POMDP/@CS_DO_POMDP/ComputeAlpha_a.html" class="code" title="function Element_a=ComputeAlpha_a(P,V,b,a,Alphas_j_a_o)">ComputeAlpha_a</a>	Compute the alpha_i_n-element for the given action and belief.</li><li><a href="../.././POMDP/@CS_POMDP/ComputeAlpha_j_a_o.html" class="code" title="function alpha_j_a_o=ComputeAlpha_j_a_o(P,V,j,a,o)">ComputeAlpha_j_a_o</a>	Computes a particular alpha-element.</li><li><a href="../.././RewardModel/@CS_CA_RewardModel/DiscretizeRewardModel.html" class="code" title="function DRM=DiscretizeRewardModel(RM,A)">DiscretizeRewardModel</a>	Discretizes the reward model on the action side.</li><li><a href="../.././RewardModel/@CS_CA_RewardModel/GetRewardModelFixedA.html" class="code" title="function ra=GetRewardModelFixedA(RM,a)">GetRewardModelFixedA</a>	Defines the reward function for a given action.</li><li><a href="../.././Space/@CSpace/UniformDistribution.html" class="code" title="function [p v]=UniformDistribution(CS)">UniformDistribution</a>	Uniform probability on a continuous space.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function gm=GMixture(varargin)</a>
+0002 <span class="comment">%   Gaussian mixture constructor.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Defines a (non-necessarily normalized) Gaussian mixture given the</span>
+0005 <span class="comment">%   weights and the Gaussian  for each component.</span>
+0006 <span class="comment">%   Possible parameters</span>
+0007 <span class="comment">%     - None: Defines an empty Gaussian mixture.</span>
+0008 <span class="comment">%     - Another Gaussian mixture: Copy constructor.</span>
+0009 <span class="comment">%     - w,g: The (row) vector of weigths and a cell array of Gaussians.</span>
+0010 <span class="comment">%     - g: The cell array of Gaussians. In this case the weights are</span>
+0011 <span class="comment">%          assumed uniform.</span>
+0012 
+0013   <span class="keyword">switch</span> nargin
+0014     <span class="keyword">case</span> 0
+0015       gm.w=[];
+0016       gm.g={};
+0017       gm.n=0;
+0018       gm=class(gm,<span class="string">'GMixture'</span>);
+0019     <span class="keyword">case</span> 1
+0020       <span class="keyword">if</span> isa(varargin{1},<span class="string">'GMixture'</span>)
+0021         gm=varargin{1};
+0022       <span class="keyword">else</span>
+0023         <span class="keyword">if</span> isa(varargin{1},<span class="string">'cell'</span>)
+0024           n=<a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>(varargin{1},2);
+0025           gm=<a href="GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>(ones(1,n)/n,varargin{1});
+0026         <span class="keyword">else</span>
+0027           error(<span class="string">'Wrong type of parameters in GMixture constructor'</span>);
+0028         <span class="keyword">end</span>
+0029       <span class="keyword">end</span>
+0030     <span class="keyword">case</span> 2
+0031       n1=<a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>(varargin{1},2);
+0032       n2=<a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>(varargin{2},2);
+0033       <span class="keyword">if</span> n1~=n2
+0034         error(<span class="string">'Size missmatch in GMixture constructor'</span>);
+0035       <span class="keyword">end</span>
+0036       <span class="keyword">if</span> isa(varargin{1},<span class="string">'double'</span>)
+0037         gm.w=varargin{1};
+0038       <span class="keyword">else</span>
+0039         error(<span class="string">'Wrong type of parameters in GMixture constructor'</span>);
+0040       <span class="keyword">end</span>
+0041       <span class="keyword">if</span> isa(varargin{2},<span class="string">'cell'</span>)
+0042         gm.g=varargin{2};
+0043       <span class="keyword">else</span>
+0044         error(<span class="string">'Wrong type of parameters in GMixture constructor'</span>);
+0045       <span class="keyword">end</span>
+0046       gm.n=n1;
+0047       gm=class(gm,<span class="string">'GMixture'</span>);
+0048     <span class="keyword">otherwise</span>
+0049       error(<span class="string">'Wrong number of parameters in GMixture constructor'</span>);
+0050   <span class="keyword">end</span></pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of DS_CO_ObsModel</title>
+  <meta name="keywords" content="DS_CO_ObsModel">
+  <meta name="description" content="DS_CO_ObsModel constructor.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # ObsModel --><!-- # @DS_CO_ObsModel -->
+<h1>DS_CO_ObsModel
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>DS_CO_ObsModel constructor.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function OM=DS_CO_ObsModel(varargin) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   DS_CO_ObsModel constructor.
+
+   Constructor of observation models (p(o|s))  with continuous state 
+   spaces and discrete observation spaces.
+
+   Parameters
+     S: Discrete state space.
+     O: Continuous observation space.
+     p: One GMixture (in 'o') for each state.
+   
+   None of the experiments actually use this observatio model so it might
+   include bugs. This is to be used when replication Hoey's IJCAI'05 work</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>	Returns the size of a policy.</li><li><a href="../.././ObsModel/@ObsModel/ObsModel.html" class="code" title="function OM=ObsModel(varargin)">ObsModel</a>	ObsModel constructor.</li><li><a href="../.././Space/@CSpace/dim.html" class="code" title="function d=dim(CS)">dim</a>	Dimensionality of a continuous space.</li><li><a href="../.././Space/@DSpace/dim.html" class="code" title="function d=dim(DS)">dim</a>	Dimensionality of a discrete space.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function OM=DS_CO_ObsModel(varargin)</a>
+0002 <span class="comment">%   DS_CO_ObsModel constructor.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Constructor of observation models (p(o|s))  with continuous state</span>
+0005 <span class="comment">%   spaces and discrete observation spaces.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%   Parameters</span>
+0008 <span class="comment">%     S: Discrete state space.</span>
+0009 <span class="comment">%     O: Continuous observation space.</span>
+0010 <span class="comment">%     p: One GMixture (in 'o') for each state.</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">%   None of the experiments actually use this observatio model so it might</span>
+0013 <span class="comment">%   include bugs. This is to be used when replication Hoey's IJCAI'05 work</span>
+0014 
+0015   <span class="keyword">switch</span> nargin
+0016     <span class="keyword">case</span> 1
+0017       <span class="keyword">if</span> isa(varargin{1},<span class="string">'DS_CO_ObsModel'</span>)
+0018         OM=varargin{1};
+0019       <span class="keyword">else</span>
+0020         error(<span class="string">'Wrong parameter type in DS_CO_ObsModel constructor'</span>);
+0021       <span class="keyword">end</span>
+0022     <span class="keyword">case</span> 3
+0023       <span class="keyword">if</span> isa(varargin{1},<span class="string">'DSpace'</span>)
+0024         OM.S=varargin{1};
+0025       <span class="keyword">else</span>
+0026         error(<span class="string">'Wrong parameter type in DS_CO_ObsModel constructor'</span>);
+0027       <span class="keyword">end</span>
+0028       <span class="keyword">if</span> isa(varargin{2},<span class="string">'CSpace'</span>)
+0029         OM.O=varargin{2};
+0030       <span class="keyword">else</span>
+0031         error(<span class="string">'Wrong parameter type in DS_CO_ObsModel constructor'</span>);
+0032       <span class="keyword">end</span>
+0033       <span class="keyword">if</span> isa(varargin{3},<span class="string">'cell'</span>)
+0034         OM.p=varargin{3};
+0035       <span class="keyword">else</span>
+0036         error(<span class="string">'Wrong parameter type in DS_CO_ObsModel constructor'</span>);
+0037       <span class="keyword">end</span>
+0038       
+0039       <span class="keyword">if</span> <a href="../.././Space/@CSpace/dim.html" class="code" title="function d=dim(CS)">dim</a>(OM.S)~=<a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>(OM.p,2) 
+0040         error(<span class="string">'Size missmatch in DS_CO_ObsModel constructor'</span>);
+0041       <span class="keyword">end</span>
+0042       
+0043       OMBase=<a href="../.././ObsModel/@ObsModel/ObsModel.html" class="code" title="function OM=ObsModel(varargin)">ObsModel</a>();
+0044       
+0045       OM=class(OM,<span class="string">'DS_CO_ObsModel'</span>,OMBase);
+0046       
+0047     <span class="keyword">otherwise</span>
+0048       error(<span class="string">'Wrong number of parameters in DS_CO_ObsModel constructor'</span>);
+0049   <span class="keyword">end</span>
+0050</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

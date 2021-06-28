@@ -1,0 +1,17 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  TestRep -> GetPOMDPSolutionStatistics;
+  TestRepWithStatistics -> GetPOMDPAverageStatistics;
+  TestRepWithStatistics -> TestRep;
+
+  GetData [URL="GetData.html"];
+  GetPOMDPAverageStatistics [URL="GetPOMDPAverageStatistics.html"];
+  GetPOMDPSolutionStatistics [URL="GetPOMDPSolutionStatistics.html"];
+  Libdoc [URL="Libdoc.html"];
+  MakeDoc [URL="MakeDoc.html"];
+  RandVector [URL="RandVector.html"];
+  ReadDiscretePOMDPData [URL="ReadDiscretePOMDPData.html"];
+  TestOne [URL="TestOne.html"];
+  TestRep [URL="TestRep.html"];
+  TestRepWithStatistics [URL="TestRepWithStatistics.html"];
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of GenerateFigure5Data</title>
+  <meta name="keywords" content="GenerateFigure5Data">
+  <meta name="description" content="Generates the data for Figure 5.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Experiments -->
+<h1>GenerateFigure5Data
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>Generates the data for Figure 5.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function GenerateFigure5Data(fname) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Generates the data for Figure 5.
+
+   In this experiment we compute the time (in seconds) for the first 
+   iteration of Perseus using different number of components to represent 
+   the beliefs and the alpha-mixtures. 
+   This give an idea of the complexity added when incresing the number of
+   components in the beliefs or in the alpha-mixtures.
+   Figure 6 shows the performace degradation when using too few components
+   in beliefs or in alpha-mixtures.
+
+   Parameters:
+     fname: file where to store the results.
+
+   See also <a href="MakeFigure1.html" class="code" title="function MakeFigure1">MakeFigure1</a>, <a href="MakeFigure5.html" class="code" title="function MakeFigure5">MakeFigure5</a>.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>	Returns the size of a policy.</li><li><a href="GetTest1Parameters.html" class="code" title="function [POMDP P]=GetTest1Parameters(varargin)">GetTest1Parameters</a>	The example on Figure 1.</li><li><a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>	POMDP constructor.</li><li><a href=".././POMDP/@POMDP/Perseus.html" class="code" title="function [V Value Alpha t]=Perseus(P,B,stopCriteria)">Perseus</a>	The Perseus point-based POMDP solver.</li><li><a href=".././POMDP/@POMDP/SampleBeliefs.html" class="code" title="function SB=SampleBeliefs(P,start,nBeliefs,minBeliefDist,stepsXtrial,minR,maxR)">SampleBeliefs</a>	Samples a set of beliefs from a POMDP.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="MakeFigure5.html" class="code" title="function MakeFigure5">MakeFigure5</a>	Generates Figure 5.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function GenerateFigure5Data(fname)</a>
+0002 <span class="comment">%   Generates the data for Figure 5.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   In this experiment we compute the time (in seconds) for the first</span>
+0005 <span class="comment">%   iteration of Perseus using different number of components to represent</span>
+0006 <span class="comment">%   the beliefs and the alpha-mixtures.</span>
+0007 <span class="comment">%   This give an idea of the complexity added when incresing the number of</span>
+0008 <span class="comment">%   components in the beliefs or in the alpha-mixtures.</span>
+0009 <span class="comment">%   Figure 6 shows the performace degradation when using too few components</span>
+0010 <span class="comment">%   in beliefs or in alpha-mixtures.</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">%   Parameters:</span>
+0013 <span class="comment">%     fname: file where to store the results.</span>
+0014 <span class="comment">%</span>
+0015 <span class="comment">%   See also MakeFigure1, MakeFigure5.</span>
+0016 
+0017   cb=4:4:32;
+0018   ca=9:3:33;
+0019   
+0020   stopCriteria=@(n,t,vc)(n&gt;1);
+0021   nRep=5; <span class="comment">% times we repeat the first iteration to get an average value</span>
+0022   
+0023   nb=<a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>(cb,2);
+0024   tb=zeros(1,nb);
+0025   k=1;
+0026   <span class="keyword">for</span> ncBelief=cb
+0027     [<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a> P]=<a href="GetTest1Parameters.html" class="code" title="function [POMDP P]=GetTest1Parameters(varargin)">GetTest1Parameters</a>(ncBelief,9);
+0028     
+0029     fprintf(<span class="string">'Sampling Beliefs\n'</span>);
+0030     B=<a href=".././POMDP/@POMDP/SampleBeliefs.html" class="code" title="function SB=SampleBeliefs(P,start,nBeliefs,minBeliefDist,stepsXtrial,minR,maxR)">SampleBeliefs</a>(<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>,P.start,P.nBeliefs,P.dBelief,P.stepsXtrial,P.rMin,P.rMax);
+0031     r=0;
+0032     <span class="keyword">for</span> s=1:nRep
+0033       [V Val Alpha t]=<a href=".././POMDP/@POMDP/Perseus.html" class="code" title="function [V Value Alpha t]=Perseus(P,B,stopCriteria)">Perseus</a>(<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>,B,stopCriteria);
+0034       r=r+t(2);
+0035     <span class="keyword">end</span>
+0036     tb(k)=r/nRep;
+0037     k=k+1;
+0038   <span class="keyword">end</span>
+0039   
+0040   na=<a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>(ca,2);
+0041   ta=zeros(1,na);
+0042   k=1;
+0043   <span class="keyword">for</span> ncAlpha=ca
+0044     [<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a> P]=<a href="GetTest1Parameters.html" class="code" title="function [POMDP P]=GetTest1Parameters(varargin)">GetTest1Parameters</a>(4,ncAlpha);
+0045     
+0046     fprintf(<span class="string">'Sampling Beliefs\n'</span>);
+0047     B=<a href=".././POMDP/@POMDP/SampleBeliefs.html" class="code" title="function SB=SampleBeliefs(P,start,nBeliefs,minBeliefDist,stepsXtrial,minR,maxR)">SampleBeliefs</a>(<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>,P.start,P.nBeliefs,P.dBelief,P.stepsXtrial,P.rMin,P.rMax);
+0048     r=0;
+0049     <span class="keyword">for</span> s=1:nRep
+0050       [V Val Alpha t]=<a href=".././POMDP/@POMDP/Perseus.html" class="code" title="function [V Value Alpha t]=Perseus(P,B,stopCriteria)">Perseus</a>(<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>,B,stopCriteria);
+0051       r=r+t(2);
+0052     <span class="keyword">end</span>
+0053     ta(k)=r/nRep;
+0054     k=k+1;
+0055   <span class="keyword">end</span>
+0056   
+0057   save(fname,<span class="string">'cb'</span>,<span class="string">'tb'</span>,<span class="string">'ca'</span>,<span class="string">'ta'</span>);</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

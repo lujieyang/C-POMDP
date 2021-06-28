@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of CS_DA_ActionModel</title>
+  <meta name="keywords" content="CS_DA_ActionModel">
+  <meta name="description" content="CS_DA_ActionModel constructor.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # ActionModel --><!-- # @CS_DA_ActionModel -->
+<h1>CS_DA_ActionModel
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>CS_DA_ActionModel constructor.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function AM=CS_DA_ActionModel(varargin) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   CS_DA_ActionModel constructor.
+
+   Defines an Action Model on continuous state and discrete action spaces.
+   Parameters:
+     S: The continuous state space
+     A: The discrete action space
+     mean: Cell array with the displacements in state space produce for 
+           each action.
+     Sigma: Noise for each action (a single Covariance matrix if all
+            actions produce same noise).</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>	Returns the size of a policy.</li><li><a href="../.././ActionModel/@ActionModel/ActionModel.html" class="code" title="function AM=ActionModel(varargin)">ActionModel</a>	Action Model constructor.</li><li><a href="../.././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>	Gaussian construtor.</li><li><a href="../.././Space/@CSpace/dim.html" class="code" title="function d=dim(CS)">dim</a>	Dimensionality of a continuous space.</li><li><a href="../.././Space/@DSpace/dim.html" class="code" title="function d=dim(DS)">dim</a>	Dimensionality of a discrete space.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././ActionModel/@CS_CA_ActionModel/DiscretizeActionModel.html" class="code" title="function CS_DA_AM=DiscretizeActionModel(CS_CA_AM,A)">DiscretizeActionModel</a>	Generates a new action model discretizing the action space.</li><li><a href="../.././Experiments/GetTest1Parameters.html" class="code" title="function [POMDP P]=GetTest1Parameters(varargin)">GetTest1Parameters</a>	The example on Figure 1.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function AM=CS_DA_ActionModel(varargin)</a>
+0002 <span class="comment">%   CS_DA_ActionModel constructor.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Defines an Action Model on continuous state and discrete action spaces.</span>
+0005 <span class="comment">%   Parameters:</span>
+0006 <span class="comment">%     S: The continuous state space</span>
+0007 <span class="comment">%     A: The discrete action space</span>
+0008 <span class="comment">%     mean: Cell array with the displacements in state space produce for</span>
+0009 <span class="comment">%           each action.</span>
+0010 <span class="comment">%     Sigma: Noise for each action (a single Covariance matrix if all</span>
+0011 <span class="comment">%            actions produce same noise).</span>
+0012 
+0013 
+0014   <span class="keyword">switch</span> nargin
+0015     <span class="keyword">case</span> 1
+0016       <span class="keyword">if</span> isa(varargin{1},<span class="string">'CS_DA_ActionModel'</span>)
+0017         AM=varargin{1};
+0018       <span class="keyword">else</span>
+0019         error(<span class="string">'Wrong parameter type in CS_DA_ActionModel constructor'</span>);
+0020       <span class="keyword">end</span>
+0021     <span class="keyword">case</span> 4
+0022       
+0023       <span class="keyword">if</span> isa(varargin{1},<span class="string">'CSpace'</span>)
+0024         AM.S=varargin{1};
+0025       <span class="keyword">else</span>
+0026         error(<span class="string">'Wrong parameter type in CS_DA_ActionModel constructor'</span>);
+0027       <span class="keyword">end</span>
+0028       
+0029       <span class="keyword">if</span> isa(varargin{2},<span class="string">'DSpace'</span>)
+0030         AM.A=varargin{2};
+0031       <span class="keyword">else</span>
+0032         error(<span class="string">'Wrong parameter type in CS_DA_ActionModel constructor'</span>);
+0033       <span class="keyword">end</span>
+0034       
+0035       <span class="keyword">if</span> isa(varargin{3},<span class="string">'cell'</span>) &amp;&amp; isa(varargin{4},<span class="string">'cell'</span>) 
+0036         na=<a href="../.././Space/@CSpace/dim.html" class="code" title="function d=dim(CS)">dim</a>(AM.A);
+0037         <span class="keyword">if</span> na~=<a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>(varargin{3},2)
+0038           error(<span class="string">'Missmatch size in CS_DA_ActionModel constructor'</span>);
+0039         <span class="keyword">end</span>
+0040         AM.gA=cell(1,na);
+0041         sn=<a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>(varargin{4},2);
+0042         <span class="keyword">for</span> i=1:na
+0043           <span class="keyword">if</span> sn==1 <span class="comment">% Same noise for all actions</span>
+0044             AM.gA{i}=<a href="../.././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(varargin{3}{i},varargin{4}{1});
+0045           <span class="keyword">else</span>
+0046             AM.gA{i}=<a href="../.././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(varargin{3}{i},varargin{4}{i});
+0047           <span class="keyword">end</span>
+0048         <span class="keyword">end</span>
+0049       <span class="keyword">else</span>
+0050         error(<span class="string">'Wrong parameter type in CS_DA_ActionModel constructor'</span>);
+0051       <span class="keyword">end</span>
+0052       
+0053       AMBase=<a href="../.././ActionModel/@ActionModel/ActionModel.html" class="code" title="function AM=ActionModel(varargin)">ActionModel</a>();
+0054       
+0055       AM=class(AM,<span class="string">'CS_DA_ActionModel'</span>,AMBase);
+0056     <span class="keyword">otherwise</span>
+0057       error(<span class="string">'Wrong number of parameters in CS_DA_ActionModel constructor'</span>);
+0058   <span class="keyword">end</span>
+0059   
+0060</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

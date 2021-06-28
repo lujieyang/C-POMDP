@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of MakeFigure2</title>
+  <meta name="keywords" content="MakeFigure2">
+  <meta name="description" content="Generates Figure 2.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Experiments -->
+<h1>MakeFigure2
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>Generates Figure 2.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function MakeFigure2 </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Generates Figure 2.
+
+   Generates the data for Figure 2 in the paper.
+   This functions uses GetData to check if the results are already
+   pre-computed and stored in the Results directory.
+   If they are not, we execute 10 repetitions of Perseus and collect the
+   average statistics. This can be extremely time demanding (about one day
+   of non-stop computing on an average computer).
+   I compute the experiments in parallel in a cluster of computers
+   executing:
+     Computer1&gt; TestRep('Test1','myresults',1);
+     Computer2&gt; TestRep('Test1','myresults',2);
+     ...
+     Computer10&gt; TestRep('Test1','myresults',10);
+
+   and at the end
+
+     Computer1&gt; [tics SM SD]=GetPOMDPAverageStatistics('Test1-myresults')
+
+   The results I obtained are downlodable from the same place where you
+   get this solftware. Using those pre-compute results, you will get he
+   plot in Figure 2 in few seconds.
+
+   See also GetData, TestRep, GetPOMDPAverageStatistics,
+            TestRepWithStatistics, <a href="MakeFigureSimulation.html" class="code" title="function MakeFigureSimulation(title,data)">MakeFigureSimulation</a>.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="MakeFigureSimulation.html" class="code" title="function MakeFigureSimulation(title,data)">MakeFigureSimulation</a>	Generates the plots in Figures 2, 8, 10, and 11.</li><li><a href=".././Lib/GetData.html" class="code" title="function data=GetData(fname,GenerateData)">GetData</a>	Loads and, if necessary, generates data from experiments.</li><li><a href=".././Lib/TestRepWithStatistics.html" class="code" title="function TestRepWithStatistics(varargin)">TestRepWithStatistics</a>	Executes many times Perseus on a given problem and collects statistics.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function MakeFigure2</a>
+0002 <span class="comment">%   Generates Figure 2.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Generates the data for Figure 2 in the paper.</span>
+0005 <span class="comment">%   This functions uses GetData to check if the results are already</span>
+0006 <span class="comment">%   pre-computed and stored in the Results directory.</span>
+0007 <span class="comment">%   If they are not, we execute 10 repetitions of Perseus and collect the</span>
+0008 <span class="comment">%   average statistics. This can be extremely time demanding (about one day</span>
+0009 <span class="comment">%   of non-stop computing on an average computer).</span>
+0010 <span class="comment">%   I compute the experiments in parallel in a cluster of computers</span>
+0011 <span class="comment">%   executing:</span>
+0012 <span class="comment">%     Computer1&gt; TestRep('Test1','myresults',1);</span>
+0013 <span class="comment">%     Computer2&gt; TestRep('Test1','myresults',2);</span>
+0014 <span class="comment">%     ...</span>
+0015 <span class="comment">%     Computer10&gt; TestRep('Test1','myresults',10);</span>
+0016 <span class="comment">%</span>
+0017 <span class="comment">%   and at the end</span>
+0018 <span class="comment">%</span>
+0019 <span class="comment">%     Computer1&gt; [tics SM SD]=GetPOMDPAverageStatistics('Test1-myresults')</span>
+0020 <span class="comment">%</span>
+0021 <span class="comment">%   The results I obtained are downlodable from the same place where you</span>
+0022 <span class="comment">%   get this solftware. Using those pre-compute results, you will get he</span>
+0023 <span class="comment">%   plot in Figure 2 in few seconds.</span>
+0024 <span class="comment">%</span>
+0025 <span class="comment">%   See also GetData, TestRep, GetPOMDPAverageStatistics,</span>
+0026 <span class="comment">%            TestRepWithStatistics, MakeFigureSimulation.</span>
+0027 
+0028   fprintf(<span class="string">'Loading/Generating the simulation results\n'</span>); 
+0029   GenData=@()(<a href=".././Lib/TestRepWithStatistics.html" class="code" title="function TestRepWithStatistics(varargin)">TestRepWithStatistics</a>(<span class="string">'Test1'</span>,<span class="string">'Figure2'</span>,1:10));
+0030   Results=<a href=".././Lib/GetData.html" class="code" title="function data=GetData(fname,GenerateData)">GetData</a>(<span class="string">'Results/Test1-Figure2-results.mat'</span>,GenData);
+0031 
+0032   <a href="MakeFigureSimulation.html" class="code" title="function MakeFigureSimulation(title,data)">MakeFigureSimulation</a>(<span class="string">'C-POMDP Figure 2'</span>,Results);</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

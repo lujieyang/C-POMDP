@@ -1,0 +1,39 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  GenerateFigure5Data -> GetTest1Parameters;
+  GenerateFigure7aData -> GetTest1Parameters;
+  GetTest1caParameters -> GetTest1Parameters;
+  GetTest1coParameters -> GetTest1caParameters;
+  GetTest1pParameters -> GetTest1Parameters;
+  MakeFigure1 -> GetTest1Parameters;
+  MakeFigure10 -> MakeFigureSimulation;
+  MakeFigure11 -> MakeFigureSimulation;
+  MakeFigure2 -> MakeFigureSimulation;
+  MakeFigure5 -> GenerateFigure5Data;
+  MakeFigure6 -> GetTest1Parameters;
+  MakeFigure7 -> GenerateFigure7aData;
+  MakeFigure7 -> GetTest1Parameters;
+  MakeFigure8 -> MakeFigureSimulation;
+  MakeFigure9 -> GetTest1Parameters;
+
+  Expdoc [URL="Expdoc.html"];
+  GenerateFigure5Data [URL="GenerateFigure5Data.html"];
+  GenerateFigure7aData [URL="GenerateFigure7aData.html"];
+  GetHallwayParameters [URL="GetHallwayParameters.html"];
+  GetTest1Parameters [URL="GetTest1Parameters.html"];
+  GetTest1caParameters [URL="GetTest1caParameters.html"];
+  GetTest1coParameters [URL="GetTest1coParameters.html"];
+  GetTest1pParameters [URL="GetTest1pParameters.html"];
+  MakeFigure1 [URL="MakeFigure1.html"];
+  MakeFigure10 [URL="MakeFigure10.html"];
+  MakeFigure11 [URL="MakeFigure11.html"];
+  MakeFigure2 [URL="MakeFigure2.html"];
+  MakeFigure3 [URL="MakeFigure3.html"];
+  MakeFigure4 [URL="MakeFigure4.html"];
+  MakeFigure5 [URL="MakeFigure5.html"];
+  MakeFigure6 [URL="MakeFigure6.html"];
+  MakeFigure7 [URL="MakeFigure7.html"];
+  MakeFigure8 [URL="MakeFigure8.html"];
+  MakeFigure9 [URL="MakeFigure9.html"];
+  MakeFigureSimulation [URL="MakeFigureSimulation.html"];
+}

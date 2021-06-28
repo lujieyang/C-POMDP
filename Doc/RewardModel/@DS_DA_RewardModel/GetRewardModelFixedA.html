@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of GetRewardModelFixedA</title>
+  <meta name="keywords" content="GetRewardModelFixedA">
+  <meta name="description" content="Defines the reward function for a given action.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # RewardModel --><!-- # @DS_DA_RewardModel -->
+<h1>GetRewardModelFixedA
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Defines the reward function for a given action.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function ra=GetRewardModelFixedA(RM,a) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Defines the reward function for a given action.
+  
+   Particularizes a reward function defined on discrete state and 
+   action spaces for a particular action 'a'.
+
+   The particularization is directly obtained from the vectors given in
+   the object definition. The output is a column vector with the size of
+   the state space.
+
+   See also <a href="DS_DA_RewardModel.html" class="code" title="function RM=DS_DA_RewardModel(varargin)">DS_DA_RewardModel</a>.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Experiments/MakeFigure1.html" class="code" title="function MakeFigure1">MakeFigure1</a>	Generates Figure 1.</li><li><a href="../.././POMDP/@CS_CO_POMDP/ComputeAlpha_a.html" class="code" title="function Element_a=ComputeAlpha_a(P,V,b,a,Alphas_j_a_o)">ComputeAlpha_a</a>	Compute the alpha_i_n-element for the given action and belief.</li><li><a href="../.././POMDP/@CS_DO_POMDP/ComputeAlpha_a.html" class="code" title="function Element_a=ComputeAlpha_a(P,V,b,a,Alphas_j_a_o)">ComputeAlpha_a</a>	Compute the alpha_i_n-element for the given action and belief.</li><li><a href="../.././POMDP/@DS_DO_POMDP/ComputeAlpha_a.html" class="code" title="function Element_a=ComputeAlpha_a(P,V,b,a,Alphas_j_a_o)">ComputeAlpha_a</a>	Compute the alpha_i_n-element for the given action and belief.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function ra=GetRewardModelFixedA(RM,a)</a>
+0002 <span class="comment">%   Defines the reward function for a given action.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Particularizes a reward function defined on discrete state and</span>
+0005 <span class="comment">%   action spaces for a particular action 'a'.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%   The particularization is directly obtained from the vectors given in</span>
+0008 <span class="comment">%   the object definition. The output is a column vector with the size of</span>
+0009 <span class="comment">%   the state space.</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">%   See also DS_DA_RewardModel.</span>
+0012 
+0013   ra=RM.r{a};
+0014</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

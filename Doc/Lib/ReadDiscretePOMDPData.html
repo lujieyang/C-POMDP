@@ -1,0 +1,585 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of ReadDiscretePOMDPData</title>
+  <meta name="keywords" content="ReadDiscretePOMDPData">
+  <meta name="description" content="Reads a discrete POMDP from a file.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Lib -->
+<h1>ReadDiscretePOMDPData
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>Reads a discrete POMDP from a file.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function POMDPData=ReadDiscretePOMDPData(filename) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Reads a discrete POMDP from a file.
+
+   Parser for &quot;Tony's POMDP file format&quot;
+      http://www.cs.brown.edu/research/ai/pomdp/examples/pomdp-file-spec.html
+   This format is only valid for discrete state/actions/observations POMDPs.
+ 
+   The applications we have in main when developing this planner is robot
+   navigation. Therefore we assume an observation model and a 
+   reward model typical of these applications: 
+
+         p(o|s) -&gt; depends only on the reached state 's' and not on the
+                   executed action (as it does in the general POMDP model)
+
+         r_a(s) -&gt; depends only on the reached state 's' and on the executed
+                   action 'a' but not the departing state or the obtained
+                   observations (as it does in the general POMDP model).
+                   Actually, in a pure robot navigation scenario the
+                   reward only depends on the reached state and not on the
+                   executed action but we keep the action dependancy to
+                   have a code coherent with the papers.
+
+   POMDP with different observation and reward models produce an error.
+
+   This function is adapted from that defined in the PERSEUS
+   software by Matthijs Spaan and Nikos Vlassis.
+
+   Parameters:
+        filename  - string denoting POMDP file to be parsed
+   Outputs:
+        POMDPData     - struct (see below)
+
+
+   PMDPData struct members definition:
+ 
+     nStates       - number of states
+     StateNames    - (nStates x X) chars, name of each state *)
+
+     nActions      - number of actions
+     ActionNames   - (nActions x X) chars, name of each action *)
+     Actions       - {nActions} This is used as a description of the action by
+                     Perseus. For discrete actions POMDPs (as the ones read
+                     here) this is just number from 1 to nActions. From
+                     continuous action spaces each element of this set can
+                     be a vector describing an action or whatever is needed.
+
+     nObs          - number of observations
+     ObsNames      - (nObs x X) chars, name of each observation *)
+
+     gamma         - discount factor.
+     start         - (1 x nStates) start distribution *)
+
+     T             - (nStates x nStates x nActions)
+                         s'        s          a        T(s',s,a)=p(s'|s,a)
+
+     O             - (nObs X nStates)
+                         o      s'                     O{o}(s')=p(o|s')
+
+     R             - (nActions X nStates)              R{a}(s')=r_a(s')
+
+   Members marked by *) are optional: they might not be present in
+   the POMDP file, in that case these members are non-existing or
+   empty.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>	Returns the size of a policy.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href=".././POMDP/@DS_DO_DA_POMDP/DS_DO_DA_POMDP.html" class="code" title="function P=DS_DO_DA_POMDP(varargin)">DS_DO_DA_POMDP</a>	DS_DO_DA_POMDP constructor.</li></ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function POMDPData = processPreamble(file)</a></li><li><a href="#_sub2" class="code">function [nr, members] = getNumberAndMembers(file,baseString)</a></li><li><a href="#_sub3" class="code">function POMDPData = processTransition(POMDPData,file,i)</a></li><li><a href="#_sub4" class="code">function POMDPData = processObservation(POMDPData,file,i)</a></li><li><a href="#_sub5" class="code">function POMDPData = processReward(POMDPData,file,i)</a></li><li><a href="#_sub6" class="code">function values = parseNextLine(file, i, nrCols, nrRows)</a></li><li><a href="#_sub7" class="code">function r = expandState(POMDPData,c)</a></li><li><a href="#_sub8" class="code">function r = expandAction(POMDPData,c)</a></li><li><a href="#_sub9" class="code">function r = expandObservation(POMDPData,c)</a></li><li><a href="#_sub10" class="code">function r = expandString(c,nr,members)</a></li></ul>
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function POMDPData=ReadDiscretePOMDPData(filename)</a>
+0002 <span class="comment">%   Reads a discrete POMDP from a file.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Parser for &quot;Tony's POMDP file format&quot;</span>
+0005 <span class="comment">%      http://www.cs.brown.edu/research/ai/pomdp/examples/pomdp-file-spec.html</span>
+0006 <span class="comment">%   This format is only valid for discrete state/actions/observations POMDPs.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">%   The applications we have in main when developing this planner is robot</span>
+0009 <span class="comment">%   navigation. Therefore we assume an observation model and a</span>
+0010 <span class="comment">%   reward model typical of these applications:</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">%         p(o|s) -&gt; depends only on the reached state 's' and not on the</span>
+0013 <span class="comment">%                   executed action (as it does in the general POMDP model)</span>
+0014 <span class="comment">%</span>
+0015 <span class="comment">%         r_a(s) -&gt; depends only on the reached state 's' and on the executed</span>
+0016 <span class="comment">%                   action 'a' but not the departing state or the obtained</span>
+0017 <span class="comment">%                   observations (as it does in the general POMDP model).</span>
+0018 <span class="comment">%                   Actually, in a pure robot navigation scenario the</span>
+0019 <span class="comment">%                   reward only depends on the reached state and not on the</span>
+0020 <span class="comment">%                   executed action but we keep the action dependancy to</span>
+0021 <span class="comment">%                   have a code coherent with the papers.</span>
+0022 <span class="comment">%</span>
+0023 <span class="comment">%   POMDP with different observation and reward models produce an error.</span>
+0024 <span class="comment">%</span>
+0025 <span class="comment">%   This function is adapted from that defined in the PERSEUS</span>
+0026 <span class="comment">%   software by Matthijs Spaan and Nikos Vlassis.</span>
+0027 <span class="comment">%</span>
+0028 <span class="comment">%   Parameters:</span>
+0029 <span class="comment">%        filename  - string denoting POMDP file to be parsed</span>
+0030 <span class="comment">%   Outputs:</span>
+0031 <span class="comment">%        POMDPData     - struct (see below)</span>
+0032 <span class="comment">%</span>
+0033 <span class="comment">%</span>
+0034 <span class="comment">%   PMDPData struct members definition:</span>
+0035 <span class="comment">%</span>
+0036 <span class="comment">%     nStates       - number of states</span>
+0037 <span class="comment">%     StateNames    - (nStates x X) chars, name of each state *)</span>
+0038 <span class="comment">%</span>
+0039 <span class="comment">%     nActions      - number of actions</span>
+0040 <span class="comment">%     ActionNames   - (nActions x X) chars, name of each action *)</span>
+0041 <span class="comment">%     Actions       - {nActions} This is used as a description of the action by</span>
+0042 <span class="comment">%                     Perseus. For discrete actions POMDPs (as the ones read</span>
+0043 <span class="comment">%                     here) this is just number from 1 to nActions. From</span>
+0044 <span class="comment">%                     continuous action spaces each element of this set can</span>
+0045 <span class="comment">%                     be a vector describing an action or whatever is needed.</span>
+0046 <span class="comment">%</span>
+0047 <span class="comment">%     nObs          - number of observations</span>
+0048 <span class="comment">%     ObsNames      - (nObs x X) chars, name of each observation *)</span>
+0049 <span class="comment">%</span>
+0050 <span class="comment">%     gamma         - discount factor.</span>
+0051 <span class="comment">%     start         - (1 x nStates) start distribution *)</span>
+0052 <span class="comment">%</span>
+0053 <span class="comment">%     T             - (nStates x nStates x nActions)</span>
+0054 <span class="comment">%                         s'        s          a        T(s',s,a)=p(s'|s,a)</span>
+0055 <span class="comment">%</span>
+0056 <span class="comment">%     O             - (nObs X nStates)</span>
+0057 <span class="comment">%                         o      s'                     O{o}(s')=p(o|s')</span>
+0058 <span class="comment">%</span>
+0059 <span class="comment">%     R             - (nActions X nStates)              R{a}(s')=r_a(s')</span>
+0060 <span class="comment">%</span>
+0061 <span class="comment">%   Members marked by *) are optional: they might not be present in</span>
+0062 <span class="comment">%   the POMDP file, in that case these members are non-existing or</span>
+0063 <span class="comment">%   empty.</span>
+0064 <span class="comment">%</span>
+0065   <span class="keyword">if</span> nargin&lt;1
+0066     error(<span class="string">'Specify filename to be parsed'</span>);
+0067   <span class="keyword">end</span>
+0068  
+0069   file=textread(filename,<span class="string">'%s'</span>,<span class="string">'delimiter'</span>,<span class="string">'\n'</span>,<span class="string">'whitespace'</span>,<span class="string">''</span>,<span class="string">'bufsize'</span>,100000,<span class="string">'commentstyle'</span>,<span class="string">'shell'</span>);
+0070   nrLines=length(file);
+0071   
+0072   <span class="comment">% read the preamble</span>
+0073   POMDPData=<a href="#_sub1" class="code" title="subfunction POMDPData = processPreamble(file)">processPreamble</a>(file);
+0074   
+0075   <span class="keyword">if</span> POMDPData.nStates&lt;1
+0076     error(<span class="string">'POMDPData has only %d states.'</span>,POMDPData.nStates);
+0077   <span class="keyword">end</span>
+0078   <span class="keyword">if</span> POMDPData.nActions&lt;1
+0079     error(<span class="string">'POMDPData has only %d actions.'</span>,POMDPData.nActions);
+0080   <span class="keyword">end</span>
+0081   <span class="keyword">if</span> POMDPData.nObs&lt;1
+0082     error(<span class="string">'POMDPData has only %d observations.'</span>,POMDPData.nObs);
+0083   <span class="keyword">end</span>
+0084   
+0085   <span class="comment">% allocate memory</span>
+0086   <span class="keyword">for</span> i=1:POMDPData.nObs
+0087     POMDPData.O{i}=zeros(POMDPData.nStates,1);
+0088   <span class="keyword">end</span>
+0089   POMDPData.T=cell(1,POMDPData.nActions);
+0090   <span class="keyword">for</span> i=1:POMDPData.nActions
+0091     POMDPData.T{i}=zeros(POMDPData.nStates,POMDPData.nStates);
+0092   <span class="keyword">end</span>
+0093   <span class="keyword">for</span> i=1:POMDPData.nActions
+0094     POMDPData.R{i}=zeros(POMDPData.nStates,1);
+0095   <span class="keyword">end</span>
+0096  
+0097   <span class="comment">% process each line</span>
+0098   <span class="keyword">for</span> i=1:nrLines
+0099     <span class="keyword">if</span> ~isempty(file{i})
+0100       <span class="keyword">switch</span> file{i}(1)
+0101         <span class="keyword">case</span> <span class="string">'T'</span>
+0102           <span class="keyword">if</span> ~isempty(strfind(file{i},<span class="string">':'</span>))
+0103             POMDPData=<a href="#_sub3" class="code" title="subfunction POMDPData = processTransition(POMDPData,file,i)">processTransition</a>(POMDPData,file,i);
+0104           <span class="keyword">end</span>
+0105         <span class="keyword">case</span> <span class="string">'R'</span>
+0106           <span class="keyword">if</span> ~isempty(strfind(file{i},<span class="string">':'</span>))
+0107             POMDPData=<a href="#_sub5" class="code" title="subfunction POMDPData = processReward(POMDPData,file,i)">processReward</a>(POMDPData,file,i);
+0108           <span class="keyword">end</span>
+0109         <span class="keyword">case</span> <span class="string">'O'</span>
+0110           <span class="keyword">if</span> ~isempty(strfind(file{i},<span class="string">':'</span>))
+0111             POMDPData=<a href="#_sub4" class="code" title="subfunction POMDPData = processObservation(POMDPData,file,i)">processObservation</a>(POMDPData,file,i);
+0112           <span class="keyword">end</span>
+0113         <span class="keyword">case</span> <span class="string">'s'</span>
+0114           <span class="keyword">if</span> strcmp(<span class="string">'start:'</span>,file{i}(1:6))
+0115             [s,f,t]=regexp(file{i},<span class="string">'([-\d\.]+)'</span>);
+0116             [foo,d]=<a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>(t);
+0117             <span class="keyword">if</span> d~=POMDPData.nStates
+0118               POMDPData.start=<a href="#_sub6" class="code" title="subfunction values = parseNextLine(file, i, nrCols, nrRows)">parseNextLine</a>(file,i+1,POMDPData.nStates,1)';
+0119             <span class="keyword">else</span>
+0120               POMDPData.start=zeros(d,1);
+0121               string=file{i};
+0122               <span class="keyword">for</span> j=1:d
+0123                 POMDPData.start(j)=str2double(string(t{j}(1):t{j}(2)));
+0124               <span class="keyword">end</span>
+0125             <span class="keyword">end</span>
+0126           <span class="keyword">end</span>
+0127       <span class="keyword">end</span>
+0128     <span class="keyword">end</span>
+0129   <span class="keyword">end</span>
+0130   
+0131 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0132 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0133 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0134 <a name="_sub1" href="#_subfunctions" class="code">function POMDPData = processPreamble(file)</a>
+0135   [nr,members]=<a href="#_sub2" class="code" title="subfunction [nr, members] = getNumberAndMembers(file,baseString)">getNumberAndMembers</a>(file,<span class="string">'states:'</span>);
+0136   POMDPData.nStates=nr;
+0137   POMDPData.StateNames=members;
+0138   
+0139   [nr,members]=<a href="#_sub2" class="code" title="subfunction [nr, members] = getNumberAndMembers(file,baseString)">getNumberAndMembers</a>(file,<span class="string">'actions:'</span>);
+0140   POMDPData.nActions=nr;
+0141   POMDPData.ActionNames=members;
+0142   <span class="keyword">for</span> a=1:POMDPData.nActions
+0143     POMDPData.Actions{a}=a; <span class="comment">%In discrete action POMDPDatas actions are just numbered</span>
+0144   <span class="keyword">end</span>
+0145   
+0146   [nr,members]=<a href="#_sub2" class="code" title="subfunction [nr, members] = getNumberAndMembers(file,baseString)">getNumberAndMembers</a>(file,<span class="string">'observations:'</span>);
+0147   POMDPData.nObs=nr;
+0148   POMDPData.ObsNames=members;
+0149   
+0150   <span class="keyword">for</span> i=1:length(file)
+0151     <span class="keyword">if</span> strmatch(<span class="string">'discount:'</span>,file{i});
+0152       POMDPData.gamma=sscanf(file{i},<span class="string">'discount: %f'</span>);
+0153       <span class="keyword">break</span>;
+0154     <span class="keyword">end</span>
+0155   <span class="keyword">end</span>
+0156   
+0157   
+0158 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0159 <a name="_sub2" href="#_subfunctions" class="code">function [nr, members] = getNumberAndMembers(file,baseString)</a>
+0160   <span class="keyword">for</span> i=1:length(file)
+0161     <span class="keyword">if</span> strmatch(baseString,file{i})
+0162       string=file{i};
+0163       <span class="keyword">break</span>;
+0164     <span class="keyword">end</span>
+0165   <span class="keyword">end</span>
+0166   
+0167   <span class="comment">% try to find a number here</span>
+0168   [s,f,t]=regexp(string,sprintf(<span class="string">'%s%s'</span>,baseString,<span class="string">'\s*(\d+)'</span>));
+0169   <span class="keyword">if</span> isempty(s)
+0170     <span class="comment">% catch 'X: &lt;list of X&gt;' where X={states,actions,observations}</span>
+0171     <span class="comment">% first strip baseString</span>
+0172     [s,f,t]=regexp(string,baseString);
+0173     string1=string(f(1)+1:end);
+0174     <span class="comment">% see if there are more members on the next line</span>
+0175     stop=0;
+0176     k=0;
+0177     <span class="keyword">while</span> ~stop
+0178       k=k+1;
+0179       <span class="keyword">if</span> isempty(strfind(file{i+k},<span class="string">':'</span>))
+0180         string1=strcat([string1 <span class="string">' '</span> file{i+k}]);
+0181       <span class="keyword">else</span>
+0182         stop=1;
+0183       <span class="keyword">end</span>
+0184     <span class="keyword">end</span>
+0185     [s,f,t]=regexp(string1,<span class="string">'\s*(\S+)\s*'</span>);
+0186     [foo,nr]=<a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>(t);
+0187     members=<span class="string">''</span>;
+0188     <span class="keyword">for</span> a=1:nr
+0189       members=strvcat(members,string1(t{a}(1):t{a}(2)));
+0190     <span class="keyword">end</span>
+0191   <span class="keyword">else</span>
+0192     nr=str2double(string(t{1}(1):t{1}(2)));
+0193     members=<span class="string">''</span>;
+0194   <span class="keyword">end</span>
+0195 
+0196 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0197 <a name="_sub3" href="#_subfunctions" class="code">function POMDPData = processTransition(POMDPData,file,i)</a>
+0198   string=file{i};
+0199 
+0200   <span class="keyword">if</span> nnz(string==<span class="string">':'</span>)==3
+0201     <span class="comment">% catch 'T: &lt;action&gt; : &lt;start-state&gt; : &lt;end-state&gt; &lt;prob&gt;'</span>
+0202     pat=<span class="string">'T\s*:\s*(\S+)\s*:\s*(\S+)\s*:\s*(\S+)\s+([\d\.]+)'</span>;
+0203     [s,f,t]=regexp(string,pat);
+0204     
+0205     <span class="keyword">if</span> ~isempty(t)
+0206       prob=str2double(string(t{1}(4,1):t{1}(4,2)));
+0207     <span class="keyword">else</span> <span class="comment">% probably the prob is on the next line</span>
+0208       <span class="comment">% catch 'T: &lt;action&gt; : &lt;start-state&gt; : &lt;end-state&gt;</span>
+0209       pat=<span class="string">'T\s*:\s*(\S+)\s*:\s*(\S+)\s*:\s*(\S+)\s*'</span>;
+0210       [s,f,t]=regexp(string,pat);
+0211       prob=<a href="#_sub6" class="code" title="subfunction values = parseNextLine(file, i, nrCols, nrRows)">parseNextLine</a>(file,i+1,1,1);
+0212     <span class="keyword">end</span>
+0213     
+0214     action=<a href="#_sub8" class="code" title="subfunction r = expandAction(POMDPData,c)">expandAction</a>(POMDPData,string(t{1}(1,1):t{1}(1,2)));
+0215     from=<a href="#_sub7" class="code" title="subfunction r = expandState(POMDPData,c)">expandState</a>(POMDPData,string(t{1}(2,1):t{1}(2,2)));
+0216     to=<a href="#_sub7" class="code" title="subfunction r = expandState(POMDPData,c)">expandState</a>(POMDPData,string(t{1}(3,1):t{1}(3,2)));
+0217     
+0218     POMDPData.T{action}(to,from)=prob;
+0219     
+0220   <span class="keyword">elseif</span> nnz(string==<span class="string">':'</span>)==2
+0221     <span class="comment">% catch 'T: &lt;action&gt; : &lt;start-state&gt;'</span>
+0222     pat=<span class="string">'T\s*:\s*(\S+)\s*:\s*(\S+)'</span>;
+0223     [s,f,t]=regexp(string,pat);
+0224     action=<a href="#_sub8" class="code" title="subfunction r = expandAction(POMDPData,c)">expandAction</a>(POMDPData,string(t{1}(1,1):t{1}(1,2)));
+0225     from=<a href="#_sub7" class="code" title="subfunction r = expandState(POMDPData,c)">expandState</a>(POMDPData,string(t{1}(2,1):t{1}(2,2)));
+0226     <span class="comment">% catch all probs</span>
+0227     <span class="comment">% first try if they are at the end of this line</span>
+0228     string=string(t{1}(2,2)+1:end);
+0229     [s,f,t]=regexp(string,<span class="string">'([\d\.]+)'</span>);
+0230     [foo,d]=<a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>(t);
+0231     <span class="keyword">if</span> d~=POMDPData.nStates
+0232       <span class="comment">% hmm, probably they are on the next line</span>
+0233       string=file{i+1};
+0234       [s,f,t]=regexp(string,<span class="string">'([\d\.]+)'</span>);
+0235       [foo,d]=<a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>(t);
+0236       <span class="keyword">if</span> d~=POMDPData.nStates
+0237         error([<span class="string">'Not the correct number of probabilities on the next '</span> <span class="string">'line.'</span>]);
+0238       <span class="keyword">end</span>
+0239     <span class="keyword">end</span>
+0240     
+0241     <span class="keyword">for</span> to=1:d
+0242       prob=str2double(string(t{to}(1):t{to}(2)));
+0243       <span class="keyword">for</span> a=action'
+0244         POMDPData.T{a}(to,from)=prob;
+0245       <span class="keyword">end</span>
+0246     <span class="keyword">end</span>
+0247     
+0248   <span class="keyword">else</span>
+0249     <span class="comment">% catch 'T: &lt;action&gt;</span>
+0250     pat=<span class="string">'T\s*:\s*(\S+)\s*'</span>;
+0251     [s,f,t]=regexp(string,pat);
+0252     action=<a href="#_sub8" class="code" title="subfunction r = expandAction(POMDPData,c)">expandAction</a>(POMDPData,string(t{1}(1,1):t{1}(1,2)));
+0253     values=<a href="#_sub6" class="code" title="subfunction values = parseNextLine(file, i, nrCols, nrRows)">parseNextLine</a>(file,i+1,POMDPData.nStates,POMDPData.nStates);
+0254     <span class="keyword">for</span> a=action
+0255       POMDPData.T{action}(:,:)=values';
+0256     <span class="keyword">end</span>
+0257   <span class="keyword">end</span>
+0258 
+0259 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0260 <a name="_sub4" href="#_subfunctions" class="code">function POMDPData = processObservation(POMDPData,file,i)</a>
+0261   string=file{i};
+0262 
+0263   <span class="keyword">if</span> nnz(string==<span class="string">':'</span>)==3
+0264     <span class="comment">% catch 'O: &lt;action&gt; : &lt;end-state&gt; : &lt;observation&gt; &lt;prob&gt;'</span>
+0265     pat=<span class="string">'O\s*:\s*(\S+)\s*:\s*(\S+)\s*:\s*(\S+)\s+([\d\.]+)'</span>;
+0266     [s,f,t]=regexp(string,pat);
+0267     
+0268     <span class="keyword">if</span> ~isempty(t)
+0269       prob=str2double(string(t{1}(4,1):t{1}(4,2)));
+0270     <span class="keyword">else</span> <span class="comment">% probably the prob is on the next line</span>
+0271       <span class="comment">% catch 'O: &lt;action&gt; : &lt;start-state&gt; : &lt;end-state&gt;</span>
+0272       pat=<span class="string">'O\s*:\s*(\S+)\s*:\s*(\S+)\s*:\s*(\S+)\s*'</span>;
+0273       [s,f,t]=regexp(string,pat);
+0274       prob=<a href="#_sub6" class="code" title="subfunction values = parseNextLine(file, i, nrCols, nrRows)">parseNextLine</a>(file,i+1,1,1);
+0275     <span class="keyword">end</span>
+0276     
+0277     action=<a href="#_sub8" class="code" title="subfunction r = expandAction(POMDPData,c)">expandAction</a>(POMDPData,string(t{1}(1,1):t{1}(1,2)));
+0278     to=<a href="#_sub7" class="code" title="subfunction r = expandState(POMDPData,c)">expandState</a>(POMDPData,string(t{1}(2,1):t{1}(2,2)));
+0279     observation=<a href="#_sub9" class="code" title="subfunction r = expandObservation(POMDPData,c)">expandObservation</a>(POMDPData,string(t{1}(3,1):t{1}(3,2)));
+0280     
+0281     <span class="keyword">if</span> length(action)~=POMDPData.nActions
+0282       error(<span class="string">'The observation Model should be independent of the action'</span>);
+0283     <span class="keyword">end</span>
+0284     no=<a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>(observation,2);
+0285     <span class="keyword">for</span> i=1:no
+0286       POMDPData.O{observation(i)}(to)=prob; <span class="comment">% p(o|s)=p(o|s1,a)</span>
+0287     <span class="keyword">end</span>
+0288     
+0289   <span class="keyword">elseif</span> nnz(string==<span class="string">':'</span>)==2
+0290     <span class="comment">% catch 'O: &lt;action&gt; : &lt;end-state&gt;'</span>
+0291     pat=<span class="string">'O\s*:\s*(\S+)\s*:\s*(\S+)'</span>;
+0292     [s,f,t]=regexp(string,pat);
+0293     action=<a href="#_sub8" class="code" title="subfunction r = expandAction(POMDPData,c)">expandAction</a>(POMDPData,string(t{1}(1,1):t{1}(1,2)));
+0294     to=<a href="#_sub7" class="code" title="subfunction r = expandState(POMDPData,c)">expandState</a>(POMDPData,string(t{1}(2,1):t{1}(2,2)));
+0295     <span class="comment">% catch all probs</span>
+0296     <span class="comment">% first try if they are at the end of this line</span>
+0297     string=string(t{1}(2,2)+1:end);
+0298     [s,f,t]=regexp(string,<span class="string">'([\d\.]+)'</span>);
+0299     [foo,d]=<a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>(t);
+0300     <span class="keyword">if</span> d~=POMDPData.nObs
+0301       <span class="comment">% hmm, probably they are on the next line</span>
+0302       string=file{i+1};
+0303       [s,f,t]=regexp(string,<span class="string">'([\d\.]+)'</span>);
+0304       [foo,d]=<a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>(t);
+0305       <span class="keyword">if</span> d~=POMDPData.nObs
+0306         error([<span class="string">'Not the correct number of probabilities on the next '</span> <span class="string">'line.'</span>]);
+0307       <span class="keyword">end</span>
+0308     <span class="keyword">end</span>
+0309     
+0310     <span class="keyword">if</span> length(action)~=POMDPData.nActions
+0311       error(<span class="string">'The observation Model should be independent of the action'</span>);
+0312     <span class="keyword">end</span>
+0313     
+0314     <span class="keyword">for</span> obs=1:d
+0315       prob=str2double(string(t{obs}(1):t{obs}(2)));
+0316       POMDPData.O{obs}(to)=prob; <span class="comment">% p(o|s)=p(o|s a)</span>
+0317     <span class="keyword">end</span>
+0318   <span class="keyword">else</span>
+0319     <span class="comment">% catch 'O: &lt;action&gt;</span>
+0320     pat=<span class="string">'O\s*:\s*(\S+)\s*'</span>;
+0321     [s,f,t]=regexp(string,pat);
+0322     action=<a href="#_sub8" class="code" title="subfunction r = expandAction(POMDPData,c)">expandAction</a>(POMDPData,string(t{1}(1,1):t{1}(1,2)));
+0323     values=<a href="#_sub6" class="code" title="subfunction values = parseNextLine(file, i, nrCols, nrRows)">parseNextLine</a>(file,i+1,POMDPData.nObs,POMDPData.nStates)';
+0324     
+0325     <span class="keyword">if</span> length(action)~=POMDPData.nActions
+0326       error(<span class="string">'The observation Model should be independent of the action'</span>);
+0327     <span class="keyword">end</span>
+0328     
+0329     <span class="keyword">for</span> i=1:POMDPData.nObs
+0330       <span class="keyword">for</span> j=1:POMDPData.nStates
+0331         POMDPData.O{i}(j)=values(i,j); <span class="comment">% p(o|s)=p(o|s1,a)</span>
+0332       <span class="keyword">end</span>
+0333     <span class="keyword">end</span>
+0334   <span class="keyword">end</span>
+0335 
+0336 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0337 <a name="_sub5" href="#_subfunctions" class="code">function POMDPData = processReward(POMDPData,file,i)</a>
+0338   string=file{i};
+0339 
+0340   <span class="keyword">if</span> nnz(string==<span class="string">':'</span>)==4
+0341     <span class="comment">% catch 'R: &lt;action&gt; : &lt;start-state&gt; : &lt;end-state&gt; : &lt;observation&gt; &lt;reward&gt;'</span>
+0342     <span class="comment">% Reward can be negative</span>
+0343     pat=[<span class="string">'R\s*:\s*(\S+)\s*:\s*(\S+)\s*:\s*(\S+)\s*:\s*(\S+)\s+([-\d\.]+'</span> <span class="keyword">...</span>
+0344         <span class="string">')'</span>];
+0345     [s,f,t]=regexp(string,pat);
+0346     
+0347     <span class="keyword">if</span> ~isempty(t)
+0348       reward=str2double(string(t{1}(5,1):t{1}(5,2)));
+0349     <span class="keyword">else</span> <span class="comment">% probably the reward is on the next line</span>
+0350       <span class="comment">% catch 'R: &lt;action&gt; : &lt;start-state&gt; : &lt;end-state&gt; :</span>
+0351       <span class="comment">% &lt;observation&gt;'</span>
+0352       pat=<span class="string">'R\s*:\s*(\S+)\s*:\s*(\S+)\s*:\s*(\S+)\s*:\s*(\S+)\s*'</span>;
+0353       [s,f,t]=regexp(string,pat);
+0354       reward=<a href="#_sub6" class="code" title="subfunction values = parseNextLine(file, i, nrCols, nrRows)">parseNextLine</a>(file,i+1,1,1);
+0355     <span class="keyword">end</span>
+0356     
+0357     action=<a href="#_sub8" class="code" title="subfunction r = expandAction(POMDPData,c)">expandAction</a>(POMDPData,string(t{1}(1,1):t{1}(1,2)));
+0358     from=<a href="#_sub7" class="code" title="subfunction r = expandState(POMDPData,c)">expandState</a>(POMDPData,string(t{1}(2,1):t{1}(2,2)));
+0359     to=<a href="#_sub7" class="code" title="subfunction r = expandState(POMDPData,c)">expandState</a>(POMDPData,string(t{1}(3,1):t{1}(3,2)));
+0360     observation=<a href="#_sub9" class="code" title="subfunction r = expandObservation(POMDPData,c)">expandObservation</a>(POMDPData,string(t{1}(4,1):t{1}(4,2)));
+0361     
+0362     <span class="keyword">if</span> length(observation)~=POMDPData.nObs
+0363       error(<span class="string">'Reward should be independent of the observation'</span>);
+0364     <span class="keyword">end</span>  
+0365     <span class="keyword">if</span> length(from)~=POMDPData.nStates
+0366       error(<span class="string">'Reward should be independent of the departing state'</span>);
+0367     <span class="keyword">end</span>
+0368 
+0369     <span class="keyword">for</span> i=1:<a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>(action,1)
+0370       POMDPData.R{action(i)}(to)=reward; 
+0371     <span class="keyword">end</span>
+0372   <span class="keyword">else</span>
+0373     error(<span class="string">'Not yet implemented.'</span>);
+0374   <span class="keyword">end</span>
+0375 
+0376   
+0377 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0378 <a name="_sub6" href="#_subfunctions" class="code">function values = parseNextLine(file, i, nrCols, nrRows)</a>
+0379   <span class="keyword">if</span> strmatch(<span class="string">'uniform'</span>,file{i})
+0380     values=ones(nrRows,nrCols)/nrCols;
+0381   <span class="keyword">elseif</span> strmatch(<span class="string">'identity'</span>,file{i})
+0382     values=eye(nrCols);
+0383   <span class="keyword">else</span>
+0384     [s,f,t]=regexp(file{i},<span class="string">'([-\d\.]+)'</span>);
+0385     [foo,d]=<a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>(t);
+0386     <span class="keyword">if</span> d~=nrCols
+0387       error([<span class="string">'Not the correct number of probabilities on the next '</span> <span class="keyword">...</span>
+0388           <span class="string">'line.'</span>]);
+0389     <span class="keyword">end</span>
+0390     <span class="comment">% check whether this is just a single line of numbers or a full</span>
+0391     <span class="comment">% matrix</span>
+0392     <span class="keyword">if</span> i&lt;length(file)
+0393       numbers=sscanf(file{i+1},<span class="string">'%f'</span>);
+0394     <span class="keyword">else</span>
+0395       numbers=[];
+0396     <span class="keyword">end</span>
+0397     <span class="keyword">if</span> any(<a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>(numbers)==0)
+0398       values=zeros(1,d);
+0399       string=file{i};
+0400       <span class="keyword">for</span> j=1:d
+0401         values(j)=str2double(string(t{j}(1):t{j}(2)));
+0402       <span class="keyword">end</span>
+0403     <span class="keyword">else</span>
+0404       <span class="comment">% find out how many lines</span>
+0405       i1=i;
+0406       numbers=sscanf(file{i1+1},<span class="string">'%f'</span>);
+0407       running=1;
+0408       <span class="keyword">while</span> running
+0409         numbers=sscanf(file{i1+1},<span class="string">'%f'</span>);
+0410         <span class="keyword">if</span> any(<a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>(numbers)~=0)
+0411           i1=i1+1;
+0412         <span class="keyword">else</span>
+0413           running=0;
+0414         <span class="keyword">end</span>
+0415       <span class="keyword">end</span>
+0416       values=zeros(i1+1-i,d);
+0417       <span class="comment">% parse them all</span>
+0418       <span class="keyword">for</span> k=i:i1
+0419         [s,f,t]=regexp(file{k},<span class="string">'([-\d\.]+)'</span>);
+0420         string=file{k};
+0421         <span class="keyword">for</span> j=1:d
+0422           values(k+1-i,j)=str2double(string(t{j}(1):t{j}(2)));
+0423         <span class="keyword">end</span>
+0424       <span class="keyword">end</span>
+0425     <span class="keyword">end</span>
+0426   <span class="keyword">end</span>
+0427 
+0428 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0429 <a name="_sub7" href="#_subfunctions" class="code">function r = expandState(POMDPData,c)</a>
+0430   r=<a href="#_sub10" class="code" title="subfunction r = expandString(c,nr,members)">expandString</a>(c,POMDPData.nStates,POMDPData.StateNames);
+0431 
+0432 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0433 <a name="_sub8" href="#_subfunctions" class="code">function r = expandAction(POMDPData,c)</a>
+0434   r=<a href="#_sub10" class="code" title="subfunction r = expandString(c,nr,members)">expandString</a>(c,POMDPData.nActions,POMDPData.ActionNames);
+0435 
+0436 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0437 <a name="_sub9" href="#_subfunctions" class="code">function r = expandObservation(POMDPData,c)</a>
+0438   r=<a href="#_sub10" class="code" title="subfunction r = expandString(c,nr,members)">expandString</a>(c,POMDPData.nObs,POMDPData.ObsNames);
+0439 
+0440 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0441 <a name="_sub10" href="#_subfunctions" class="code">function r = expandString(c,nr,members)</a>
+0442   <span class="keyword">if</span> strcmp(c,<span class="string">'*'</span>)
+0443     r=cumsum(ones(nr,1));
+0444   <span class="keyword">else</span>
+0445     r=strmatch(c,members,<span class="string">'exact'</span>);
+0446     <span class="keyword">if</span> isempty(r) <span class="comment">% apparently c is a numbered state</span>
+0447       r=str2double(c)+1; <span class="comment">% Matlab starts at 1, not 0</span>
+0448     <span class="keyword">end</span>
+0449   <span class="keyword">end</span>
+0450   
+0451 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span></pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

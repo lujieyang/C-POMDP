@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of Update</title>
+  <meta name="keywords" content="Update">
+  <meta name="description" content="Belief evolution under an observation model.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Belief --><!-- # @PBelief -->
+<h1>Update
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Belief evolution under an observation model.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function bOut=Update(b,po,Sp) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Belief evolution under an observation model.
+  
+   Corrects a belief with the information given by the observation model,
+   'po'.
+   'po' is derived with GetObservationModelFixedO for the
+   corresponding obs model.
+
+   Note that we use the backed up samples possibly created in a
+   Predicition step before. If no prediction step was exectued before,  
+   the backup and the samples point to the same data.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Belief/@DBelief/rand.html" class="code" title="function v=rand(b)">rand</a>	Random state from a discrete belief.</li><li><a href="PBelief.html" class="code" title="function pb=PBelief(varargin)">PBelief</a>	Particle-based belief constructor.</li><li><a href="rand.html" class="code" title="function v=rand(b)">rand</a>	Random state from a belief.</li><li><a href="../.././Lib/@GMixture/Crop.html" class="code" title="function gmOut=Crop(gm,Sp)">Crop</a>	Limits all means to be inside the given space.</li><li><a href="../.././Lib/@GMixture/Value.html" class="code" title="function v=Value(gm,x)">Value</a>	Evaluates a GMixture.</li><li><a href="../.././Lib/@GMixture/rand.html" class="code" title="function v=rand(gm,varargin)">rand</a>	Generates random points on a GMixture.</li><li><a href="../.././Lib/@Gaussian/Crop.html" class="code" title="function gOut=Crop(g,Sp)">Crop</a>	Forces the Gaussian mean to be in a given space.</li><li><a href="../.././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>	Gaussian construtor.</li><li><a href="../.././Lib/@Gaussian/Value.html" class="code" title="function v=Value(g,x)">Value</a>	Evaluation of a Gaussian.</li><li><a href="../.././Lib/@Gaussian/rand.html" class="code" title="function r=rand(g,varargin)">rand</a>	Generates random ponts on a Gaussian.</li><li><a href="../.././Lib/RandVector.html" class="code" title="function i=RandVector(v)">RandVector</a>	Selects and element from a discrete probability distribution.</li><li><a href="../.././Space/@CSpace/Crop.html" class="code" title="function sOut=Crop(CS,s)">Crop</a>	Forces a state to be in a given continuous sub-space.</li><li><a href="../.././Space/@CSpace/rand.html" class="code" title="function v=rand(CS)">rand</a>	Random state from a continuous space.</li><li><a href="../.././Space/@DSpace/Crop.html" class="code" title="function sOut=Crop(DS,s)">Crop</a>	Forces a state to be in a given discrete space.</li><li><a href="../.././Space/@DSpace/rand.html" class="code" title="function v=rand(DS)">rand</a>	Random state from a discrete space.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././ObsModel/@CS_CO_ObsModel/DiscretizeObsModel.html" class="code" title="function CS_DO_OM=DiscretizeObsModel(CS_CO_OM,V,ba,nSamples)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li><li><a href="../.././ObsModel/@ObsModel/Update.html" class="code" title="function [bOut po]=Update(OM,b,o,Sp)">Update</a>	Belief evolution under an observation model.</li><li><a href="../.././POMDP/@POMDP/SimulationStep.html" class="code" title="function [s b o r]=SimulationStep(P,b,s,a)">SimulationStep</a>	Executes one step of a POMDP simulation.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function bOut=Update(b,po,Sp)</a>
+0002 <span class="comment">%   Belief evolution under an observation model.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Corrects a belief with the information given by the observation model,</span>
+0005 <span class="comment">%   'po'.</span>
+0006 <span class="comment">%   'po' is derived with GetObservationModelFixedO for the</span>
+0007 <span class="comment">%   corresponding obs model.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">%   Note that we use the backed up samples possibly created in a</span>
+0010 <span class="comment">%   Predicition step before. If no prediction step was exectued before,</span>
+0011 <span class="comment">%   the backup and the samples point to the same data.</span>
+0012 
+0013   c=arrayfun(@(s)(<a href="../.././Lib/@GMixture/Value.html" class="code" title="function v=Value(gm,x)">Value</a>(po,s)),b.noiselessMovedSamples);
+0014   w=b.w.*c;
+0015   g=cell(1,b.np);
+0016   <span class="keyword">for</span> i=1:b.np
+0017     g{i}=<a href="../.././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(b.samples(:,i),b.noise);
+0018   <span class="keyword">end</span>
+0019   
+0020   ns=zeros(b.ss,b.np);
+0021   nw=zeros(1,b.np);
+0022   <span class="keyword">for</span> i=1:b.np
+0023     j=<a href="../.././Lib/RandVector.html" class="code" title="function i=RandVector(v)">RandVector</a>(w);
+0024     ns(:,i)=<a href="../.././Lib/@GMixture/Crop.html" class="code" title="function gmOut=Crop(gm,Sp)">Crop</a>(Sp,<a href="rand.html" class="code" title="function v=rand(b)">rand</a>(g{j}));
+0025     nw(i)=<a href="../.././Lib/@GMixture/Value.html" class="code" title="function v=Value(gm,x)">Value</a>(po,ns(:,i))/c(j);
+0026   <span class="keyword">end</span>
+0027   
+0028   bOut=<a href="PBelief.html" class="code" title="function pb=PBelief(varargin)">PBelief</a>(nw,ns);
+0029</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

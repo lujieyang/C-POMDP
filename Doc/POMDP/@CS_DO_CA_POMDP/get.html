@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of get</title>
+  <meta name="keywords" content="get">
+  <meta name="description" content="Get function for CS_DO_CA_POMDPs.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # POMDP --><!-- # @CS_DO_CA_POMDP -->
+<h1>get
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Get function for CS_DO_CA_POMDPs.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function value=get(P,field) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">  Get function for CS_DO_CA_POMDPs.
+
+  Get function for POMDP on continuous state spaces but on discrete action
+  and observation spaces.
+  Possible fields to query are
+    - StateSpace
+    - ActionSpace
+    - ObsSpace
+    - ActionModel
+    - ObsModel
+    - RewardModel
+    - nSampledActions
+    - Any filed defined in higher levels of the POMDP object hierarchy
+
+  See also @CS_POMDP/get, @POMDP/get</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>	Get for GBeliefs.</li><li><a href="../.././Lib/@GMixture/get.html" class="code" title="function value=get(gm,field,varargin)">get</a>	Get function for the GMixture object.</li><li><a href="../.././Lib/@Gaussian/get.html" class="code" title="function out=get(g,field)">get</a>	Gaussian object get function.</li><li><a href="../.././POMDP/@CS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_CA_POMDPs.</li><li><a href="../.././POMDP/@CS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_DA_POMDPs.</li><li><a href="../.././POMDP/@CS_CO_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_POMDPs.</li><li><a href="get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_CA_POMDPs.</li><li><a href="../.././POMDP/@CS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_DA_POMDPs.</li><li><a href="../.././POMDP/@CS_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_POMDPs.</li><li><a href="../.././POMDP/@DS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_CA_POMDPs.</li><li><a href="../.././POMDP/@DS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_DA_POMDPs.</li><li><a href="../.././POMDP/@DS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_CA_POMDPs.</li><li><a href="../.././POMDP/@DS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_DA_POMDPs.</li><li><a href="../.././POMDP/@POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get functio for POMDPs.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././ActionModel/@CS_DA_ActionModel/DiscretizeActionModel.html" class="code" title="function DAM=DiscretizeActionModel(AM,DS)">DiscretizeActionModel</a>	Produces a new action model discretizing the state space.</li><li><a href="../.././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>	Get for GBeliefs.</li><li><a href="../.././Belief/@PBelief/Prediction.html" class="code" title="function bOut=Prediction(b,t,Sp)">Prediction</a>	Belief evolution given a transition model.</li><li><a href="../.././Experiments/GenerateFigure7aData.html" class="code" title="function GenerateFigure7aData(fname)">GenerateFigure7aData</a>	Generates the data for Figure 7-left.</li><li><a href="../.././Experiments/GetTest1caParameters.html" class="code" title="function [POMDP P]=GetTest1caParameters(varargin)">GetTest1caParameters</a>	The example on Figure 10.</li><li><a href="../.././Experiments/GetTest1coParameters.html" class="code" title="function [POMDP P]=GetTest1coParameters(varargin)">GetTest1coParameters</a>	The example on Figure 11.</li><li><a href="../.././Experiments/GetTest1pParameters.html" class="code" title="function [POMDP P]=GetTest1pParameters(varargin)">GetTest1pParameters</a>	The example on Figure 8.</li><li><a href="../.././Experiments/MakeFigure1.html" class="code" title="function MakeFigure1">MakeFigure1</a>	Generates Figure 1.</li><li><a href="../.././Experiments/MakeFigure3.html" class="code" title="function MakeFigure3(varargin)">MakeFigure3</a>	Generates Figure 3.</li><li><a href="../.././Experiments/MakeFigure7.html" class="code" title="function MakeFigure7">MakeFigure7</a>	Generates Figure 7.</li><li><a href="../.././Lib/@GMixture/Covariance.html" class="code" title="function C=Covariance(gm)">Covariance</a>	Average covariance of a Gaussian mixture.</li><li><a href="../.././Lib/@GMixture/FuseComponents.html" class="code" title="function g=FuseComponents(gm)">FuseComponents</a>	Fuses a Gaussian mixture into a single Gaussian.</li><li><a href="../.././Lib/@GMixture/Mean.html" class="code" title="function m=Mean(gm)">Mean</a>	Mean of a Gmixture.</li><li><a href="../.././Lib/@GMixture/ProductInt.html" class="code" title="function c=ProductInt(gm1,gm2)">ProductInt</a>	Product and marginalization of two GMixtures.</li><li><a href="../.././Lib/@GMixture/plot.html" class="code" title="function h=plot(gm,varargin)">plot</a>	Plots a Gaussian mixture.</li><li><a href="../.././Lib/@GMixture/rand.html" class="code" title="function v=rand(gm,varargin)">rand</a>	Generates random points on a GMixture.</li><li><a href="../.././Lib/@Gaussian/plot.html" class="code" title="function h=plot(g,varargin)">plot</a>	Plots a Gaussian.</li><li><a href="../.././Lib/GetPOMDPSolutionStatistics.html" class="code" title="function [tics aV aR nA nC]=GetPOMDPSolutionStatistics(POMDP,P,B,V,Alpha,time,maxTime,stTime)">GetPOMDPSolutionStatistics</a>	Collects statistics with the outcome of an experiment.</li><li><a href="../.././Lib/TestRep.html" class="code" title="function TestRep(varargin)">TestRep</a>	Executes many times of Perseus on a given problem.</li><li><a href="../.././Lib/TestRepWithStatistics.html" class="code" title="function TestRepWithStatistics(varargin)">TestRepWithStatistics</a>	Executes many times Perseus on a given problem and collects statistics.</li><li><a href="../.././ObsModel/@CS_CO_ObsModel/DiscretizeObsModel.html" class="code" title="function CS_DO_OM=DiscretizeObsModel(CS_CO_OM,V,ba,nSamples)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li><li><a href="../.././POMDP/@CS_CO_CA_POMDP/DiscretizeActionModel.html" class="code" title="function DA_POMDP=DiscretizeActionModel(CA_POMDP,optimalAction,iteration)">DiscretizeActionModel</a>	Discretizes the action space CS_CO_CA_POMDP.</li><li><a href="../.././POMDP/@CS_CO_CA_POMDP/DiscretizeObsModel.html" class="code" title="function DO_POMDP=DiscretizeObsModel(CO_POMDP)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li><li><a href="../.././POMDP/@CS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_CA_POMDPs.</li><li><a href="../.././POMDP/@CS_CO_DA_POMDP/DiscretizeObsModel.html" class="code" title="function DO_POMDP=DiscretizeObsModel(CO_POMDP,V,b,a)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li><li><a href="../.././POMDP/@CS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_DA_POMDPs.</li><li><a href="../.././POMDP/@CS_CO_POMDP/ComputeAlpha_a.html" class="code" title="function Element_a=ComputeAlpha_a(P,V,b,a,Alphas_j_a_o)">ComputeAlpha_a</a>	Compute the alpha_i_n-element for the given action and belief.</li><li><a href="../.././POMDP/@CS_CO_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_POMDPs.</li><li><a href="DiscretizeActionModel.html" class="code" title="function DA_POMDP=DiscretizeActionModel(CA_POMDP,optimalAction,iteration)">DiscretizeActionModel</a>	Discretizes the action space CS_DO_CA_POMDP.</li><li><a href="get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_CA_POMDPs.</li><li><a href="../.././POMDP/@CS_DO_DA_POMDP/Discretize.html" class="code" title="function DP=Discretize(CP,n)">Discretize</a>	Discretizes the state space of the CS_DO_DA_POMDP.</li><li><a href="../.././POMDP/@CS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_DA_POMDPs.</li><li><a href="../.././POMDP/@CS_DO_POMDP/ComputeAlpha_a.html" class="code" title="function Element_a=ComputeAlpha_a(P,V,b,a,Alphas_j_a_o)">ComputeAlpha_a</a>	Compute the alpha_i_n-element for the given action and belief.</li><li><a href="../.././POMDP/@CS_POMDP/Alpha0.html" class="code" title="function a=Alpha0(P)">Alpha0</a>	Alpha-element for the first Perseus iteration (continuos state version).</li><li><a href="../.././POMDP/@CS_POMDP/Backup.html" class="code" title="function [alpha a v]=Backup(P,b,V,Alphas_j_a_o)">Backup</a>	Backup for a given belief (continuous state version).</li><li><a href="../.././POMDP/@CS_POMDP/ComputeAlpha_j_a_o.html" class="code" title="function alpha_j_a_o=ComputeAlpha_j_a_o(P,V,j,a,o)">ComputeAlpha_j_a_o</a>	Computes a particular alpha-element.</li><li><a href="../.././POMDP/@CS_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_POMDPs.</li><li><a href="../.././POMDP/@DS_CO_CA_POMDP/DiscretizeObsModel.html" class="code" title="function DO_POMDP=DiscretizeObsModel(CO_POMDP)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li><li><a href="../.././POMDP/@DS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_CA_POMDPs.</li><li><a href="../.././POMDP/@DS_CO_DA_POMDP/DiscretizeObsModel.html" class="code" title="function DO_POMDP=DiscretizeObsModel(CO_POMDP)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li><li><a href="../.././POMDP/@DS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_DA_POMDPs.</li><li><a href="../.././POMDP/@DS_DO_CA_POMDP/DiscretizeActionModel.html" class="code" title="function DA_POMDP=DiscretizeActionModel(CA_POMDP,optimalAction,iteration)">DiscretizeActionModel</a>	Discretizes the action space DS_DO_CA_POMDP.</li><li><a href="../.././POMDP/@DS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_CA_POMDPs.</li><li><a href="../.././POMDP/@DS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_DA_POMDPs.</li><li><a href="../.././POMDP/@DS_DO_POMDP/ComputeAlpha_a.html" class="code" title="function Element_a=ComputeAlpha_a(P,V,b,a,Alphas_j_a_o)">ComputeAlpha_a</a>	Compute the alpha_i_n-element for the given action and belief.</li><li><a href="../.././POMDP/@DS_POMDP/Alpha0.html" class="code" title="function a=Alpha0(P)">Alpha0</a>	Alpha-element for the first Perseus iteration (discrete state version).</li><li><a href="../.././POMDP/@DS_POMDP/Backup.html" class="code" title="function [alpha a v]=Backup(P,b,V,Alphas_j_a_o)">Backup</a>	Backupt for a given belief (discrete state version).</li><li><a href="../.././POMDP/@DS_POMDP/ComputeAlpha_j_a_o.html" class="code" title="function alpha_j_a_o=ComputeAlpha_j_a_o(P,V,j,a,o)">ComputeAlpha_j_a_o</a>	Computes a particular alpha-element.</li><li><a href="../.././POMDP/@POMDP/ComputeAlphas_j_a_o.html" class="code" title="function As=ComputeAlphas_j_a_o(P,V)">ComputeAlphas_j_a_o</a>	Computes the set of al possible alpha-elements.</li><li><a href="../.././POMDP/@POMDP/DiscretizeActionModel.html" class="code" title="function POut=DiscretizeActionModel(P,a,n)">DiscretizeActionModel</a>	Discretizes a POMDP on the action side.</li><li><a href="../.././POMDP/@POMDP/DiscretizeObsModel.html" class="code" title="function POut=DiscretizeObsModel(P)">DiscretizeObsModel</a>	Discretizes a POMDP on the observation side.</li><li><a href="../.././POMDP/@POMDP/RandomAction.html" class="code" title="function a=RandomAction(P)">RandomAction</a>	Draws a random action from a POMDP.</li><li><a href="../.././POMDP/@POMDP/SampleBeliefs.html" class="code" title="function SB=SampleBeliefs(P,start,nBeliefs,minBeliefDist,stepsXtrial,minR,maxR)">SampleBeliefs</a>	Samples a set of beliefs from a POMDP.</li><li><a href="../.././POMDP/@POMDP/SimulateFrom.html" class="code" title="function r=SimulateFrom(P,V,start,n)">SimulateFrom</a>	Simulates a POMDP from a given belief.</li><li><a href="../.././POMDP/@POMDP/SimulationStep.html" class="code" title="function [s b o r]=SimulationStep(P,b,s,a)">SimulationStep</a>	Executes one step of a POMDP simulation.</li><li><a href="../.././POMDP/@POMDP/UniformDistribution.html" class="code" title="function u=UniformDistribution(POMDP)">UniformDistribution</a>	Uniform distribution in the POMDP state space.</li><li><a href="../.././RewardModel/@CS_DA_RewardModel/minReward.html" class="code" title="function mr=minReward(RM)">minReward</a>	Lower bound of the minimal possible reward.</li><li><a href="../.././RewardModel/@DS_CA_RewardModel/minReward.html" class="code" title="function mr=minReward(RM)">minReward</a>	Lower bound of the minimal possible reward.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function value=get(P,field)</a>
+0002 <span class="comment">%  Get function for CS_DO_CA_POMDPs.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%  Get function for POMDP on continuous state spaces but on discrete action</span>
+0005 <span class="comment">%  and observation spaces.</span>
+0006 <span class="comment">%  Possible fields to query are</span>
+0007 <span class="comment">%    - StateSpace</span>
+0008 <span class="comment">%    - ActionSpace</span>
+0009 <span class="comment">%    - ObsSpace</span>
+0010 <span class="comment">%    - ActionModel</span>
+0011 <span class="comment">%    - ObsModel</span>
+0012 <span class="comment">%    - RewardModel</span>
+0013 <span class="comment">%    - nSampledActions</span>
+0014 <span class="comment">%    - Any filed defined in higher levels of the POMDP object hierarchy</span>
+0015 <span class="comment">%</span>
+0016 <span class="comment">%  See also @CS_POMDP/get, @POMDP/get</span>
+0017   <span class="keyword">switch</span> field
+0018     <span class="keyword">case</span> <span class="string">'StateSpace'</span>
+0019       value=P.S;
+0020     <span class="keyword">case</span> <span class="string">'ActionSpace'</span>
+0021       value=P.A;
+0022     <span class="keyword">case</span> <span class="string">'ObsSpace'</span>
+0023       value=P.O;
+0024     <span class="keyword">case</span> <span class="string">'ActionModel'</span>
+0025       value=P.CS_CA_ActionModel;
+0026     <span class="keyword">case</span> <span class="string">'ObsModel'</span>
+0027       value=P.CS_DO_ObsModel;
+0028     <span class="keyword">case</span> <span class="string">'RewardModel'</span>
+0029       value=P.CS_CA_RewardModel;
+0030     <span class="keyword">case</span> <span class="string">'nSampledActions'</span>
+0031       value=P.nSampledActions;
+0032     <span class="keyword">otherwise</span>
+0033       value=<a href="get.html" class="code" title="function value=get(P,field)">get</a>(P.CS_DO_POMDP,field);
+0034   <span class="keyword">end</span></pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of GetActionModelFixedA</title>
+  <meta name="keywords" content="GetActionModelFixedA">
+  <meta name="description" content="Returns the action model for a given action.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # ActionModel --><!-- # @DS_CA_ActionModel -->
+<h1>GetActionModelFixedA
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Returns the action model for a given action.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function p=GetActionModelFixedA(AM,a) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Returns the action model for a given action.
+
+   Returns the action model when the action is is fixed to 'a'.
+   The output is a table p(stateTo,stateFrom).
+
+   Note the difference with respect to action models on continuous state
+   spaces. Here the output is a probability on the state space and not a
+   distribution on the displacement produced by 'a'.
+
+   See also <a href="DS_CA_ActionModel.html" class="code" title="function AM=DS_CA_ActionModel(varargin)">DS_CA_ActionModel</a>.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Lib/@GMixture/Value.html" class="code" title="function v=Value(gm,x)">Value</a>	Evaluates a GMixture.</li><li><a href="../.././Lib/@Gaussian/Value.html" class="code" title="function v=Value(g,x)">Value</a>	Evaluation of a Gaussian.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././ActionModel/@ActionModel/BeliefPrediction.html" class="code" title="function [bOut t]=BeliefPrediction(AM,b,a,Sp)">BeliefPrediction</a>	Belief evolution under a given action.</li><li><a href="../.././POMDP/@CS_POMDP/ComputeAlpha_j_a_o.html" class="code" title="function alpha_j_a_o=ComputeAlpha_j_a_o(P,V,j,a,o)">ComputeAlpha_j_a_o</a>	Computes a particular alpha-element.</li><li><a href="../.././POMDP/@DS_POMDP/ComputeAlpha_j_a_o.html" class="code" title="function alpha_j_a_o=ComputeAlpha_j_a_o(P,V,j,a,o)">ComputeAlpha_j_a_o</a>	Computes a particular alpha-element.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function p=GetActionModelFixedA(AM,a)</a>
+0002 <span class="comment">%   Returns the action model for a given action.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Returns the action model when the action is is fixed to 'a'.</span>
+0005 <span class="comment">%   The output is a table p(stateTo,stateFrom).</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%   Note the difference with respect to action models on continuous state</span>
+0008 <span class="comment">%   spaces. Here the output is a probability on the state space and not a</span>
+0009 <span class="comment">%   distribution on the displacement produced by 'a'.</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">%   See also DS_CA_ActionModel.</span>
+0012 
+0013   p=cellfun(@(gm)(<a href="../.././Lib/@GMixture/Value.html" class="code" title="function v=Value(gm,x)">Value</a>(gm,a)),AM.T);
+0014</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

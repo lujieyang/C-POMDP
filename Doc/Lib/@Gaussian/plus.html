@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of plus</title>
+  <meta name="keywords" content="plus">
+  <meta name="description" content="Adds a Gaussian and a constant/Gaussian.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Lib --><!-- # @Gaussian -->
+<h1>plus
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Adds a Gaussian and a constant/Gaussian.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function g=plus(g1,g2) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Adds a Gaussian and a constant/Gaussian.
+
+   Add two Gaussians: Add the mean and the covariance. This results on a
+   convolution of one Gassian into another.
+   If one of the parameters is not a Gaussian, we offset the mean of the
+   Gaussian given as a parameter.
+
+   See also <a href="Offset.html" class="code" title="function gOut=Offset(g,o)">offset</a>.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Lib/@GMixture/plus.html" class="code" title="function gmOut=plus(gm1,gm2)">plus</a>	Adds two GMixtures.</li><li><a href="Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>	Gaussian construtor.</li><li><a href="Offset.html" class="code" title="function gOut=Offset(g,o)">Offset</a>	Adds a constant to a Gaussian.</li><li><a href="plus.html" class="code" title="function g=plus(g1,g2)">plus</a>	Adds a Gaussian and a constant/Gaussian.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="minus.html" class="code" title="function gOut=minus(g,ct)">minus</a>	Substract a Gauussian and a constant/Gaussian.</li><li><a href="plus.html" class="code" title="function g=plus(g1,g2)">plus</a>	Adds a Gaussian and a constant/Gaussian.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function g=plus(g1,g2)</a>
+0002 <span class="comment">%   Adds a Gaussian and a constant/Gaussian.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Add two Gaussians: Add the mean and the covariance. This results on a</span>
+0005 <span class="comment">%   convolution of one Gassian into another.</span>
+0006 <span class="comment">%   If one of the parameters is not a Gaussian, we offset the mean of the</span>
+0007 <span class="comment">%   Gaussian given as a parameter.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">%   See also offset.</span>
+0010 
+0011   <span class="keyword">if</span> isa(g1,<span class="string">'Gaussian'</span>)
+0012     <span class="keyword">if</span> isa(g2,<span class="string">'Gaussian'</span>)
+0013       g=<a href="Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(g1.m+g2.m,g1.S+g2.S);
+0014     <span class="keyword">else</span>
+0015       <span class="keyword">if</span> isa(g2,<span class="string">'double'</span>)
+0016         g=<a href="Offset.html" class="code" title="function gOut=Offset(g,o)">Offset</a>(g1,g2);
+0017       <span class="keyword">else</span>
+0018         error(<span class="string">'Invalid parameter type in Gaussian mtimes'</span>)
+0019       <span class="keyword">end</span>
+0020     <span class="keyword">end</span>
+0021   <span class="keyword">else</span>
+0022     g=<a href="plus.html" class="code" title="function g=plus(g1,g2)">plus</a>(g2,g1);
+0023   <span class="keyword">end</span>
+0024 
+0025</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

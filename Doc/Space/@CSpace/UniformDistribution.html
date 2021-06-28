@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of UniformDistribution</title>
+  <meta name="keywords" content="UniformDistribution">
+  <meta name="description" content="Uniform probability on a continuous space.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Space --><!-- # @CSpace -->
+<h1>UniformDistribution
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Uniform probability on a continuous space.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function [p v]=UniformDistribution(CS) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Uniform probability on a continuous space.
+
+   Generates a uniform distribution on the bounds defining the given
+   continuous space.
+   Right now, the output is a Gaussian mixture with a single component
+   with a spherical covariance defined given the bounds of the space in
+   each dimension.
+   
+   Parameters:
+     CS: The continuous space where to define the probability
+         distribution.
+   Outputs:
+     p: The Gaussian mixture.
+     v: Value for the distribution in the continuous space. This is lower
+        as the space gets larger. In principle this is the same value as
+        that returned by UniformProbability but it could be slightly
+        different since the returned distribution is only an approximation 
+        of the uniform distribution and not the real one.
+
+   See also @CSpace/UniformProbability.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Lib/@GMixture/GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>	Gaussian mixture constructor.</li><li><a href="../.././Lib/@GMixture/Value.html" class="code" title="function v=Value(gm,x)">Value</a>	Evaluates a GMixture.</li><li><a href="../.././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>	Gaussian construtor.</li><li><a href="../.././Lib/@Gaussian/Value.html" class="code" title="function v=Value(g,x)">Value</a>	Evaluation of a Gaussian.</li><li><a href="max.html" class="code" title="function m=max(S)">max</a>	Upper bound of a CSpace</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Experiments/GenerateFigure7aData.html" class="code" title="function GenerateFigure7aData(fname)">GenerateFigure7aData</a>	Generates the data for Figure 7-left.</li><li><a href="../.././Experiments/GetHallwayParameters.html" class="code" title="function [POMDP P]=GetHallwayParameters">GetHallwayParameters</a>	The hallway discrete POMDP.</li><li><a href="../.././Experiments/MakeFigure7.html" class="code" title="function MakeFigure7">MakeFigure7</a>	Generates Figure 7.</li><li><a href="../.././POMDP/@CS_POMDP/Alpha0.html" class="code" title="function a=Alpha0(P)">Alpha0</a>	Alpha-element for the first Perseus iteration (continuos state version).</li><li><a href="../.././POMDP/@DS_POMDP/Alpha0.html" class="code" title="function a=Alpha0(P)">Alpha0</a>	Alpha-element for the first Perseus iteration (discrete state version).</li><li><a href="../.././POMDP/@POMDP/UniformDistribution.html" class="code" title="function u=UniformDistribution(POMDP)">UniformDistribution</a>	Uniform distribution in the POMDP state space.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [p v]=UniformDistribution(CS)</a>
+0002 <span class="comment">%   Uniform probability on a continuous space.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Generates a uniform distribution on the bounds defining the given</span>
+0005 <span class="comment">%   continuous space.</span>
+0006 <span class="comment">%   Right now, the output is a Gaussian mixture with a single component</span>
+0007 <span class="comment">%   with a spherical covariance defined given the bounds of the space in</span>
+0008 <span class="comment">%   each dimension.</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">%   Parameters:</span>
+0011 <span class="comment">%     CS: The continuous space where to define the probability</span>
+0012 <span class="comment">%         distribution.</span>
+0013 <span class="comment">%   Outputs:</span>
+0014 <span class="comment">%     p: The Gaussian mixture.</span>
+0015 <span class="comment">%     v: Value for the distribution in the continuous space. This is lower</span>
+0016 <span class="comment">%        as the space gets larger. In principle this is the same value as</span>
+0017 <span class="comment">%        that returned by UniformProbability but it could be slightly</span>
+0018 <span class="comment">%        different since the returned distribution is only an approximation</span>
+0019 <span class="comment">%        of the uniform distribution and not the real one.</span>
+0020 <span class="comment">%</span>
+0021 <span class="comment">%   See also @CSpace/UniformProbability.</span>
+0022 
+0023   d=CS.max-CS.min;
+0024   md=<a href="max.html" class="code" title="function m=max(S)">max</a>(d);
+0025   c=CS.min+d/2;
+0026   g1=<a href="../.././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(c,ones(CS.dim)*200*md);
+0027   p=<a href="../.././Lib/@GMixture/GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>(1,{g1});
+0028   v=<a href="../.././Lib/@GMixture/Value.html" class="code" title="function v=Value(gm,x)">Value</a>(g1,CS.min);
+0029</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

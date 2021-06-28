@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of GetHallwayParameters</title>
+  <meta name="keywords" content="GetHallwayParameters">
+  <meta name="description" content="The hallway discrete POMDP.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Experiments -->
+<h1>GetHallwayParameters
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>The hallway discrete POMDP.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function [POMDP P]=GetHallwayParameters </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   The hallway discrete POMDP.
+
+   Exemple of how to define the POMDP and the parameters for a discrete
+   POMDP (the ususal type of POMDP in the literature).
+   
+   The POMDP is read from a file and the parameters are directly set here.
+   The outputs of this function can be latter used to solve the problem
+   using:
+
+      [POMDP P B V Val Alpha t]=TestOne(POMP,P);
+
+   However, TestOne can be directly called as
+
+      [POMDP P B V Val Alpha t]=TestOne('Hallway');
+
+   In this case TestOne directly calls GetHallwayParameters to get the
+   POMDP and the P objects.
+
+   All problems (and their parameters) should be encoded in a file like
+   this one.
+
+   See also ReadDiscretePOMDPData, TestOne, POMDP, <a href="GetTest1Parameters.html" class="code" title="function [POMDP P]=GetTest1Parameters(varargin)">GetTest1Parameters</a>.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href=".././Belief/@DBelief/DBelief.html" class="code" title="function db=DBelief(varargin)">DBelief</a>	Discrete belief constructor.</li><li><a href=".././POMDP/@DS_DO_DA_POMDP/DS_DO_DA_POMDP.html" class="code" title="function P=DS_DO_DA_POMDP(varargin)">DS_DO_DA_POMDP</a>	DS_DO_DA_POMDP constructor.</li><li><a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>	POMDP constructor.</li><li><a href=".././POMDP/@POMDP/UniformDistribution.html" class="code" title="function u=UniformDistribution(POMDP)">UniformDistribution</a>	Uniform distribution in the POMDP state space.</li><li><a href=".././Space/@CSpace/UniformDistribution.html" class="code" title="function [p v]=UniformDistribution(CS)">UniformDistribution</a>	Uniform probability on a continuous space.</li><li><a href=".././Space/@DSpace/UniformDistribution.html" class="code" title="function [p v]=UniformDistribution(DS)">UniformDistribution</a>	Uniform probability on a discrete space.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [POMDP P]=GetHallwayParameters</a>
+0002 <span class="comment">%   The hallway discrete POMDP.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Exemple of how to define the POMDP and the parameters for a discrete</span>
+0005 <span class="comment">%   POMDP (the ususal type of POMDP in the literature).</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%   The POMDP is read from a file and the parameters are directly set here.</span>
+0008 <span class="comment">%   The outputs of this function can be latter used to solve the problem</span>
+0009 <span class="comment">%   using:</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">%      [POMDP P B V Val Alpha t]=TestOne(POMP,P);</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">%   However, TestOne can be directly called as</span>
+0014 <span class="comment">%</span>
+0015 <span class="comment">%      [POMDP P B V Val Alpha t]=TestOne('Hallway');</span>
+0016 <span class="comment">%</span>
+0017 <span class="comment">%   In this case TestOne directly calls GetHallwayParameters to get the</span>
+0018 <span class="comment">%   POMDP and the P objects.</span>
+0019 <span class="comment">%</span>
+0020 <span class="comment">%   All problems (and their parameters) should be encoded in a file like</span>
+0021 <span class="comment">%   this one.</span>
+0022 <span class="comment">%</span>
+0023 <span class="comment">%   See also ReadDiscretePOMDPData, TestOne, POMDP, GetTest1Parameters.</span>
+0024 
+0025   <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0026   <span class="comment">% Define the POMDP</span>
+0027     <a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>=<a href=".././POMDP/@DS_DO_DA_POMDP/DS_DO_DA_POMDP.html" class="code" title="function P=DS_DO_DA_POMDP(varargin)">DS_DO_DA_POMDP</a>(<span class="string">'Data/hallway'</span>);
+0028   
+0029   <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0030   <span class="comment">% Define the parameters for sampling beliefs</span>
+0031     P.start=<a href=".././Belief/@DBelief/DBelief.html" class="code" title="function db=DBelief(varargin)">DBelief</a>(<a href=".././POMDP/@POMDP/UniformDistribution.html" class="code" title="function u=UniformDistribution(POMDP)">UniformDistribution</a>(<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>));
+0032     P.nBeliefs=1000;
+0033     P.dBelief=0.1;
+0034     P.stepsXtrial=50;
+0035     P.rMin=-inf;
+0036     P.rMax=inf;
+0037   
+0038   <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0039   <span class="comment">% Define the parameters for assesing the solution quality</span>
+0040     P.maxTime=25;
+0041     P.stTime=2;
+0042     P.numTrials=100;
+0043   
+0044   <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0045   <span class="comment">% Define the parameters for solving</span>
+0046     P.stopCriteria=@(n,t,vc)(t&gt;P.maxTime);</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

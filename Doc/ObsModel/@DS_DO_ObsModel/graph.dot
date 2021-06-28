@@ -1,0 +1,7 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+
+  DS_DO_ObsModel [URL="DS_DO_ObsModel.html"];
+  GetObsModelFixedO [URL="GetObsModelFixedO.html"];
+  GetObsModelFixedS [URL="GetObsModelFixedS.html"];
+}

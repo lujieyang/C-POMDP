@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of AddAlpha</title>
+  <meta name="keywords" content="AddAlpha">
+  <meta name="description" content="Adds a new alpha-element to a policy.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # @Policy -->
+<h1>AddAlpha
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>Adds a new alpha-element to a policy.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function [P id]=AddAlpha(P,element,action) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Adds a new alpha-element to a policy.
+
+   Adds a new element (with the associated action) to a given
+   policy object.
+   Returns the updated policy and the identifier assigned to 
+   the new element.
+
+   See also <a href="Policy.html" class="code" title="function P=Policy(varargin)">Policy</a>.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href=".././POMDP/@POMDP/Perseus.html" class="code" title="function [V Value Alpha t]=Perseus(P,B,stopCriteria)">Perseus</a>	The Perseus point-based POMDP solver.</li><li><a href=".././POMDP/@POMDP/iPerseus.html" class="code" title="function [V Value Alpha t]=iPerseus(P,B,stopCriteria)">iPerseus</a>	Improved version of Perseus.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [P id]=AddAlpha(P,element,action)</a>
+0002 <span class="comment">%   Adds a new alpha-element to a policy.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Adds a new element (with the associated action) to a given</span>
+0005 <span class="comment">%   policy object.</span>
+0006 <span class="comment">%   Returns the updated policy and the identifier assigned to</span>
+0007 <span class="comment">%   the new element.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">%   See also Policy.</span>
+0010 
+0011   <span class="keyword">if</span> P.n==0
+0012     P.elements={element};
+0013     P.actions={action};
+0014     P.n=1;
+0015   <span class="keyword">else</span>
+0016     P.elements=[P.elements {element}];
+0017     P.actions=[P.actions {action}];
+0018     P.n=P.n+1;
+0019   <span class="keyword">end</span>
+0020   id=P.n;</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

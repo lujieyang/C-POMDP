@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of Update</title>
+  <meta name="keywords" content="Update">
+  <meta name="description" content="Belief evolution under an observation model.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # ObsModel --><!-- # @ObsModel -->
+<h1>Update
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Belief evolution under an observation model.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function [bOut po]=Update(OM,b,o,Sp) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">  Belief evolution under an observation model.
+ 
+  Updates a belief with the observation 'o'.
+  Basically, we get the observation model fixing 'o' to get an update model
+  and then we update the belief with this model.
+  The parameter 'Sp' is the sub-space where beliefs are defined and is used to
+  ensure that, after the update, the belief is still inside this
+  sub-space.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Belief/@DBelief/Update.html" class="code" title="function bOut=Update(b,po,Sp)">Update</a>	Belief evolution under an observation model.</li><li><a href="../.././Belief/@GBelief/Update.html" class="code" title="function bOut=Update(b,po,Sp)">Update</a>	Belief evolution under an observation model.</li><li><a href="../.././Belief/@PBelief/Update.html" class="code" title="function bOut=Update(b,po,Sp)">Update</a>	Belief evolution under an observation model.</li><li><a href="../.././ObsModel/@CS_CO_ObsModel/GetObsModelFixedO.html" class="code" title="function p=GetObsModelFixedO(OM,o)">GetObsModelFixedO</a>	Defines p(o|s) for a fixed 'o'.</li><li><a href="../.././ObsModel/@CS_DO_ObsModel/GetObsModelFixedO.html" class="code" title="function p=GetObsModelFixedO(OM,o)">GetObsModelFixedO</a>	Defines p(o|s) for a fixed 'o'.</li><li><a href="../.././ObsModel/@DS_CO_ObsModel/GetObsModelFixedO.html" class="code" title="function p=GetObsModelFixedO(OM,o)">GetObsModelFixedO</a>	Defines p(s|o).</li><li><a href="../.././ObsModel/@DS_DO_ObsModel/GetObsModelFixedO.html" class="code" title="function p=GetObsModelFixedO(OM,o)">GetObsModelFixedO</a>	Defines p(s|o).</li><li><a href="Update.html" class="code" title="function [bOut po]=Update(OM,b,o,Sp)">Update</a>	Belief evolution under an observation model.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././ObsModel/@CS_CO_ObsModel/DiscretizeObsModel.html" class="code" title="function CS_DO_OM=DiscretizeObsModel(CS_CO_OM,V,ba,nSamples)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li><li><a href="Update.html" class="code" title="function [bOut po]=Update(OM,b,o,Sp)">Update</a>	Belief evolution under an observation model.</li><li><a href="../.././POMDP/@POMDP/SimulationStep.html" class="code" title="function [s b o r]=SimulationStep(P,b,s,a)">SimulationStep</a>	Executes one step of a POMDP simulation.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [bOut po]=Update(OM,b,o,Sp)</a>
+0002 <span class="comment">%  Belief evolution under an observation model.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%  Updates a belief with the observation 'o'.</span>
+0005 <span class="comment">%  Basically, we get the observation model fixing 'o' to get an update model</span>
+0006 <span class="comment">%  and then we update the belief with this model.</span>
+0007 <span class="comment">%  The parameter 'Sp' is the sub-space where beliefs are defined and is used to</span>
+0008 <span class="comment">%  ensure that, after the update, the belief is still inside this</span>
+0009 <span class="comment">%  sub-space.</span>
+0010 
+0011   po=<a href="../.././ObsModel/@CS_CO_ObsModel/GetObsModelFixedO.html" class="code" title="function p=GetObsModelFixedO(OM,o)">GetObsModelFixedO</a>(OM,o);
+0012   bOut=<a href="Update.html" class="code" title="function [bOut po]=Update(OM,b,o,Sp)">Update</a>(b,po,Sp);
+0013</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

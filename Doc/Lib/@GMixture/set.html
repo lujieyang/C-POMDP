@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of set</title>
+  <meta name="keywords" content="set">
+  <meta name="description" content="Set method for Gaussian mixtures.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Lib --><!-- # @GMixture -->
+<h1>set
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Set method for Gaussian mixtures.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function gm=set(gm,field,value) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">  Set method for Gaussian mixtures.
+
+  Set function for Gaussian mixtures.
+  Possible fields to set:
+    - w Changes the vector of weigths for the mixture components.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>	Returns the size of a policy.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Belief/@PBelief/plot.html" class="code" title="function h=plot(pb,varargin)">plot</a>	Displays a particle-based belief.</li><li><a href="../.././Experiments/GetTest1pParameters.html" class="code" title="function [POMDP P]=GetTest1pParameters(varargin)">GetTest1pParameters</a>	The example on Figure 8.</li><li><a href="../.././Experiments/MakeFigure1.html" class="code" title="function MakeFigure1">MakeFigure1</a>	Generates Figure 1.</li><li><a href="../.././Experiments/MakeFigure3.html" class="code" title="function MakeFigure3(varargin)">MakeFigure3</a>	Generates Figure 3.</li><li><a href="../.././Experiments/MakeFigure4.html" class="code" title="function MakeFigure4">MakeFigure4</a>	Generates Figure 4.</li><li><a href="../.././Experiments/MakeFigure5.html" class="code" title="function MakeFigure5">MakeFigure5</a>	Generates Figure 5.</li><li><a href="../.././Experiments/MakeFigure6.html" class="code" title="function MakeFigure6">MakeFigure6</a>	Generates Figure 6.</li><li><a href="../.././Experiments/MakeFigure7.html" class="code" title="function MakeFigure7">MakeFigure7</a>	Generates Figure 7.</li><li><a href="../.././Experiments/MakeFigure9.html" class="code" title="function MakeFigure9">MakeFigure9</a>	Generates Figure 9.</li><li><a href="../.././Experiments/MakeFigureSimulation.html" class="code" title="function MakeFigureSimulation(title,data)">MakeFigureSimulation</a>	Generates the plots in Figures 2, 8, 10, and 11.</li><li><a href="plot.html" class="code" title="function h=plot(gm,varargin)">plot</a>	Plots a Gaussian mixture.</li><li><a href="../.././Lib/@Gaussian/plot.html" class="code" title="function h=plot(g,varargin)">plot</a>	Plots a Gaussian.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function gm=set(gm,field,value)</a>
+0002 <span class="comment">%  Set method for Gaussian mixtures.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%  Set function for Gaussian mixtures.</span>
+0005 <span class="comment">%  Possible fields to set:</span>
+0006 <span class="comment">%    - w Changes the vector of weigths for the mixture components.</span>
+0007   <span class="keyword">switch</span> field
+0008     <span class="keyword">case</span> <span class="string">'w'</span>
+0009       <span class="keyword">if</span> <a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>(value,1)==1 &amp;&amp; <a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>(value,2)==gm.n
+0010         gm.w=value;
+0011       <span class="keyword">else</span>
+0012         error(<span class="string">'Missmatch size in GMixture set'</span>);
+0013       <span class="keyword">end</span>
+0014     <span class="keyword">otherwise</span>
+0015       error(<span class="string">'Unknown field in GMixture set'</span>);
+0016   <span class="keyword">end</span></pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

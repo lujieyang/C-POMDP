@@ -1,0 +1,9 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  ComputeAlpha_a -> get;
+  get -> get;
+
+  CS_CO_POMDP [URL="CS_CO_POMDP.html"];
+  ComputeAlpha_a [URL="ComputeAlpha_a.html"];
+  get [URL="get.html"];
+}

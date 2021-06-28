@@ -1,0 +1,40 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  Crop -> Crop;
+  Gaussian -> Gaussian;
+  Offset -> Gaussian;
+  Product -> ProductNormFactor;
+  ProductNormFactor -> Gaussian;
+  ProductNormFactor -> Value;
+  Scale -> Gaussian;
+  display -> display;
+  minus -> plus;
+  mtimes -> Product;
+  mtimes -> Scale;
+  mtimes -> mtimes;
+  plot -> Value;
+  plot -> get;
+  plot -> plot;
+  plus -> Gaussian;
+  plus -> Offset;
+  plus -> plus;
+
+  Crop [URL="Crop.html"];
+  Gaussian [URL="Gaussian.html"];
+  GaussianCPD [URL="GaussianCPD.html"];
+  GaussianKL [URL="GaussianKL.html"];
+  Offset [URL="Offset.html"];
+  Product [URL="Product.html"];
+  ProductNormFactor [URL="ProductNormFactor.html"];
+  SMahalanobis [URL="SMahalanobis.html"];
+  Scale [URL="Scale.html"];
+  Value [URL="Value.html"];
+  display [URL="display.html"];
+  get [URL="get.html"];
+  minus [URL="minus.html"];
+  mtimes [URL="mtimes.html"];
+  plot [URL="plot.html"];
+  plus [URL="plus.html"];
+  rand [URL="rand.html"];
+  uminus [URL="uminus.html"];
+}

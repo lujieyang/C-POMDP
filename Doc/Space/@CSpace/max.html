@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of max</title>
+  <meta name="keywords" content="max">
+  <meta name="description" content="Upper bound of a CSpace">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Space --><!-- # @CSpace -->
+<h1>max
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Upper bound of a CSpace</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function m=max(S) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Upper bound of a CSpace
+
+ Returns the upper bounds of a continuous space for all dimensions as a
+ column vector.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././@Policy/MaxAlpha.html" class="code" title="function [nAlpha v]=MaxAlpha(P,b)">MaxAlpha</a>	Returns the maximizing alpha-element for a belief.</li><li><a href="../.././@Policy/OptimalAction.html" class="code" title="function [a v]=OptimalAction(P,b)">OptimalAction</a>	Returns the optimal action for a given belief.</li><li><a href="../.././Lib/@GMixture/plot.html" class="code" title="function h=plot(gm,varargin)">plot</a>	Plots a Gaussian mixture.</li><li><a href="../.././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>	Gaussian construtor.</li><li><a href="../.././ObsModel/@CS_CO_ObsModel/DiscretizeObsModel.html" class="code" title="function CS_DO_OM=DiscretizeObsModel(CS_CO_OM,V,ba,nSamples)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li><li><a href="../.././ObsModel/@CS_CO_ObsModel/plot.html" class="code" title="function h=plot(OM)">plot</a>	Plots the CS_CO_ObsModel</li><li><a href="../.././ObsModel/@DS_CO_ObsModel/DiscretizeObsModel.html" class="code" title="function DS_DO_OM=DiscretizeObsModel(DS_CO_OM,V,AM,nSamples)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li><li><a href="../.././POMDP/@CS_CO_CA_POMDP/CS_CO_CA_POMDP.html" class="code" title="function P=CS_CO_CA_POMDP(varargin)">CS_CO_CA_POMDP</a>	CS_CO_CA_POMDP constructor.</li><li><a href="../.././POMDP/@CS_DO_CA_POMDP/CS_DO_CA_POMDP.html" class="code" title="function P=CS_DO_CA_POMDP(varargin)">CS_DO_CA_POMDP</a>	CS_DO_CA_POMDP constructor.</li><li><a href="../.././POMDP/@CS_DO_POMDP/ComputeAlpha_a.html" class="code" title="function Element_a=ComputeAlpha_a(P,V,b,a,Alphas_j_a_o)">ComputeAlpha_a</a>	Compute the alpha_i_n-element for the given action and belief.</li><li><a href="../.././POMDP/@CS_POMDP/Backup.html" class="code" title="function [alpha a v]=Backup(P,b,V,Alphas_j_a_o)">Backup</a>	Backup for a given belief (continuous state version).</li><li><a href="../.././POMDP/@DS_CO_CA_POMDP/DS_CO_CA_POMDP.html" class="code" title="function P=DS_CO_CA_POMDP(varargin)">DS_CO_CA_POMDP</a>	DS_CO_CA_POMDP constructor.</li><li><a href="../.././POMDP/@DS_DO_CA_POMDP/DS_DO_CA_POMDP.html" class="code" title="function P=DS_DO_CA_POMDP(varargin)">DS_DO_CA_POMDP</a>	DS_CO_DA_POMDP constructor.</li><li><a href="../.././POMDP/@DS_DO_POMDP/ComputeAlpha_a.html" class="code" title="function Element_a=ComputeAlpha_a(P,V,b,a,Alphas_j_a_o)">ComputeAlpha_a</a>	Compute the alpha_i_n-element for the given action and belief.</li><li><a href="../.././POMDP/@DS_POMDP/Backup.html" class="code" title="function [alpha a v]=Backup(P,b,V,Alphas_j_a_o)">Backup</a>	Backupt for a given belief (discrete state version).</li><li><a href="../.././POMDP/@POMDP/Perseus.html" class="code" title="function [V Value Alpha t]=Perseus(P,B,stopCriteria)">Perseus</a>	The Perseus point-based POMDP solver.</li><li><a href="../.././POMDP/@POMDP/iPerseus.html" class="code" title="function [V Value Alpha t]=iPerseus(P,B,stopCriteria)">iPerseus</a>	Improved version of Perseus.</li><li><a href="../.././RewardModel/@CS_CA_RewardModel/plot.html" class="code" title="function h=plot(RM)">plot</a>	Plots the CS_CA_RewardModel</li><li><a href="Crop.html" class="code" title="function sOut=Crop(CS,s)">Crop</a>	Forces a state to be in a given continuous sub-space.</li><li><a href="UniformDistribution.html" class="code" title="function [p v]=UniformDistribution(CS)">UniformDistribution</a>	Uniform probability on a continuous space.</li><li><a href="../.././Space/@DSpace/Crop.html" class="code" title="function sOut=Crop(DS,s)">Crop</a>	Forces a state to be in a given discrete space.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function m=max(S)</a>
+0002 <span class="comment">% Upper bound of a CSpace</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Returns the upper bounds of a continuous space for all dimensions as a</span>
+0005 <span class="comment">% column vector.</span>
+0006 
+0007   m=S.max;</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

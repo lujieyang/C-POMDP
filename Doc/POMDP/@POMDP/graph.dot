@@ -1,0 +1,35 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  ComputeAlphas_j_a_o -> get;
+  DiscretizeActionModel -> get;
+  DiscretizeObsModel -> get;
+  Perseus -> ComputeAlphas_j_a_o;
+  Perseus -> DiscretizeActionModel;
+  Perseus -> RandomAction;
+  RandomAction -> get;
+  SampleBeliefs -> SimulationStep;
+  SampleBeliefs -> get;
+  SimulateFrom -> SimulationStep;
+  SimulateFrom -> get;
+  SimulationStep -> get;
+  UniformDistribution -> POMDP;
+  UniformDistribution -> UniformDistribution;
+  UniformDistribution -> get;
+  iPerseus -> ComputeAlphas_j_a_o;
+  iPerseus -> DiscretizeActionModel;
+  iPerseus -> RandomAction;
+
+  ComputeAlphas_j_a_o [URL="ComputeAlphas_j_a_o.html"];
+  DiscretizeActionModel [URL="DiscretizeActionModel.html"];
+  DiscretizeObsModel [URL="DiscretizeObsModel.html"];
+  POMDP [URL="POMDP.html"];
+  Perseus [URL="Perseus.html"];
+  RandomAction [URL="RandomAction.html"];
+  SampleBeliefs [URL="SampleBeliefs.html"];
+  SimulateFrom [URL="SimulateFrom.html"];
+  SimulationStep [URL="SimulationStep.html"];
+  UniformDistribution [URL="UniformDistribution.html"];
+  get [URL="get.html"];
+  iPerseus [URL="iPerseus.html"];
+  set [URL="set.html"];
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of MakeFigure4</title>
+  <meta name="keywords" content="MakeFigure4">
+  <meta name="description" content="Generates Figure 4.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Experiments -->
+<h1>MakeFigure4
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>Generates Figure 4.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function MakeFigure4 </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Generates Figure 4.
+
+   This figure displays the value for beliefs with only one component.
+   Those beliefs only have two parameters (mean and covariance) and, thus,
+   the value can be displayed as a 3d plot to show how that the value
+   function is not convex in the parameter space.
+
+   POMDP are sometimes addressed in the parameter space (see the paper by
+   Brooks et al. 2006, cited in our paper) but then value iteration can
+   not take advantage of the convexity of the value function.
+
+   If the results for Figure 1 are not pre-computed we compute them on the
+   fly (this can be quite time consuming). Even if they are pre-computed,
+   this function takes some time since it computes the value for a large
+   collection of beliefs.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href=".././@Policy/OptimalAction.html" class="code" title="function [a v]=OptimalAction(P,b)">OptimalAction</a>	Returns the optimal action for a given belief.</li><li><a href=".././@Policy/Policy.html" class="code" title="function P=Policy(varargin)">Policy</a>	Policy constructor.</li><li><a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>	Returns the size of a policy.</li><li><a href=".././Belief/@GBelief/GBelief.html" class="code" title="function gb=GBelief(varargin)">GBelief</a>	Gaussian-based belief constructor.</li><li><a href=".././Lib/@GMixture/GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>	Gaussian mixture constructor.</li><li><a href=".././Lib/@GMixture/set.html" class="code" title="function gm=set(gm,field,value)">set</a>	Set method for Gaussian mixtures.</li><li><a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>	Gaussian construtor.</li><li><a href=".././Lib/GetData.html" class="code" title="function data=GetData(fname,GenerateData)">GetData</a>	Loads and, if necessary, generates data from experiments.</li><li><a href=".././Lib/TestRep.html" class="code" title="function TestRep(varargin)">TestRep</a>	Executes many times of Perseus on a given problem.</li><li><a href=".././POMDP/@POMDP/set.html" class="code" title="function P=set(P,field,value)">set</a>	Set function for PODMP (base type)</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function MakeFigure4</a>
+0002 <span class="comment">%   Generates Figure 4.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   This figure displays the value for beliefs with only one component.</span>
+0005 <span class="comment">%   Those beliefs only have two parameters (mean and covariance) and, thus,</span>
+0006 <span class="comment">%   the value can be displayed as a 3d plot to show how that the value</span>
+0007 <span class="comment">%   function is not convex in the parameter space.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">%   POMDP are sometimes addressed in the parameter space (see the paper by</span>
+0010 <span class="comment">%   Brooks et al. 2006, cited in our paper) but then value iteration can</span>
+0011 <span class="comment">%   not take advantage of the convexity of the value function.</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">%   If the results for Figure 1 are not pre-computed we compute them on the</span>
+0014 <span class="comment">%   fly (this can be quite time consuming). Even if they are pre-computed,</span>
+0015 <span class="comment">%   this function takes some time since it computes the value for a large</span>
+0016 <span class="comment">%   collection of beliefs.</span>
+0017 <span class="comment">%</span>
+0018 
+0019   <span class="comment">% means and covariances to use in the plot</span>
+0020   mu=-20:0.5:20;
+0021   sigma=0.5:0.5:7;
+0022   
+0023   <span class="comment">% Nothing to be modified beyond this point</span>
+0024   
+0025   fprintf(<span class="string">'Loading/Generating the simulation results\n'</span>);
+0026   GenData=@()(<a href=".././Lib/TestRep.html" class="code" title="function TestRep(varargin)">TestRep</a>(<span class="string">'Test1'</span>,<span class="string">'Figure2'</span>,2));
+0027   Results=<a href=".././Lib/GetData.html" class="code" title="function data=GetData(fname,GenerateData)">GetData</a>(<span class="string">'Results/Test1-Figure2-2.mat'</span>,GenData);
+0028   
+0029   <span class="comment">% Get the las policy of the simulation</span>
+0030   <a href=".././@Policy/Policy.html" class="code" title="function P=Policy(varargin)">Policy</a>=Results.V{end};
+0031   
+0032   fprintf(<span class="string">'Computing the values for 1-Gaussian beliefs from the loaded data\n'</span>);
+0033   fprintf(<span class="string">'This can take some time....\n'</span>);
+0034   
+0035   nMu=<a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>(mu,2);
+0036   nSigma=<a href=".././@Policy/size.html" class="code" title="function s=size(P)">size</a>(sigma,2);
+0037   v=zeros(nSigma,nMu);
+0038   a=zeros(nSigma,nMu);
+0039   <span class="keyword">for</span> i=1:nSigma
+0040     <span class="keyword">for</span> j=1:nMu
+0041       b=<a href=".././Belief/@GBelief/GBelief.html" class="code" title="function gb=GBelief(varargin)">GBelief</a>(<a href=".././Lib/@GMixture/GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>(1,{<a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(mu(j),sigma(i)^2)}));
+0042       [a(i,j) v(i,j)]=<a href=".././@Policy/OptimalAction.html" class="code" title="function [a v]=OptimalAction(P,b)">OptimalAction</a>(<a href=".././@Policy/Policy.html" class="code" title="function P=Policy(varargin)">Policy</a>,b);
+0043     <span class="keyword">end</span>
+0044   <span class="keyword">end</span>
+0045   fprintf(<span class="string">'....plotting the results\n'</span>);
+0046   
+0047     
+0048   h=clf;
+0049   <a href=".././Lib/@GMixture/set.html" class="code" title="function gm=set(gm,field,value)">set</a>(h,<span class="string">'name'</span>,<span class="string">'C-POMDP Figure 4'</span>,<span class="string">'numbertitle'</span>,<span class="string">'off'</span>);
+0050   
+0051   surf(mu,sigma,v,a);
+0052   xlabel(<span class="string">'\mu'</span>);
+0053   ylabel(<span class="string">'\sigma'</span>);
+0054   zlabel(<span class="string">'Value'</span>);
+0055   
+0056</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

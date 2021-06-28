@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of ComputeAlpha_j_a_o</title>
+  <meta name="keywords" content="ComputeAlpha_j_a_o">
+  <meta name="description" content="Computes a particular alpha-element.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # POMDP --><!-- # @DS_POMDP -->
+<h1>ComputeAlpha_j_a_o
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Computes a particular alpha-element.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function alpha_j_a_o=ComputeAlpha_j_a_o(P,V,j,a,o) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Computes a particular alpha-element.   
+ 
+   Computes a single alpha_j_a_o element as described in Section 3.1
+   equation (6), but particularized for discrete state spaces.
+   
+   This function can be used when pre-computing the set of all alpha_j_a_o
+   elements before the backup operation or when computing only one of 
+   them during the backup.
+
+   Parameters
+     P: The POMDP
+     V: The previous policy/value function/set of alpha-elements.
+     j: Index of the previous alpha element to use.
+     a: Index of the action to use.
+     o: Index of the observation to use.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././ActionModel/@CS_CA_ActionModel/GetActionModelFixedA.html" class="code" title="function p=GetActionModelFixedA(AM,a)">GetActionModelFixedA</a>	Returns the action model for a given action.</li><li><a href="../.././ActionModel/@CS_DA_ActionModel/GetActionModelFixedA.html" class="code" title="function p=GetActionModelFixedA(AM,a)">GetActionModelFixedA</a>	Returns the action model for a given action.</li><li><a href="../.././ActionModel/@DS_CA_ActionModel/GetActionModelFixedA.html" class="code" title="function p=GetActionModelFixedA(AM,a)">GetActionModelFixedA</a>	Returns the action model for a given action.</li><li><a href="../.././ActionModel/@DS_DA_ActionModel/GetActionModelFixedA.html" class="code" title="function p=GetActionModelFixedA(AM,a)">GetActionModelFixedA</a>	Returns the action model for a given action.</li><li><a href="../.././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>	Get for GBeliefs.</li><li><a href="../.././Lib/@GMixture/get.html" class="code" title="function value=get(gm,field,varargin)">get</a>	Get function for the GMixture object.</li><li><a href="../.././Lib/@Gaussian/get.html" class="code" title="function out=get(g,field)">get</a>	Gaussian object get function.</li><li><a href="../.././ObsModel/@CS_CO_ObsModel/GetObsModelFixedO.html" class="code" title="function p=GetObsModelFixedO(OM,o)">GetObsModelFixedO</a>	Defines p(o|s) for a fixed 'o'.</li><li><a href="../.././ObsModel/@CS_DO_ObsModel/GetObsModelFixedO.html" class="code" title="function p=GetObsModelFixedO(OM,o)">GetObsModelFixedO</a>	Defines p(o|s) for a fixed 'o'.</li><li><a href="../.././ObsModel/@DS_CO_ObsModel/GetObsModelFixedO.html" class="code" title="function p=GetObsModelFixedO(OM,o)">GetObsModelFixedO</a>	Defines p(s|o).</li><li><a href="../.././ObsModel/@DS_DO_ObsModel/GetObsModelFixedO.html" class="code" title="function p=GetObsModelFixedO(OM,o)">GetObsModelFixedO</a>	Defines p(s|o).</li><li><a href="../.././POMDP/@CS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_CA_POMDPs.</li><li><a href="../.././POMDP/@CS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_DA_POMDPs.</li><li><a href="../.././POMDP/@CS_CO_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_POMDPs.</li><li><a href="../.././POMDP/@CS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_CA_POMDPs.</li><li><a href="../.././POMDP/@CS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_DA_POMDPs.</li><li><a href="../.././POMDP/@CS_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_POMDPs.</li><li><a href="../.././POMDP/@DS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_CA_POMDPs.</li><li><a href="../.././POMDP/@DS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_DA_POMDPs.</li><li><a href="../.././POMDP/@DS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_CA_POMDPs.</li><li><a href="../.././POMDP/@DS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_DA_POMDPs.</li><li><a href="../.././POMDP/@POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get functio for POMDPs.</li><li><a href="../.././Space/@CSpace/dim.html" class="code" title="function d=dim(CS)">dim</a>	Dimensionality of a continuous space.</li><li><a href="../.././Space/@DSpace/dim.html" class="code" title="function d=dim(DS)">dim</a>	Dimensionality of a discrete space.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././POMDP/@CS_CO_POMDP/ComputeAlpha_a.html" class="code" title="function Element_a=ComputeAlpha_a(P,V,b,a,Alphas_j_a_o)">ComputeAlpha_a</a>	Compute the alpha_i_n-element for the given action and belief.</li><li><a href="../.././POMDP/@CS_DO_POMDP/ComputeAlpha_a.html" class="code" title="function Element_a=ComputeAlpha_a(P,V,b,a,Alphas_j_a_o)">ComputeAlpha_a</a>	Compute the alpha_i_n-element for the given action and belief.</li><li><a href="../.././POMDP/@DS_DO_POMDP/ComputeAlpha_a.html" class="code" title="function Element_a=ComputeAlpha_a(P,V,b,a,Alphas_j_a_o)">ComputeAlpha_a</a>	Compute the alpha_i_n-element for the given action and belief.</li><li><a href="../.././POMDP/@POMDP/ComputeAlphas_j_a_o.html" class="code" title="function As=ComputeAlphas_j_a_o(P,V)">ComputeAlphas_j_a_o</a>	Computes the set of al possible alpha-elements.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function alpha_j_a_o=ComputeAlpha_j_a_o(P,V,j,a,o)</a>
+0002 <span class="comment">%   Computes a particular alpha-element.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Computes a single alpha_j_a_o element as described in Section 3.1</span>
+0005 <span class="comment">%   equation (6), but particularized for discrete state spaces.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%   This function can be used when pre-computing the set of all alpha_j_a_o</span>
+0008 <span class="comment">%   elements before the backup operation or when computing only one of</span>
+0009 <span class="comment">%   them during the backup.</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">%   Parameters</span>
+0012 <span class="comment">%     P: The POMDP</span>
+0013 <span class="comment">%     V: The previous policy/value function/set of alpha-elements.</span>
+0014 <span class="comment">%     j: Index of the previous alpha element to use.</span>
+0015 <span class="comment">%     a: Index of the action to use.</span>
+0016 <span class="comment">%     o: Index of the observation to use.</span>
+0017 
+0018   S=<a href="../.././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>(P,<span class="string">'StateSpace'</span>);
+0019   ns=<a href="../.././Space/@CSpace/dim.html" class="code" title="function d=dim(CS)">dim</a>(S);
+0020   p_s1_a_s=<a href="../.././ActionModel/@CS_CA_ActionModel/GetActionModelFixedA.html" class="code" title="function p=GetActionModelFixedA(AM,a)">GetActionModelFixedA</a>(P,a);
+0021   p_o_s1=<a href="../.././ObsModel/@CS_CO_ObsModel/GetObsModelFixedO.html" class="code" title="function p=GetObsModelFixedO(OM,o)">GetObsModelFixedO</a>(P,o);
+0022   alpha_j_a_o=full(sum(repmat(V{j}.*p_o_s1,1,ns).*p_s1_a_s,1)');
+0023   
+0024</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

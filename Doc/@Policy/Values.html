@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of Values</title>
+  <meta name="keywords" content="Values">
+  <meta name="description" content="Belief value with all alpha-elements in the Policy.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # @Policy -->
+<h1>Values
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>Belief value with all alpha-elements in the Policy.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function v=Values(P,b) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Belief value with all alpha-elements in the Policy.
+
+   Return the values of the given belief, b, for all the elements stored
+   in the Policy, P.
+   Recall that the optimal element for a belief is the one maximizing its
+   value, i.e., the one maximizing the output of this function.
+
+   See also <a href="MaxAlpha.html" class="code" title="function [nAlpha v]=MaxAlpha(P,b)">MaxAlpha</a>, <a href="OptimalAction.html" class="code" title="function [a v]=OptimalAction(P,b)">OptimalAction</a>.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href=".././Belief/@DBelief/Expectation.html" class="code" title="function e=Expectation(b,a)">Expectation</a>	Expectation between a belief and a alpha-element.</li><li><a href=".././Belief/@GBelief/Expectation.html" class="code" title="function e=Expectation(b,a)">Expectation</a>	Expectation between a belief and a alpha-element.</li><li><a href=".././Belief/@PBelief/Expectation.html" class="code" title="function e=Expectation(b,a)">Expectation</a>	Expectation between a belief and a alpha-element.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="MaxAlpha.html" class="code" title="function [nAlpha v]=MaxAlpha(P,b)">MaxAlpha</a>	Returns the maximizing alpha-element for a belief.</li><li><a href="OptimalAction.html" class="code" title="function [a v]=OptimalAction(P,b)">OptimalAction</a>	Returns the optimal action for a given belief.</li><li><a href=".././ObsModel/@CS_CO_ObsModel/DiscretizeObsModel.html" class="code" title="function CS_DO_OM=DiscretizeObsModel(CS_CO_OM,V,ba,nSamples)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li><li><a href=".././ObsModel/@DS_CO_ObsModel/DiscretizeObsModel.html" class="code" title="function DS_DO_OM=DiscretizeObsModel(DS_CO_OM,V,AM,nSamples)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function v=Values(P,b)</a>
+0002 <span class="comment">%   Belief value with all alpha-elements in the Policy.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Return the values of the given belief, b, for all the elements stored</span>
+0005 <span class="comment">%   in the Policy, P.</span>
+0006 <span class="comment">%   Recall that the optimal element for a belief is the one maximizing its</span>
+0007 <span class="comment">%   value, i.e., the one maximizing the output of this function.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">%   See also MaxAlpha, OptimalAction.</span>
+0010 
+0011   v=cellfun(@(e)(<a href=".././Belief/@DBelief/Expectation.html" class="code" title="function e=Expectation(b,a)">Expectation</a>(b,e)),P.elements);
+0012</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

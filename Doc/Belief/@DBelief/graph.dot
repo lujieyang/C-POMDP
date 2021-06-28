@@ -1,0 +1,16 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  Prediction -> DBelief;
+  Update -> DBelief;
+  display -> display;
+  plot -> plot;
+
+  DBelief [URL="DBelief.html"];
+  Distance [URL="Distance.html"];
+  Expectation [URL="Expectation.html"];
+  Prediction [URL="Prediction.html"];
+  Update [URL="Update.html"];
+  display [URL="display.html"];
+  plot [URL="plot.html"];
+  rand [URL="rand.html"];
+}

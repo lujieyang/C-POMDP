@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of SampleBeliefs</title>
+  <meta name="keywords" content="SampleBeliefs">
+  <meta name="description" content="Samples a set of beliefs from a POMDP.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # POMDP --><!-- # @POMDP -->
+<h1>SampleBeliefs
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Samples a set of beliefs from a POMDP.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function SB=SampleBeliefs(P,start,nBeliefs,minBeliefDist,stepsXtrial,minR,maxR) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Samples a set of beliefs from a POMDP.
+
+   Defines a set of 'nBeliefs' beliefs randomly simulating a POMDP.
+   This function corresponds to that in line 2 of Table 2 in section 6 of
+   the paper.
+
+   The sampling of beliefs is organized in trials. Each trial starts from
+   the given 'start' belief and evolves selecting actions and observations
+   at radom. Actions are selected with uniform probability and
+   observations from the corresponding observation model.
+   Each trial is stopped after executing 'stepsXtrial' steps of when the
+   received reward is outside the interval [minR, maxR].
+
+   Only beliefs that are further away more than 'minBelifDist' from any
+   other already stored beliefs are considered.
+   
+   The sampling of beliefs can be quite slow and some information is
+   printed while it proceeds.
+      '.' Means a new belief has been added to the output.
+      '*' Means a trial has ended.
+
+   See also <a href="SimulationStep.html" class="code" title="function [s b o r]=SimulationStep(P,b,s,a)">SimulationStep</a>, @DBelief/distance, @GMixture/Distance,
+   @PBelief/Distance.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Belief/@DBelief/Distance.html" class="code" title="function d=Distance(db1,db2)">Distance</a>	Distance between beliefs.</li><li><a href="../.././Belief/@DBelief/rand.html" class="code" title="function v=rand(b)">rand</a>	Random state from a discrete belief.</li><li><a href="../.././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>	Get for GBeliefs.</li><li><a href="../.././Belief/@PBelief/Distance.html" class="code" title="function d=Distance(pb1,pb2)">Distance</a>	Distance between beliefs.</li><li><a href="../.././Belief/@PBelief/rand.html" class="code" title="function v=rand(b)">rand</a>	Random state from a belief.</li><li><a href="../.././Lib/@GMixture/Crop.html" class="code" title="function gmOut=Crop(gm,Sp)">Crop</a>	Limits all means to be inside the given space.</li><li><a href="../.././Lib/@GMixture/Distance.html" class="code" title="function d=Distance(gm1,gm2)">Distance</a>	Approximated Kullback-Leibler distance between Gaussian mixture.</li><li><a href="../.././Lib/@GMixture/get.html" class="code" title="function value=get(gm,field,varargin)">get</a>	Get function for the GMixture object.</li><li><a href="../.././Lib/@GMixture/rand.html" class="code" title="function v=rand(gm,varargin)">rand</a>	Generates random points on a GMixture.</li><li><a href="../.././Lib/@Gaussian/Crop.html" class="code" title="function gOut=Crop(g,Sp)">Crop</a>	Forces the Gaussian mean to be in a given space.</li><li><a href="../.././Lib/@Gaussian/get.html" class="code" title="function out=get(g,field)">get</a>	Gaussian object get function.</li><li><a href="../.././Lib/@Gaussian/rand.html" class="code" title="function r=rand(g,varargin)">rand</a>	Generates random ponts on a Gaussian.</li><li><a href="../.././POMDP/@CS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_CA_POMDPs.</li><li><a href="../.././POMDP/@CS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_DA_POMDPs.</li><li><a href="../.././POMDP/@CS_CO_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_POMDPs.</li><li><a href="../.././POMDP/@CS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_CA_POMDPs.</li><li><a href="../.././POMDP/@CS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_DA_POMDPs.</li><li><a href="../.././POMDP/@CS_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_POMDPs.</li><li><a href="../.././POMDP/@DS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_CA_POMDPs.</li><li><a href="../.././POMDP/@DS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_DA_POMDPs.</li><li><a href="../.././POMDP/@DS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_CA_POMDPs.</li><li><a href="../.././POMDP/@DS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_DA_POMDPs.</li><li><a href="SimulationStep.html" class="code" title="function [s b o r]=SimulationStep(P,b,s,a)">SimulationStep</a>	Executes one step of a POMDP simulation.</li><li><a href="get.html" class="code" title="function value=get(P,field)">get</a>	Get functio for POMDPs.</li><li><a href="../.././Space/@CSpace/Crop.html" class="code" title="function sOut=Crop(CS,s)">Crop</a>	Forces a state to be in a given continuous sub-space.</li><li><a href="../.././Space/@CSpace/min.html" class="code" title="function m=min(S)">min</a>	Lower bound of a CSpace</li><li><a href="../.././Space/@CSpace/rand.html" class="code" title="function v=rand(CS)">rand</a>	Random state from a continuous space.</li><li><a href="../.././Space/@DSpace/Crop.html" class="code" title="function sOut=Crop(DS,s)">Crop</a>	Forces a state to be in a given discrete space.</li><li><a href="../.././Space/@DSpace/rand.html" class="code" title="function v=rand(DS)">rand</a>	Random state from a discrete space.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Experiments/GenerateFigure5Data.html" class="code" title="function GenerateFigure5Data(fname)">GenerateFigure5Data</a>	Generates the data for Figure 5.</li><li><a href="../.././Experiments/GenerateFigure7aData.html" class="code" title="function GenerateFigure7aData(fname)">GenerateFigure7aData</a>	Generates the data for Figure 7-left.</li><li><a href="../.././Lib/TestOne.html" class="code" title="function [POMDP P B V Val Alpha t]=TestOne(varargin)">TestOne</a>	Samples beliefs and executes Perseus on a given problem.</li><li><a href="../.././Lib/TestRep.html" class="code" title="function TestRep(varargin)">TestRep</a>	Executes many times of Perseus on a given problem.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function SB=SampleBeliefs(P,start,nBeliefs,minBeliefDist,stepsXtrial,minR,maxR)</a>
+0002 <span class="comment">%   Samples a set of beliefs from a POMDP.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Defines a set of 'nBeliefs' beliefs randomly simulating a POMDP.</span>
+0005 <span class="comment">%   This function corresponds to that in line 2 of Table 2 in section 6 of</span>
+0006 <span class="comment">%   the paper.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">%   The sampling of beliefs is organized in trials. Each trial starts from</span>
+0009 <span class="comment">%   the given 'start' belief and evolves selecting actions and observations</span>
+0010 <span class="comment">%   at radom. Actions are selected with uniform probability and</span>
+0011 <span class="comment">%   observations from the corresponding observation model.</span>
+0012 <span class="comment">%   Each trial is stopped after executing 'stepsXtrial' steps of when the</span>
+0013 <span class="comment">%   received reward is outside the interval [minR, maxR].</span>
+0014 <span class="comment">%</span>
+0015 <span class="comment">%   Only beliefs that are further away more than 'minBelifDist' from any</span>
+0016 <span class="comment">%   other already stored beliefs are considered.</span>
+0017 <span class="comment">%</span>
+0018 <span class="comment">%   The sampling of beliefs can be quite slow and some information is</span>
+0019 <span class="comment">%   printed while it proceeds.</span>
+0020 <span class="comment">%      '.' Means a new belief has been added to the output.</span>
+0021 <span class="comment">%      '*' Means a trial has ended.</span>
+0022 <span class="comment">%</span>
+0023 <span class="comment">%   See also SimulationStep, @DBelief/distance, @GMixture/Distance,</span>
+0024 <span class="comment">%   @PBelief/Distance.</span>
+0025 
+0026   <a href="../.././Belief/@DBelief/rand.html" class="code" title="function v=rand(b)">rand</a>(<span class="string">'state'</span>,sum(100*clock));
+0027   
+0028   A=<a href="get.html" class="code" title="function value=get(P,field)">get</a>(P,<span class="string">'ActionSpace'</span>);
+0029   S=<a href="get.html" class="code" title="function value=get(P,field)">get</a>(P,<span class="string">'StateSpace'</span>);
+0030   
+0031   md=minBeliefDist+1;
+0032   SB=cell(1,nBeliefs);
+0033   k=0;
+0034   r=maxR-1;
+0035   <span class="keyword">while</span> k&lt;nBeliefs
+0036     <span class="keyword">if</span> (mod(k,stepsXtrial)==0) || (r&gt;maxR) || (r&lt;minR)
+0037       b=start;
+0038       s=<a href="../.././Lib/@GMixture/Crop.html" class="code" title="function gmOut=Crop(gm,Sp)">Crop</a>(S,<a href="../.././Belief/@DBelief/rand.html" class="code" title="function v=rand(b)">rand</a>(b));
+0039       
+0040       fprintf(<span class="string">'*\n'</span>);
+0041     <span class="keyword">end</span>
+0042     a=<a href="../.././Belief/@DBelief/rand.html" class="code" title="function v=rand(b)">rand</a>(A);
+0043     [s b o r]=<a href="SimulationStep.html" class="code" title="function [s b o r]=SimulationStep(P,b,s,a)">SimulationStep</a>(P,b,s,a);
+0044     
+0045     <span class="keyword">if</span> (k&gt;1) &amp;&amp; (minBeliefDist&gt;0)
+0046       md=<a href="../.././Space/@CSpace/min.html" class="code" title="function m=min(S)">min</a>(cellfun(@(b1)(<a href="../.././Belief/@DBelief/Distance.html" class="code" title="function d=Distance(db1,db2)">Distance</a>(b,b1)),SB(1,k)));
+0047     <span class="keyword">end</span>
+0048     <span class="keyword">if</span> md&gt;minBeliefDist
+0049       k=k+1;
+0050       SB{k}=b;
+0051       
+0052       fprintf(<span class="string">'.'</span>);
+0053       <span class="keyword">if</span> mod(k,80)==0
+0054         fprintf(<span class="string">'\n'</span>);
+0055       <span class="keyword">end</span>
+0056     <span class="keyword">end</span>
+0057   <span class="keyword">end</span>
+0058   fprintf(<span class="string">'\n'</span>);
+0059</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of Prediction</title>
+  <meta name="keywords" content="Prediction">
+  <meta name="description" content="Belief evolution given a transition model.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Belief --><!-- # @GBelief -->
+<h1>Prediction
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Belief evolution given a transition model.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function bOut=Prediction(b,t,Sp) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   Belief evolution given a transition model.
+ 
+   Updates a Gaussian-belief with a given transiton probability function, 't'.
+   Function 't' is the outcome of GetActionModelFixedA for the corresponding
+   action model.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="GBelief.html" class="code" title="function gb=GBelief(varargin)">GBelief</a>	Gaussian-based belief constructor.</li><li><a href="../.././Lib/@GMixture/Compose.html" class="code" title="function gmOut=Compose(gm,g)">Compose</a>	Composes a Gaussian mixture with a Gaussian.</li><li><a href="../.././Lib/@GMixture/Crop.html" class="code" title="function gmOut=Crop(gm,Sp)">Crop</a>	Limits all means to be inside the given space.</li><li><a href="../.././Lib/@Gaussian/Crop.html" class="code" title="function gOut=Crop(g,Sp)">Crop</a>	Forces the Gaussian mean to be in a given space.</li><li><a href="../.././Space/@CSpace/Crop.html" class="code" title="function sOut=Crop(CS,s)">Crop</a>	Forces a state to be in a given continuous sub-space.</li><li><a href="../.././Space/@DSpace/Crop.html" class="code" title="function sOut=Crop(DS,s)">Crop</a>	Forces a state to be in a given discrete space.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././ActionModel/@ActionModel/BeliefPrediction.html" class="code" title="function [bOut t]=BeliefPrediction(AM,b,a,Sp)">BeliefPrediction</a>	Belief evolution under a given action.</li><li><a href="../.././POMDP/@POMDP/SimulationStep.html" class="code" title="function [s b o r]=SimulationStep(P,b,s,a)">SimulationStep</a>	Executes one step of a POMDP simulation.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function bOut=Prediction(b,t,Sp)</a>
+0002 <span class="comment">%   Belief evolution given a transition model.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Updates a Gaussian-belief with a given transiton probability function, 't'.</span>
+0005 <span class="comment">%   Function 't' is the outcome of GetActionModelFixedA for the corresponding</span>
+0006 <span class="comment">%   action model.</span>
+0007 
+0008   bOut=<a href="GBelief.html" class="code" title="function gb=GBelief(varargin)">GBelief</a>(<a href="../.././Lib/@GMixture/Crop.html" class="code" title="function gmOut=Crop(gm,Sp)">Crop</a>(<a href="../.././Lib/@GMixture/Compose.html" class="code" title="function gmOut=Compose(gm,g)">Compose</a>(b.GMixture,t),Sp),b.maxC);
+0009   
+0010   
+0011</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

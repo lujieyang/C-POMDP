@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of DS_DO_DA_POMDP</title>
+  <meta name="keywords" content="DS_DO_DA_POMDP">
+  <meta name="description" content="DS_DO_DA_POMDP constructor.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # POMDP --><!-- # @DS_DO_DA_POMDP -->
+<h1>DS_DO_DA_POMDP
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>DS_DO_DA_POMDP constructor.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function P=DS_DO_DA_POMDP(varargin) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   DS_DO_DA_POMDP constructor.
+
+   Constructor of POMDP with
+     - Discrete state spaces.
+     - Discrete observation spaces.
+     - Discrete action spaces.
+   
+   Parameters
+     name: POMDP name.
+     S: Continuous state space.
+     A: Discrete action space.
+     O: Continuous observation space.
+     AM: Action model.
+     OM: Observation model.
+     RM: Reward model.
+     gamma: Discount factor.
+
+   This corresponds to the classical POMDP used in most of the papers so
+   far. This type of POMDP are implemented and solved using the Perseus
+   algoritm (Spaan and Vlassis JAIR 2005).</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././ActionModel/@DS_DA_ActionModel/DS_DA_ActionModel.html" class="code" title="function AM=DS_DA_ActionModel(varargin)">DS_DA_ActionModel</a>	DS_DA_ActionModel constructor.</li><li><a href="../.././Lib/ReadDiscretePOMDPData.html" class="code" title="function POMDPData=ReadDiscretePOMDPData(filename)">ReadDiscretePOMDPData</a>	Reads a discrete POMDP from a file.</li><li><a href="../.././ObsModel/@DS_DO_ObsModel/DS_DO_ObsModel.html" class="code" title="function OM=DS_DO_ObsModel(varargin)">DS_DO_ObsModel</a>	DS_DO_ObsModel constructor.</li><li><a href="DS_DO_DA_POMDP.html" class="code" title="function P=DS_DO_DA_POMDP(varargin)">DS_DO_DA_POMDP</a>	DS_DO_DA_POMDP constructor.</li><li><a href="../.././POMDP/@DS_DO_POMDP/DS_DO_POMDP.html" class="code" title="function P=DS_DO_POMDP(varargin)">DS_DO_POMDP</a>	DS_DO_POMDP constructor.</li><li><a href="../.././RewardModel/@DS_DA_RewardModel/DS_DA_RewardModel.html" class="code" title="function RM=DS_DA_RewardModel(varargin)">DS_DA_RewardModel</a>	DS_DA_RewardModel constructor.</li><li><a href="../.././Space/@DSpace/DSpace.html" class="code" title="function DS=DSpace(varargin)">DSpace</a>	DSpace constructor.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Experiments/GetHallwayParameters.html" class="code" title="function [POMDP P]=GetHallwayParameters">GetHallwayParameters</a>	The hallway discrete POMDP.</li><li><a href="../.././POMDP/@CS_DO_DA_POMDP/Discretize.html" class="code" title="function DP=Discretize(CP,n)">Discretize</a>	Discretizes the state space of the CS_DO_DA_POMDP.</li><li><a href="../.././POMDP/@DS_CO_DA_POMDP/DiscretizeObsModel.html" class="code" title="function DO_POMDP=DiscretizeObsModel(CO_POMDP)">DiscretizeObsModel</a>	Discretizes the observation model on the observation side.</li><li><a href="../.././POMDP/@DS_DO_CA_POMDP/DiscretizeActionModel.html" class="code" title="function DA_POMDP=DiscretizeActionModel(CA_POMDP,optimalAction,iteration)">DiscretizeActionModel</a>	Discretizes the action space DS_DO_CA_POMDP.</li><li><a href="DS_DO_DA_POMDP.html" class="code" title="function P=DS_DO_DA_POMDP(varargin)">DS_DO_DA_POMDP</a>	DS_DO_DA_POMDP constructor.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function P=DS_DO_DA_POMDP(varargin)</a>
+0002 <span class="comment">%   DS_DO_DA_POMDP constructor.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Constructor of POMDP with</span>
+0005 <span class="comment">%     - Discrete state spaces.</span>
+0006 <span class="comment">%     - Discrete observation spaces.</span>
+0007 <span class="comment">%     - Discrete action spaces.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">%   Parameters</span>
+0010 <span class="comment">%     name: POMDP name.</span>
+0011 <span class="comment">%     S: Continuous state space.</span>
+0012 <span class="comment">%     A: Discrete action space.</span>
+0013 <span class="comment">%     O: Continuous observation space.</span>
+0014 <span class="comment">%     AM: Action model.</span>
+0015 <span class="comment">%     OM: Observation model.</span>
+0016 <span class="comment">%     RM: Reward model.</span>
+0017 <span class="comment">%     gamma: Discount factor.</span>
+0018 <span class="comment">%</span>
+0019 <span class="comment">%   This corresponds to the classical POMDP used in most of the papers so</span>
+0020 <span class="comment">%   far. This type of POMDP are implemented and solved using the Perseus</span>
+0021 <span class="comment">%   algoritm (Spaan and Vlassis JAIR 2005).</span>
+0022 
+0023   <span class="keyword">switch</span> nargin
+0024     <span class="keyword">case</span> 1
+0025       <span class="keyword">if</span> isa(varargin{1},<span class="string">'DS_DO_DA_POMDP'</span>)
+0026         P=varargin{1};
+0027       <span class="keyword">else</span>
+0028         <span class="keyword">if</span> isa(varargin{1},<span class="string">'char'</span>)
+0029           <span class="comment">% Reading from a file in ASCII format</span>
+0030           POMDPData=<a href="../.././Lib/ReadDiscretePOMDPData.html" class="code" title="function POMDPData=ReadDiscretePOMDPData(filename)">ReadDiscretePOMDPData</a>([varargin{1} <span class="string">'.POMDP'</span>]);
+0031           
+0032           S=<a href="../.././Space/@DSpace/DSpace.html" class="code" title="function DS=DSpace(varargin)">DSpace</a>(POMDPData.nStates);
+0033           O=<a href="../.././Space/@DSpace/DSpace.html" class="code" title="function DS=DSpace(varargin)">DSpace</a>(POMDPData.nObs);
+0034           A=<a href="../.././Space/@DSpace/DSpace.html" class="code" title="function DS=DSpace(varargin)">DSpace</a>(POMDPData.nActions);
+0035           
+0036           AM=<a href="../.././ActionModel/@DS_DA_ActionModel/DS_DA_ActionModel.html" class="code" title="function AM=DS_DA_ActionModel(varargin)">DS_DA_ActionModel</a>(S,A,POMDPData.T);
+0037           OM=<a href="../.././ObsModel/@DS_DO_ObsModel/DS_DO_ObsModel.html" class="code" title="function OM=DS_DO_ObsModel(varargin)">DS_DO_ObsModel</a>(S,O,POMDPData.O);
+0038           RM=<a href="../.././RewardModel/@DS_DA_RewardModel/DS_DA_RewardModel.html" class="code" title="function RM=DS_DA_RewardModel(varargin)">DS_DA_RewardModel</a>(S,A,POMDPData.R);
+0039           
+0040           P=<a href="DS_DO_DA_POMDP.html" class="code" title="function P=DS_DO_DA_POMDP(varargin)">DS_DO_DA_POMDP</a>(varargin{1},S,A,O,AM,OM,RM,POMDPData.gamma);
+0041         <span class="keyword">else</span>
+0042           error(<span class="string">'Wrong parameter type in DS_DO_DA_POMDP'</span>);
+0043         <span class="keyword">end</span>
+0044       <span class="keyword">end</span>
+0045       
+0046     <span class="keyword">case</span> 2
+0047       <span class="comment">% Reading from a file in MAT format</span>
+0048       <span class="keyword">if</span> isa(varargin{1},<span class="string">'char'</span>) &amp;&amp; isa(varargin{2},<span class="string">'char'</span>) &amp;&amp; strcmp(varargin{2},<span class="string">'-MAT'</span>)
+0049         POMDPData=load(varargin{1},<span class="string">'-MAT'</span>);
+0050         
+0051         P=<a href="DS_DO_DA_POMDP.html" class="code" title="function P=DS_DO_DA_POMDP(varargin)">DS_DO_DA_POMDP</a>(POMDPData.S,POMDPData.A,POMDPData.O,<span class="keyword">...</span>
+0052           POMDPData.AM,POMDPData.OM,POMDPData.RM,POMDPData.start,POMDPData.gamma);
+0053       <span class="keyword">end</span>
+0054       
+0055     <span class="keyword">case</span> 8
+0056       
+0057       <span class="keyword">if</span> isa(varargin{2},<span class="string">'DSpace'</span>)
+0058         P.S=varargin{2};
+0059       <span class="keyword">else</span>
+0060         error(<span class="string">'Wrong parameter type in DS_DO_DA_POMDP'</span>);
+0061       <span class="keyword">end</span>
+0062 
+0063       <span class="keyword">if</span> isa(varargin{3},<span class="string">'DSpace'</span>)
+0064         P.A=varargin{3};
+0065       <span class="keyword">else</span>
+0066         error(<span class="string">'Wrong parameter type in DS_DO_DA_POMDP'</span>);
+0067       <span class="keyword">end</span>
+0068 
+0069       <span class="keyword">if</span> isa(varargin{4},<span class="string">'DSpace'</span>)
+0070         P.O=varargin{4};
+0071       <span class="keyword">else</span>
+0072         error(<span class="string">'Wrong parameter type in DS_DO_DA_POMDP'</span>);
+0073       <span class="keyword">end</span>
+0074 
+0075       <span class="keyword">if</span> isa(varargin{5},<span class="string">'DS_DA_ActionModel'</span>)
+0076         AM=varargin{5};
+0077       <span class="keyword">else</span>
+0078         error(<span class="string">'Wrong parameter type in DS_DO_DA_POMDP'</span>);
+0079       <span class="keyword">end</span>
+0080 
+0081       <span class="keyword">if</span> isa(varargin{6},<span class="string">'DS_DO_ObsModel'</span>)
+0082         OM=varargin{6};
+0083       <span class="keyword">else</span>
+0084         error(<span class="string">'Wrong parameter type in DS_DO_DA_POMDP'</span>);
+0085       <span class="keyword">end</span>
+0086       
+0087       <span class="keyword">if</span> isa(varargin{7},<span class="string">'DS_DA_RewardModel'</span>)
+0088         RM=varargin{7};
+0089       <span class="keyword">else</span>
+0090         error(<span class="string">'Wrong parameter type in DS_DO_DA_POMDP'</span>);
+0091       <span class="keyword">end</span>
+0092     
+0093       PBase=<a href="../.././POMDP/@DS_DO_POMDP/DS_DO_POMDP.html" class="code" title="function P=DS_DO_POMDP(varargin)">DS_DO_POMDP</a>(varargin{1},varargin{8});
+0094       
+0095       P=class(P,<span class="string">'DS_DO_DA_POMDP'</span>,PBase,AM,OM,RM);
+0096       
+0097     <span class="keyword">otherwise</span>
+0098       error(<span class="string">'Wrong number of parameters in DS_DO_DA_POMDP'</span>);
+0099   <span class="keyword">end</span></pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

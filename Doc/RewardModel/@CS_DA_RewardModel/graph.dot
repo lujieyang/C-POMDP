@@ -1,0 +1,9 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+
+  CS_DA_RewardModel [URL="CS_DA_RewardModel.html"];
+  DiscretizeRewardModel [URL="DiscretizeRewardModel.html"];
+  GetRewardModelFixedA [URL="GetRewardModelFixedA.html"];
+  Reward [URL="Reward.html"];
+  minReward [URL="minReward.html"];
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of GetTest1coParameters</title>
+  <meta name="keywords" content="GetTest1coParameters">
+  <meta name="description" content="The example on Figure 11.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # Experiments -->
+<h1>GetTest1coParameters
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>The example on Figure 11.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function [POMDP P]=GetTest1coParameters(varargin) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   The example on Figure 11.
+
+   This is the same example as GetTest1caParameters but with a continuous
+   observation set.
+
+   Parameters
+     - nSampledObs: Samples to use when discretezing the observation
+                    space.
+                    Default value 100.
+
+   See also <a href="GetTest1caParameters.html" class="code" title="function [POMDP P]=GetTest1caParameters(varargin)">GetTest1caParameters</a>.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href=".././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>	Get for GBeliefs.</li><li><a href="GetTest1caParameters.html" class="code" title="function [POMDP P]=GetTest1caParameters(varargin)">GetTest1caParameters</a>	The example on Figure 10.</li><li><a href=".././Lib/@GMixture/get.html" class="code" title="function value=get(gm,field,varargin)">get</a>	Get function for the GMixture object.</li><li><a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>	Gaussian construtor.</li><li><a href=".././Lib/@Gaussian/get.html" class="code" title="function out=get(g,field)">get</a>	Gaussian object get function.</li><li><a href=".././ObsModel/@CS_CO_ObsModel/CS_CO_ObsModel.html" class="code" title="function OM=CS_CO_ObsModel(varargin)">CS_CO_ObsModel</a>	CS_CO_ObsModel constructor.</li><li><a href=".././POMDP/@CS_CO_CA_POMDP/CS_CO_CA_POMDP.html" class="code" title="function P=CS_CO_CA_POMDP(varargin)">CS_CO_CA_POMDP</a>	CS_CO_CA_POMDP constructor.</li><li><a href=".././POMDP/@CS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_CA_POMDPs.</li><li><a href=".././POMDP/@CS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_DA_POMDPs.</li><li><a href=".././POMDP/@CS_CO_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_CO_POMDPs.</li><li><a href=".././POMDP/@CS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_CA_POMDPs.</li><li><a href=".././POMDP/@CS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_DO_DA_POMDPs.</li><li><a href=".././POMDP/@CS_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for CS_POMDPs.</li><li><a href=".././POMDP/@DS_CO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_CA_POMDPs.</li><li><a href=".././POMDP/@DS_CO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_CO_DA_POMDPs.</li><li><a href=".././POMDP/@DS_DO_CA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_CA_POMDPs.</li><li><a href=".././POMDP/@DS_DO_DA_POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get function for DS_DO_DA_POMDPs.</li><li><a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>	POMDP constructor.</li><li><a href=".././POMDP/@POMDP/get.html" class="code" title="function value=get(P,field)">get</a>	Get functio for POMDPs.</li><li><a href=".././Space/@CSpace/CSpace.html" class="code" title="function CS=CSpace(varargin)">CSpace</a>	CSpace constructor.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [POMDP P]=GetTest1coParameters(varargin)</a>
+0002 <span class="comment">%   The example on Figure 11.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   This is the same example as GetTest1caParameters but with a continuous</span>
+0005 <span class="comment">%   observation set.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%   Parameters</span>
+0008 <span class="comment">%     - nSampledObs: Samples to use when discretezing the observation</span>
+0009 <span class="comment">%                    space.</span>
+0010 <span class="comment">%                    Default value 100.</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">%   See also GetTest1caParameters.</span>
+0013 
+0014    <span class="comment">% Test1ca with the default paramters</span>
+0015    <span class="comment">%   ncBelief = 4 (not used)</span>
+0016    <span class="comment">%   ncAlpha = 9</span>
+0017    <span class="comment">%   actionScale = 2</span>
+0018    <span class="comment">%   nSampledActions = 4</span>
+0019    [<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a> P]=<a href="GetTest1caParameters.html" class="code" title="function [POMDP P]=GetTest1caParameters(varargin)">GetTest1caParameters</a>();
+0020    
+0021    <span class="comment">% Retrive information on the CS_DA_DO_POMDP</span>
+0022    gamma=<a href=".././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>(<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>,<span class="string">'gamma'</span>);
+0023    ncAlpha=<a href=".././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>(<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>,<span class="string">'maxAlphaC'</span>);
+0024    nSampledActions=<a href=".././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>(<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>,<span class="string">'nSampledActions'</span>);
+0025    
+0026    S=<a href=".././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>(<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>,<span class="string">'StateSpace'</span>);
+0027    A=<a href=".././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>(<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>,<span class="string">'ActionSpace'</span>);
+0028    
+0029    AM=<a href=".././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>(<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>,<span class="string">'ActionModel'</span>);
+0030    RM=<a href=".././Belief/@GBelief/get.html" class="code" title="function v=get(gb,field)">get</a>(<a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>,<span class="string">'RewardModel'</span>);
+0031    
+0032    <span class="comment">% Redefined the obs. space and the obs. model</span>
+0033    O=<a href=".././Space/@CSpace/CSpace.html" class="code" title="function CS=CSpace(varargin)">CSpace</a>(0,5);
+0034    
+0035    <span class="comment">% Gaussians covering the state space</span>
+0036    gS=cell(1,22);
+0037    k=1;    
+0038    so=1.6;
+0039    <span class="keyword">for</span> i=-21:2:21
+0040      gS{k}=<a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(i,so);
+0041      k=k+1;
+0042    <span class="keyword">end</span>
+0043    
+0044    <span class="comment">% Gaussian in obs space for left, right, corridor, door</span>
+0045    <span class="comment">% defining the noisy observations</span>
+0046    gl=<a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(1,0.05);
+0047    gr=<a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(2,0.05);
+0048    gc=<a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(3,0.05);
+0049    gd=<a href=".././Lib/@Gaussian/Gaussian.html" class="code" title="function g=Gaussian(varargin)">Gaussian</a>(4,0.05);
+0050    gO={gl gl gl gl gl gd gc gc gd gc gc gc gd gc gc gd gc gr gr gr gr gr};
+0051    
+0052    <span class="comment">% Weigths for the double Gaussian mixture. Just use a constant weight.</span>
+0053    <span class="comment">% Those weights are adjusted insed the CS_CO_ObsModel constructor to</span>
+0054    <span class="comment">% ensure p(s)=UniformProbability(S).</span>
+0055    w=ones(1,22);
+0056    
+0057    OM=<a href=".././ObsModel/@CS_CO_ObsModel/CS_CO_ObsModel.html" class="code" title="function OM=CS_CO_ObsModel(varargin)">CS_CO_ObsModel</a>(S,O,w,gS,gO);
+0058    
+0059    <span class="comment">% parameters to discretize the obs space.</span>
+0060    <span class="keyword">if</span> nargin==0
+0061      nSampledObs=25;
+0062    <span class="keyword">else</span>
+0063      nSampledObs=varargin{1};
+0064    <span class="keyword">end</span>
+0065    
+0066    <span class="comment">% With CO planning takes longer. We redefine maxtime, the stopCriteria, and</span>
+0067    <span class="comment">% the time in between statistics with a scale factor, sf.</span>
+0068    sf=8; 
+0069 
+0070    P.maxTime=sf*P.maxTime;
+0071    P.stopCriteria=@(n,t,vc)(t&gt;P.maxTime);
+0072    P.stTime=sf*P.stTime;
+0073    
+0074    <span class="comment">% Define the POMDP</span>
+0075    <a href=".././POMDP/@POMDP/POMDP.html" class="code" title="function P=POMDP(varargin)">POMDP</a>=<a href=".././POMDP/@CS_CO_CA_POMDP/CS_CO_CA_POMDP.html" class="code" title="function P=CS_CO_CA_POMDP(varargin)">CS_CO_CA_POMDP</a>(<span class="string">'Test1co'</span>,S,A,O,AM,OM,RM,nSampledActions,nSampledObs,gamma,ncAlpha);
+0076</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

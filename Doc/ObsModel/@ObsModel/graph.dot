@@ -1,0 +1,7 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  Update -> Update;
+
+  ObsModel [URL="ObsModel.html"];
+  Update [URL="Update.html"];
+}

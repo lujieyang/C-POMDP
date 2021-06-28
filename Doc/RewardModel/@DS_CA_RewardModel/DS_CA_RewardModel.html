@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of DS_CA_RewardModel</title>
+  <meta name="keywords" content="DS_CA_RewardModel">
+  <meta name="description" content="DS_CA_RewardModel constructor.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # RewardModel --><!-- # @DS_CA_RewardModel -->
+<h1>DS_CA_RewardModel
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>DS_CA_RewardModel constructor.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function RM=DS_CA_RewardModel(varargin) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   DS_CA_RewardModel constructor.
+
+   Defines a reward function on discrete state and continuous
+   action spaces, r(s,a).
+   This is the type of reward functions is not used in the paper. It is
+   the type of reward functions used in Spaan and Vlassis work (JAIR 2005)
+
+   Note that the mixture defining this type of reward model is not
+   normalized.
+
+   Parameters
+      S: Discrete state space.
+      A: Continuous action space.
+      r: A cell array of Gaussian mixture in 'a' (one for each state).</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>	Returns the size of a policy.</li><li><a href="../.././Space/@CSpace/dim.html" class="code" title="function d=dim(CS)">dim</a>	Dimensionality of a continuous space.</li><li><a href="../.././Space/@DSpace/dim.html" class="code" title="function d=dim(DS)">dim</a>	Dimensionality of a discrete space.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function RM=DS_CA_RewardModel(varargin)</a>
+0002 <span class="comment">%   DS_CA_RewardModel constructor.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Defines a reward function on discrete state and continuous</span>
+0005 <span class="comment">%   action spaces, r(s,a).</span>
+0006 <span class="comment">%   This is the type of reward functions is not used in the paper. It is</span>
+0007 <span class="comment">%   the type of reward functions used in Spaan and Vlassis work (JAIR 2005)</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">%   Note that the mixture defining this type of reward model is not</span>
+0010 <span class="comment">%   normalized.</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">%   Parameters</span>
+0013 <span class="comment">%      S: Discrete state space.</span>
+0014 <span class="comment">%      A: Continuous action space.</span>
+0015 <span class="comment">%      r: A cell array of Gaussian mixture in 'a' (one for each state).</span>
+0016 
+0017   <span class="keyword">switch</span> nargin
+0018     <span class="keyword">case</span> 1
+0019       <span class="keyword">if</span> isa(varargin{1},<span class="string">'DS_CA_RewardModel'</span>)
+0020         RM=varargin{1};
+0021       <span class="keyword">else</span>
+0022         error(<span class="string">'Wrong parameter type in DS_CA_RewardModel constructor'</span>);
+0023       <span class="keyword">end</span>
+0024       
+0025     <span class="keyword">case</span> 3
+0026       <span class="keyword">if</span> isa(varargin{1},<span class="string">'DSpace'</span>)
+0027         AM.S=varargin{1};
+0028       <span class="keyword">else</span>
+0029         error(<span class="string">'Wrong parameter type in DS_CA_RewardModel constructor'</span>);
+0030       <span class="keyword">end</span>
+0031       <span class="keyword">if</span> isa(varargin{2},<span class="string">'CSpace'</span>)
+0032         AM.A=varargin{2};
+0033       <span class="keyword">else</span>
+0034         error(<span class="string">'Wrong parameter type in DS_CA_RewardModel constructor'</span>);
+0035       <span class="keyword">end</span>
+0036       <span class="keyword">if</span> isa(varargin{3},<span class="string">'cell'</span>)
+0037         RM.r=varargin{3};
+0038       <span class="keyword">end</span>
+0039       
+0040       <span class="keyword">if</span> <a href="../.././Space/@CSpace/dim.html" class="code" title="function d=dim(CS)">dim</a>(RM.S)~=<a href="../.././@Policy/size.html" class="code" title="function s=size(P)">size</a>(RM.r,2)
+0041         error(<span class="string">'Size missmatch in DS_CA_RewardModel constructor'</span>);
+0042       <span class="keyword">end</span>
+0043       
+0044       RM=class(RM,<span class="string">'DS_CA_RewardModel'</span>);
+0045     <span class="keyword">otherwise</span>
+0046       error(<span class="string">'Wrong number of parameters in DS_CA_RewardModel constructor'</span>);
+0047   <span class="keyword">end</span></pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

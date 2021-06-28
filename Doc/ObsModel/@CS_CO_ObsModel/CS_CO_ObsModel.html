@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of CS_CO_ObsModel</title>
+  <meta name="keywords" content="CS_CO_ObsModel">
+  <meta name="description" content="CS_CO_ObsModel constructor.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<table width="810" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <img src="../../top.png" alt="Institut de Rob&ograve;tica i Inform&agrave;tica Industrial" width="775" height="60" border="0" USEMAP="#logos"/></td>
+      <map name="logos">
+       <area shape="rect" coords="740,0,775,60" href="http://www.csic.es" target="_blank">
+       <area shape="circle" coords="706,29,20" href="http://www.upc.edu" target="_blank">
+       <area shape="rect" coords ="0,0,740,60" href="http://www-iri.upc.es" target="_blank">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+
+<a name="_top"></a>
+<!-- # ObsModel --><!-- # @CS_CO_ObsModel -->
+<h1>CS_CO_ObsModel
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>CS_CO_ObsModel constructor.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function OM=CS_CO_ObsModel(varargin) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">   CS_CO_ObsModel constructor.
+
+   Defines an observation model (p(o|s)) on continuous state and 
+   observation spaces.
+   This kind of observation models are defined via kernel smoothing (see
+   Section 6.2, pag 22 of the paper)
+
+   The CS_CO_ObsModel defines p(o,s) via Kernel smoothing: using a double
+   Gaussian on 's' and on 'o'. From here:
+       p(o|s)=p(o,s)/p(s)
+   Where we assume p(s) as uniform.
+   For simplicity the 1/p(s) scale factor is integrated into the kernel
+   weight.
+
+   Parameters
+      S: Continuous state space.
+      O: Continuous observation space.
+      w: weights of the double mixture.
+      gS: Gaussians in 's'.
+      gO: Gaussians in 'o'.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Belief/@DBelief/rand.html" class="code" title="function v=rand(b)">rand</a>	Random state from a discrete belief.</li><li><a href="../.././Belief/@PBelief/rand.html" class="code" title="function v=rand(b)">rand</a>	Random state from a belief.</li><li><a href="../.././Lib/@GMixture/GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>	Gaussian mixture constructor.</li><li><a href="../.././Lib/@GMixture/Value.html" class="code" title="function v=Value(gm,x)">Value</a>	Evaluates a GMixture.</li><li><a href="../.././Lib/@GMixture/rand.html" class="code" title="function v=rand(gm,varargin)">rand</a>	Generates random points on a GMixture.</li><li><a href="../.././Lib/@Gaussian/Value.html" class="code" title="function v=Value(g,x)">Value</a>	Evaluation of a Gaussian.</li><li><a href="../.././Lib/@Gaussian/rand.html" class="code" title="function r=rand(g,varargin)">rand</a>	Generates random ponts on a Gaussian.</li><li><a href="../.././ObsModel/@ObsModel/ObsModel.html" class="code" title="function OM=ObsModel(varargin)">ObsModel</a>	ObsModel constructor.</li><li><a href="../.././Space/@CSpace/UniformProbability.html" class="code" title="function p=UniformProbability(CS)">UniformProbability</a>	Uniform probability value on a continuous space.</li><li><a href="../.././Space/@CSpace/rand.html" class="code" title="function v=rand(CS)">rand</a>	Random state from a continuous space.</li><li><a href="../.././Space/@DSpace/UniformProbability.html" class="code" title="function p=UniformProbability(DS)">UniformProbability</a>	Uniform probability value on a discrete space.</li><li><a href="../.././Space/@DSpace/rand.html" class="code" title="function v=rand(DS)">rand</a>	Random state from a discrete space.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././Experiments/GetTest1coParameters.html" class="code" title="function [POMDP P]=GetTest1coParameters(varargin)">GetTest1coParameters</a>	The example on Figure 11.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function OM=CS_CO_ObsModel(varargin)</a>
+0002 <span class="comment">%   CS_CO_ObsModel constructor.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   Defines an observation model (p(o|s)) on continuous state and</span>
+0005 <span class="comment">%   observation spaces.</span>
+0006 <span class="comment">%   This kind of observation models are defined via kernel smoothing (see</span>
+0007 <span class="comment">%   Section 6.2, pag 22 of the paper)</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">%   The CS_CO_ObsModel defines p(o,s) via Kernel smoothing: using a double</span>
+0010 <span class="comment">%   Gaussian on 's' and on 'o'. From here:</span>
+0011 <span class="comment">%       p(o|s)=p(o,s)/p(s)</span>
+0012 <span class="comment">%   Where we assume p(s) as uniform.</span>
+0013 <span class="comment">%   For simplicity the 1/p(s) scale factor is integrated into the kernel</span>
+0014 <span class="comment">%   weight.</span>
+0015 <span class="comment">%</span>
+0016 <span class="comment">%   Parameters</span>
+0017 <span class="comment">%      S: Continuous state space.</span>
+0018 <span class="comment">%      O: Continuous observation space.</span>
+0019 <span class="comment">%      w: weights of the double mixture.</span>
+0020 <span class="comment">%      gS: Gaussians in 's'.</span>
+0021 <span class="comment">%      gO: Gaussians in 'o'.</span>
+0022 
+0023   <span class="keyword">switch</span> nargin
+0024     <span class="keyword">case</span> 1
+0025       <span class="keyword">if</span> isa(varargin{1},<span class="string">'CS_CO_ObsModel'</span>)
+0026         OM=varargin{1};
+0027       <span class="keyword">else</span>
+0028         error(<span class="string">'Wrong parameter type in CS_CO_ObsModel constructor'</span>);
+0029       <span class="keyword">end</span>
+0030     <span class="keyword">case</span> 5
+0031       <span class="keyword">if</span> isa(varargin{1},<span class="string">'CSpace'</span>)
+0032         OM.S=varargin{1};
+0033       <span class="keyword">else</span>
+0034         error(<span class="string">'Wrong parameter type in CS_CO_ObsModel constructor'</span>);
+0035       <span class="keyword">end</span>
+0036       <span class="keyword">if</span> isa(varargin{2},<span class="string">'CSpace'</span>)
+0037         OM.O=varargin{2};
+0038       <span class="keyword">else</span>
+0039         error(<span class="string">'Wrong parameter type in CS_CO_ObsModel constructor'</span>);
+0040       <span class="keyword">end</span>
+0041       <span class="keyword">if</span> isa(varargin{3},<span class="string">'double'</span>)
+0042         OM.w=varargin{3}*(1/<a href="../.././Space/@CSpace/UniformProbability.html" class="code" title="function p=UniformProbability(CS)">UniformProbability</a>(OM.S));
+0043       <span class="keyword">end</span>
+0044       <span class="keyword">if</span> isa(varargin{4},<span class="string">'cell'</span>)
+0045         OM.gS=varargin{4};
+0046       <span class="keyword">end</span>
+0047       <span class="keyword">if</span> isa(varargin{5},<span class="string">'cell'</span>)
+0048         OM.gO=varargin{5};
+0049       <span class="keyword">end</span>
+0050       
+0051       <span class="comment">% Scale factor to apply = What it should be (UniformProbability(OM.S))</span>
+0052       <span class="comment">% vs. what actually is (Value(o,Center(OM.S)))</span>
+0053       <span class="comment">% We estimate p(s) via sampling (small variations can occur)</span>
+0054       gS=<a href="../.././Lib/@GMixture/GMixture.html" class="code" title="function gm=GMixture(varargin)">GMixture</a>(OM.w,OM.gS); <span class="comment">% p(s)=int_o p(o,s)</span>
+0055       ps=0;
+0056       <span class="comment">% draw 10 sample on 's' to estimate p(s).</span>
+0057       <span class="keyword">for</span> i=1:10
+0058         ps=ps+<a href="../.././Lib/@GMixture/Value.html" class="code" title="function v=Value(gm,x)">Value</a>(gS,<a href="../.././Belief/@DBelief/rand.html" class="code" title="function v=rand(b)">rand</a>(OM.S));
+0059       <span class="keyword">end</span>
+0060       ps=ps/10;
+0061       scale=<a href="../.././Space/@CSpace/UniformProbability.html" class="code" title="function p=UniformProbability(CS)">UniformProbability</a>(OM.S)/ps;
+0062       OM.w=OM.w*scale;
+0063       
+0064       OMBase=<a href="../.././ObsModel/@ObsModel/ObsModel.html" class="code" title="function OM=ObsModel(varargin)">ObsModel</a>();
+0065       
+0066       OM=class(OM,<span class="string">'CS_CO_ObsModel'</span>,OMBase);
+0067     <span class="keyword">otherwise</span>
+0068       error(<span class="string">'Wrong number of parameters in CS_CO_ObsdModel constructor'</span>);
+0069   <span class="keyword">end</span>
+0070</pre></div>
+<br>
+<br>
+
+  </table>
+ <table width="810" height="35" border="0" align="center" cellpadding="0" background="../../espai.png">
+  <tr>
+    <td>
+      <span class="footer" align="center"><center>
+        <a href="http://www-iri.upc.es"  target="_blank">Institut de Rob&ograve;tica i Inform&agrave;tica Industrial</a>
+      </center></span>
+    </td>
+  </tr>
+</table>
+
+<hr><address>Generated on Wed 05-Aug-2009 15:05:21 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

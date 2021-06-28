@@ -1,0 +1,13 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  GBelief -> GBelief;
+  Prediction -> GBelief;
+  Update -> GBelief;
+  get -> get;
+
+  Expectation [URL="Expectation.html"];
+  GBelief [URL="GBelief.html"];
+  Prediction [URL="Prediction.html"];
+  Update [URL="Update.html"];
+  get [URL="get.html"];
+}
