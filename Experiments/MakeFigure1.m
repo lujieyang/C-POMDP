@@ -9,7 +9,7 @@ function MakeFigure1
 %
 %   See also GetTest1Parameters.
 
-  [POMDP P]=GetTest1Parameters_sharp;
+  [POMDP P]=GetTest1Parameters_large_value;
   
   h=clf;
   set(h,'name','C-POMDP Figure 1','numbertitle','off');

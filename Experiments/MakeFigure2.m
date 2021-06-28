@@ -27,6 +27,6 @@ function MakeFigure2
 
   fprintf('Loading/Generating the simulation results\n'); 
   GenData=@()(TestRepWithStatistics('Test1','Figure2',1:10));
-  Results=GetData('Results/Test1-Figure2-results.mat',GenData);
+  Results=GetData('Results_6/Test1-Figure2-results.mat',GenData);
 
   MakeFigureSimulation('C-POMDP Figure 2',Results);

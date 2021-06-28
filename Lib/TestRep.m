@@ -46,7 +46,7 @@ function TestRep(varargin)
     case 3
       if isa(varargin{1},'char')
 %         [POMDP P]=eval(['Get' varargin{1} 'Parameters']);
-        [POMDP P] = GetTest1Parameters_sharp;
+        [POMDP P] = GetTest1Parameters_large_value;
       else
         error('Wrong type of parameters in TestOne');
       end
@@ -64,7 +64,7 @@ function TestRep(varargin)
   end
   
   % Tag for the output files
-  prefix=sprintf('Results/%s-%s',get(POMDP,'name'),infix);
+  prefix=sprintf('Results_6/%s-%s',get(POMDP,'name'),infix);
   
   for i=rep
     name=sprintf('%s-%u.mat',prefix,i);
