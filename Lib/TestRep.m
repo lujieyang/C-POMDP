@@ -46,7 +46,7 @@ function TestRep(varargin)
     case 3
       if isa(varargin{1},'char')
 %         [POMDP P]=eval(['Get' varargin{1} 'Parameters']);
-        [POMDP P] = GetTest1Parameters_large_value;
+        [POMDP P] = GetTest1Parameters_sharp;
       else
         error('Wrong type of parameters in TestOne');
       end

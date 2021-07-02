@@ -4,5 +4,5 @@ function r=Reward(RM,a,s)
 %   Returns the value of the reward function for a given state 's' and
 %   action 'a'.
 
-  r=Value(RM.r{a},s) * 10;
+  r=Value(RM.r{a},s);
   
